@@ -4,6 +4,8 @@ namespace Adaptive
 {
     public class FullscreenSprite : MonoBehaviour
     {
+        [SerializeField] private PlayingField playingField;
+        
         void Awake()
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -13,8 +15,8 @@ namespace Adaptive
             Vector2 spriteSize = spriteRenderer.sprite.bounds.size;
 
             Vector2 scale = Vector2.one;
-            float horizontal = ScreenManager.Instance.CameraSize.x / spriteSize.x;
-            float vertical = ScreenManager.Instance.CameraSize.y / spriteSize.y;
+            float horizontal = playingField.FieldSize.x / spriteSize.x;
+            float vertical = playingField.FieldSize.y / spriteSize.y;
 
             scale *= horizontal >= vertical ? horizontal : vertical;
             transform.localScale = scale;

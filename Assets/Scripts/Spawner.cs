@@ -10,19 +10,20 @@ public class Spawner : MonoBehaviour
     [SerializeField][Range(-90f, 90f)] private float angel1;
     [SerializeField][Range(-90f, 90f)] private float angel2;
     [SerializeField] private float spawnerLength;
+    [SerializeField] private Vector2 percentagePosition;
 
     public float Priority => priority;
-    
-    public void Spawn(Block block, BlockContainer blockContainer)
+    public Vector2 PercentagePosition => percentagePosition;
+
+    public void Launch(Block block)
     {
         Vector3 transformRight = transform.right;
         Vector3 launchPoint = transform.position - transformRight * (spawnerLength / 2) 
                               + transformRight * Random.Range(0, spawnerLength);
         Vector3 launchDirection = transform.up.Rotate(Random.Range(angel1, angel2));
-            
-        var instance = Instantiate(block, launchPoint, Quaternion.identity);
-        blockContainer.AddBlock(instance);
-        instance.AddForce(launchDirection, Random.Range(forceRange.x, forceRange.y));
+
+        block.transform.position = launchPoint;
+        block.AddForce(launchDirection, Random.Range(forceRange.x, forceRange.y));
     }
 
     // Draw directions

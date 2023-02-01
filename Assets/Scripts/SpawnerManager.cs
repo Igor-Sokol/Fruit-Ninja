@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Linq;
+using Adaptive;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnerManager : MonoBehaviour
 {
     private float[] _spawnerPriority;
-    
+
+    [SerializeField] private PlayingField playingField;
     [SerializeField] private Block prefab;
     [SerializeField] private BlockContainer blockContainer;
     [SerializeField] private Spawner[] spawners;
@@ -14,6 +16,7 @@ public class SpawnerManager : MonoBehaviour
     private void Awake()
     {
         CreatePriorityArray();
+        InitSpawnersPosition();
     }
 
     private void Start()
@@ -27,7 +30,11 @@ public class SpawnerManager : MonoBehaviour
         {
             for (int i = 0; i < 5; i++)
             {
-                GetRandomSpawner().Spawn(prefab, blockContainer);
+                var block = Instantiate(prefab);
+                blockContainer.AddBlock(block);
+                var randomSpawner = GetRandomSpawner();
+                randomSpawner.Launch(block);
+                
                 yield return new WaitForSeconds(0.5f);
             }
             
@@ -35,6 +42,14 @@ public class SpawnerManager : MonoBehaviour
         }
     }
 
+    private void InitSpawnersPosition()
+    {
+        foreach (var spawner in spawners)
+        {
+            spawner.transform.position = playingField.PositionFromPercentage(spawner.PercentagePosition);
+        }
+    }
+    
     private Spawner GetRandomSpawner()
     {
         float random = Random.value;
