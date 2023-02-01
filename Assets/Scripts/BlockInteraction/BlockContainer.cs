@@ -7,7 +7,6 @@ public class BlockContainer : MonoBehaviour
     private List<Block> _blocks;
 
     [SerializeField] private PlayingField playingField;
-    [SerializeField] private Transform container;
 
     public IEnumerable<Block> Blocks => _blocks.ToArray();
 
@@ -19,7 +18,6 @@ public class BlockContainer : MonoBehaviour
     public void AddBlock(Block block)
     {
         _blocks.Add(block);
-        block.transform.parent = container;
     }
 
     public void RemoveBlock(Block block)

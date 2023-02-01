@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Adaptive;
+using BlockInteraction;
 using UnityEngine;
 
 public class BlockDeadZone : MonoBehaviour
@@ -7,6 +8,7 @@ public class BlockDeadZone : MonoBehaviour
     private Rect _actualDeadZone;
     
     [SerializeField] private PlayingField playingField;
+    [SerializeField] private BlockPool blockPool;
     [SerializeField] private BlockContainer blockContainer;
     [SerializeField] private Rect zone;
 
@@ -33,7 +35,7 @@ public class BlockDeadZone : MonoBehaviour
             if (BlockBeyondZone(block))
             {
                 blockContainer.RemoveBlock(block);
-                Destroy(block.gameObject);
+                blockPool.ReturnBlock(block);
             }
         }
     }

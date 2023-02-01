@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using Adaptive;
+using BlockInteraction;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,8 +10,9 @@ public class SpawnerManager : MonoBehaviour
     private float[] _spawnerPriority;
 
     [SerializeField] private PlayingField playingField;
-    [SerializeField] private Block prefab;
+    [SerializeField] private DynamicDifficulty difficultyController;
     [SerializeField] private BlockContainer blockContainer;
+    [SerializeField] private BlockPool blockPool;
     [SerializeField] private Spawner[] spawners;
 
     private void Awake()
@@ -28,17 +30,17 @@ public class SpawnerManager : MonoBehaviour
     {
         while (true)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < difficultyController.FruitsInPack; i++)
             {
-                var block = Instantiate(prefab);
+                var block = blockPool.GetRandomFruit();
                 blockContainer.AddBlock(block);
                 var randomSpawner = GetRandomSpawner();
                 randomSpawner.Launch(block);
                 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(difficultyController.FruitInterval);
             }
             
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(difficultyController.PackInterval);
         }
     }
 
