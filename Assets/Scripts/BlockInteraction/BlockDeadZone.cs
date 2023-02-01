@@ -32,7 +32,7 @@ public class BlockDeadZone : MonoBehaviour
     {
         foreach (var block in blockContainer.Blocks)
         {
-            if (BlockBeyondZone(block))
+            if (BlockBeyondZone(block.BlockPhysic))
             {
                 blockContainer.RemoveBlock(block);
                 blockPool.ReturnBlock(block);
@@ -40,15 +40,15 @@ public class BlockDeadZone : MonoBehaviour
         }
     }
 
-    private bool BlockBeyondZone(Block block)
+    private bool BlockBeyondZone(BlockPhysic blockPhysic)
     {
-        Vector3 blockPosition = block.transform.position;
+        Vector3 blockPosition = blockPhysic.transform.position;
         var offsetDeadZone = _actualDeadZone;
         
-        offsetDeadZone.x += block.ColliderRadius;
-        offsetDeadZone.y += block.ColliderRadius;
-        offsetDeadZone.height -= block.ColliderRadius;
-        offsetDeadZone.width -= block.ColliderRadius;
+        offsetDeadZone.x += blockPhysic.ColliderRadius;
+        offsetDeadZone.y += blockPhysic.ColliderRadius;
+        offsetDeadZone.height -= blockPhysic.ColliderRadius;
+        offsetDeadZone.width -= blockPhysic.ColliderRadius;
         
         if (blockPosition.x <= offsetDeadZone.x || blockPosition.x >= offsetDeadZone.width 
             || blockPosition.y <= offsetDeadZone.y || blockPosition.y >= offsetDeadZone.height)

@@ -1,35 +1,28 @@
-using System.Diagnostics;
+using ScriptableObjects;
 using UnityEngine;
 
-public class Block : MonoBehaviour
+namespace BlockInteraction
 {
-    private Vector3 _velocity;
-
-    [SerializeField] private float colliderRadius;
-
-    public float ColliderRadius => colliderRadius;
-
-    public void AddForce(Vector2 direction, float force)
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class Block : MonoBehaviour
     {
-        _velocity = direction.normalized * force;
-    }
-
-    private void Update()
-    {
-        PhysicsUpdate();
-    }
-
-    private void PhysicsUpdate()
-    {
-        _velocity += Physics.gravity * Time.deltaTime;
-        transform.position += _velocity * Time.deltaTime;
-    }
-
-    [Conditional("UNITY_EDITOR")]
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
+        private SpriteRenderer _sprite;
         
-        Gizmos.DrawWireSphere(transform.position, colliderRadius);
+        [SerializeField] private BlockSetting setting;
+        [SerializeField] private BlockPhysic blockPhysic;
+
+        public BlockPhysic BlockPhysic => blockPhysic;
+
+        private void Awake()
+        {
+            _sprite = GetComponent<SpriteRenderer>();
+        }
+
+        public void SetUp(BlockSetting setting)
+        {
+            this.setting = setting;
+            _sprite.sprite = this.setting.Sprite;
+            blockPhysic.SetColliderRadius(this.setting.ColliderRadius);
+        }
     }
 }

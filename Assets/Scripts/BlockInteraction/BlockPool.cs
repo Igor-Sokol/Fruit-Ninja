@@ -1,25 +1,34 @@
+using System;
+using ScriptableObjects;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace BlockInteraction
 {
     public class BlockPool : MonoBehaviour
     {
-        [SerializeField] private ObjectPool<Block>[] pools;
+        private ObjectPool<Block> _pool;
+
+        [SerializeField] private Block prefab;
+        [SerializeField] private BlockSetting[] blockSettings;
+
+        private void Start()
+        {
+            _pool = new ObjectPool<Block>();
+            _pool.Init(prefab, transform);
+        }
 
         public Block GetRandomFruit()
         {
-            return pools[Random.Range(0, pools.Length)].Get();
+            var fruit = _pool.Get();
+            fruit.SetUp(blockSettings[Random.Range(0, blockSettings.Length)]);
+
+            return fruit;
         }
 
-        public void ReturnBlock(Block block)
+        public void ReturnBlock(Block blockPhysic)
         {
-            foreach (var t in pools)
-            {
-                if (t.Return(block))
-                {
-                    break;
-                }
-            }
+            _pool.Return(blockPhysic);
         }
     }
 }

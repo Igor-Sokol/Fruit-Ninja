@@ -15,15 +15,15 @@ public class Spawner : MonoBehaviour
     public float Priority => priority;
     public Vector2 PercentagePosition => percentagePosition;
 
-    public void Launch(Block block)
+    public void Launch(BlockPhysic blockPhysic)
     {
         Vector3 transformRight = transform.right;
         Vector3 launchPoint = transform.position - transformRight * (spawnerLength / 2) 
                               + transformRight * Random.Range(0, spawnerLength);
         Vector3 launchDirection = transform.up.Rotate(Random.Range(angel1, angel2));
 
-        block.transform.position = launchPoint;
-        block.AddForce(launchDirection, Random.Range(forceRange.x, forceRange.y));
+        blockPhysic.transform.position = launchPoint;
+        blockPhysic.AddForce(launchDirection, Random.Range(forceRange.x, forceRange.y));
     }
 
     // Draw directions

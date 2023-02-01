@@ -14,7 +14,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public void Init(T prefab, Transform container, int startCount = 0)
     {
-        if (!container)
+        if (!this.container)
         {
             this.container = container;
         }

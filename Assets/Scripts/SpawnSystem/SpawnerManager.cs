@@ -35,7 +35,7 @@ public class SpawnerManager : MonoBehaviour
                 var block = blockPool.GetRandomFruit();
                 blockContainer.AddBlock(block);
                 var randomSpawner = GetRandomSpawner();
-                randomSpawner.Launch(block);
+                randomSpawner.Launch(block.BlockPhysic);
                 
                 yield return new WaitForSeconds(difficultyController.FruitInterval);
             }
