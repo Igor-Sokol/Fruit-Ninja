@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 330410362}
   - component: {fileID: 330410361}
   m_Layer: 0
-  m_Name: BlockDeadZone
+  m_Name: DeadZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0933cbef2ce45959f2551c15a37949c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playingField: {fileID: 519420030}
 --- !u!4 &503679825
 Transform:
   m_ObjectHideFlags: 0
