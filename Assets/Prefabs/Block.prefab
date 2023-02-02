@@ -108,6 +108,8 @@ GameObject:
   - component: {fileID: 8823979296850194357}
   - component: {fileID: 6329125470226908168}
   - component: {fileID: 2799326887936687126}
+  - component: {fileID: 496098030198029003}
+  - component: {fileID: 1807197362627294317}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -195,6 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setting: {fileID: 0}
   blockPhysic: {fileID: 2799326887936687126}
+  blockAnimator: {fileID: 496098030198029003}
+  blockRenderer: {fileID: 1807197362627294317}
   shadow: {fileID: 643106423155187601}
 --- !u!114 &2799326887936687126
 MonoBehaviour:
@@ -209,3 +213,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderRadius: 0
+--- !u!114 &496098030198029003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663401050141313987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36f90502f3e4ae09638783c0a3ab88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1807197362627294317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663401050141313987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ff4838cb9446ca962efe13aa36c9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 8823979296850194357}
+  shadow: {fileID: 643106423155187601}

@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Linq;
 using Adaptive;
-using BlockInteraction;
+using Animations;
+using BlockComponents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,6 +12,7 @@ public class SpawnerManager : MonoBehaviour
 
     [SerializeField] private PlayingField playingField;
     [SerializeField] private DynamicDifficulty difficultyController;
+    [SerializeField] private AnimationManager animationManager;
     [SerializeField] private BlockContainer blockContainer;
     [SerializeField] private BlockPool blockPool;
     [SerializeField] private Spawner[] spawners;
@@ -34,6 +36,7 @@ public class SpawnerManager : MonoBehaviour
             {
                 var block = blockPool.GetRandomFruit();
                 blockContainer.AddBlock(block);
+                block.BlockAnimator.SetAnimations(animationManager.GetRandomAnimations());
                 var randomSpawner = GetRandomSpawner();
                 randomSpawner.Launch(block.BlockPhysic);
                 

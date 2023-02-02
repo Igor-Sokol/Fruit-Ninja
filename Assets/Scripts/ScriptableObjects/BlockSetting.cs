@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "Block", menuName = "Block", order = 1)]
+    [CreateAssetMenu(fileName = "Block", menuName = "Block")]
     public class BlockSetting : ScriptableObject
     {
         [SerializeField] private Sprite sprite;
