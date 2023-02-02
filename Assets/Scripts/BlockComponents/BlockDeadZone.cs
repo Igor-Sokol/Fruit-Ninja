@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using Adaptive;
 using UnityEngine;
@@ -31,9 +32,24 @@ namespace BlockComponents
 
         private void CheckBeyondZone()
         {
+            List<Block> blocksToRemove = null;
+            
             foreach (var block in blockContainer.Blocks)
             {
                 if (BlockBeyondZone(block.BlockPhysic))
+                {
+                    if (blocksToRemove == null)
+                    {
+                        blocksToRemove = new List<Block>();
+                    }
+
+                    blocksToRemove.Add(block);
+                }
+            }
+
+            if (blocksToRemove != null)
+            {
+                foreach (var block in blocksToRemove)
                 {
                     blockContainer.RemoveBlock(block);
                     blockPool.ReturnBlock(block);
@@ -52,7 +68,7 @@ namespace BlockComponents
             offsetDeadZone.width -= blockPhysic.ColliderRadius;
         
             if (blockPosition.x <= offsetDeadZone.x || blockPosition.x >= offsetDeadZone.width 
-                                                    || blockPosition.y <= offsetDeadZone.y || blockPosition.y >= offsetDeadZone.height)
+             || blockPosition.y <= offsetDeadZone.y || blockPosition.y >= offsetDeadZone.height)
             {
                 return true;
             }

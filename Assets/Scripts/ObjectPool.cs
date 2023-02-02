@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 [Serializable]
 public class ObjectPool<T> where T : MonoBehaviour
 {
-    private readonly Dictionary<T, bool> _objects = new Dictionary<T, bool>();
+    private readonly Stack<T> _objects = new Stack<T>();
     
     [SerializeField] private T prefab;
     [SerializeField] private Transform container;
@@ -25,40 +24,27 @@ public class ObjectPool<T> where T : MonoBehaviour
 
             for (int i = 0; i < startCount; i++)
             {
-                _objects.Add(CreateObject(), false);
+                _objects.Push(CreateObject());
             }
         }
     }
         
     public T Get()
     {
-        var obj = _objects.FirstOrDefault(o => o.Value == false);
-            
-        if (obj.Key == null)
+        if (_objects.Count > 0)
         {
-            var newObject = CreateObject();
-            _objects.Add(newObject, true);
-            return newObject;
+            var obj = _objects.Pop();
+            obj.gameObject.SetActive(true);
+            return obj;
         }
-        else
-        {
-            _objects[obj.Key] = true;
-            obj.Key.gameObject.SetActive(true);
-            return obj.Key;
-        }
+
+        return CreateObject();
     }
 
-    public bool Return(T obj)
+    public void Return(T obj)
     {
-        if (_objects.ContainsKey(obj))
-        {
-            _objects[obj] = false;
-            obj.gameObject.SetActive(false);
-            
-            return true;
-        }
-
-        return false;
+        obj.gameObject.SetActive(false);
+        _objects.Push(obj);
     }
         
     private T CreateObject()

@@ -3,84 +3,88 @@ using System.Linq;
 using Adaptive;
 using Animations;
 using BlockComponents;
+using DifficultySystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SpawnerManager : MonoBehaviour
+namespace SpawnSystem
 {
-    private float[] _spawnerPriority;
-
-    [SerializeField] private PlayingField playingField;
-    [SerializeField] private DynamicDifficulty difficultyController;
-    [SerializeField] private AnimationManager animationManager;
-    [SerializeField] private BlockContainer blockContainer;
-    [SerializeField] private BlockPool blockPool;
-    [SerializeField] private Spawner[] spawners;
-
-    private void Awake()
+    public class SpawnerManager : MonoBehaviour
     {
-        CreatePriorityArray();
-        InitSpawnersPosition();
-    }
+        private float[] _spawnerPriority;
 
-    private void Start()
-    {
-        StartCoroutine(Spawn());
-    }
+        [SerializeField] private PlayingField playingField;
+        [SerializeField] private DynamicDifficulty difficultyController;
+        [SerializeField] private AnimationManager animationManager;
+        [SerializeField] private BlockContainer blockContainer;
+        [SerializeField] private BlockPool blockPool;
+        [SerializeField] private Spawner[] spawners;
 
-    private IEnumerator Spawn()
-    {
-        while (true)
+        private void Awake()
         {
-            for (int i = 0; i < difficultyController.FruitsInPack; i++)
+            CreatePriorityArray();
+        }
+
+        private void Start()
+        {
+            InitSpawnersPosition();
+            StartCoroutine(Spawn());
+        }
+
+        private IEnumerator Spawn()
+        {
+            while (true)
             {
-                var block = blockPool.GetRandomFruit();
-                blockContainer.AddBlock(block);
-                block.BlockAnimator.SetAnimations(animationManager.GetRandomAnimations());
-                var randomSpawner = GetRandomSpawner();
-                randomSpawner.Launch(block.BlockPhysic);
+                for (int i = 0; i < difficultyController.FruitsInPack; i++)
+                {
+                    var block = blockPool.GetRandomFruit();
+                    blockContainer.AddBlock(block);
+                    block.BlockAnimator.SetAnimations(animationManager.GetRandomAnimations());
+                    var randomSpawner = GetRandomSpawner();
+                    randomSpawner.Launch(block.BlockPhysic);
                 
-                yield return new WaitForSeconds(difficultyController.FruitInterval);
-            }
+                    yield return new WaitForSeconds(difficultyController.FruitInterval);
+                }
             
-            yield return new WaitForSeconds(difficultyController.PackInterval);
-        }
-    }
-
-    private void InitSpawnersPosition()
-    {
-        foreach (var spawner in spawners)
-        {
-            spawner.transform.position = playingField.PositionFromPercentage(spawner.PercentagePosition);
-        }
-    }
-    
-    private Spawner GetRandomSpawner()
-    {
-        float random = Random.value;
-
-        for (int i = 0; i < _spawnerPriority.Length; i++)
-        {
-            if (random <= _spawnerPriority[i])
-            {
-                return spawners[i];
+                yield return new WaitForSeconds(difficultyController.PackInterval);
             }
         }
 
-        return null;
-    }
-    
-    private void CreatePriorityArray()
-    {
-        _spawnerPriority = new float[spawners.Length];
-
-        float prioritiesSum = spawners.Sum(s => s.Priority);
-        
-        float temp = 0;
-        for (int i = 0; i < spawners.Length; i++)
+        private void InitSpawnersPosition()
         {
-            temp += spawners[i].Priority / prioritiesSum;
-            _spawnerPriority[i] = temp;
+            foreach (var spawner in spawners)
+            {
+                spawner.transform.position = playingField.PositionFromPercentage(spawner.PercentagePosition);
+            }
+        }
+    
+        private Spawner GetRandomSpawner()
+        {
+            float random = Random.value;
+
+            for (int i = 0; i < _spawnerPriority.Length; i++)
+            {
+                if (random <= _spawnerPriority[i])
+                {
+                    return spawners[i];
+                }
+            }
+
+            return null;
+        }
+    
+        private void CreatePriorityArray()
+        {
+            _spawnerPriority = new float[spawners.Length];
+
+            float prioritiesSum = spawners.Sum(s => s.Priority);
+        
+            float temp = 0;
+            for (int i = 0; i < spawners.Length; i++)
+            {
+                temp += spawners[i].Priority / prioritiesSum;
+                _spawnerPriority[i] = temp;
+            }
         }
     }
 }

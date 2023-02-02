@@ -7,7 +7,7 @@ namespace BlockComponents
     {
         private List<Block> _blocks;
 
-        public IEnumerable<Block> Blocks => _blocks.ToArray();
+        public IEnumerable<Block> Blocks => _blocks;
 
         private void Awake()
         {

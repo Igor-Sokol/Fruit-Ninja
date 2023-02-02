@@ -1,5 +1,3 @@
-using Animations;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace BlockComponents
