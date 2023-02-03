@@ -40,13 +40,17 @@ namespace CutSystem.CuttingServices
             }
 
             var rect = actualBlock.BlockRenderer.Sprite.rect;
-            var leftSprite = Sprite.Create(actualBlock.BlockRenderer.Sprite.texture, new Rect(rect.x, rect.y, rect.width / 2, rect.height), 
+            var leftSprite = Sprite.Create(actualBlock.BlockRenderer.Sprite.texture,
+                new Rect(rect.x, rect.y, rect.width / 2, rect.height),
                 new Vector2(1f, 0.5f));
-            var rightSprite = Sprite.Create(actualBlock.BlockRenderer.Sprite.texture, new Rect(rect.x + rect.width / 2, rect.y, rect.width / 2, rect.height), 
+            var rightSprite = Sprite.Create(actualBlock.BlockRenderer.Sprite.texture,
+                new Rect(rect.x + rect.width / 2, rect.y, rect.width / 2, rect.height),
                 new Vector2(0f, 0.5f));
-        
-            BlockSetting leftSetting = new BlockSetting(leftSprite, actualBlock.BlockPhysic.ColliderRadius, actualBlock.BlockRenderer.Shadow.ShadowEnabled, null);
-            BlockSetting rightSetting = new BlockSetting(rightSprite, actualBlock.BlockPhysic.ColliderRadius, actualBlock.BlockRenderer.Shadow.ShadowEnabled, null);
+
+            BlockSetting leftSetting = new BlockSetting(leftSprite, actualBlock.BlockPhysic.ColliderRadius,
+                actualBlock.BlockRenderer.Shadow.ShadowEnabled);
+            BlockSetting rightSetting = new BlockSetting(rightSprite, actualBlock.BlockPhysic.ColliderRadius,
+                actualBlock.BlockRenderer.Shadow.ShadowEnabled);
         
             parts[0].SetUp(leftSetting);
             parts[1].SetUp(rightSetting);

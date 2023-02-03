@@ -17,3 +17,4 @@ MonoBehaviour:
     colliderRadius: 0.81
     enableShadow: 1
     cuttingService: 1
+    cuttingParticle: {fileID: 7875066841233267492, guid: b55416ebca674c4409f1f66e343cbeb8, type: 3}

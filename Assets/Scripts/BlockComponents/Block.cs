@@ -36,6 +36,9 @@ namespace BlockComponents
             if (_cuttingService)
             {
                 _cuttingService.Cut(this, bladeVector);
+                
+                var particle = Instantiate(_blockSetting.CuttingParticle, transform.position, Quaternion.identity);
+                particle.transform.localScale = transform.localScale;
             }
         }
     }

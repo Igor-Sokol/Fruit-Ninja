@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a633bcaa8d34449288ffc47b9906e36b, type: 3}
-  m_Name: Pear
+  m_Name: Berry
   m_EditorClassIdentifier: 
   blockSetting:
-    sprite: {fileID: 21300000, guid: af614754801067f46aefd32565ec1c1d, type: 3}
-    colliderRadius: 1.11
+    sprite: {fileID: 21300000, guid: 6cc051ba57e87a54aa2651334977c536, type: 3}
+    colliderRadius: 1.05
     enableShadow: 1
     cuttingService: 1
-    cuttingParticle: {fileID: 7875066841233267492, guid: b55416ebca674c4409f1f66e343cbeb8, type: 3}
+    cuttingParticle: {fileID: 1260802809966811851, guid: 306b1b535482e2b479118718c4862452, type: 3}
