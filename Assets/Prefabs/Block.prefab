@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -125337433
-  m_SortingLayer: -1
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6}
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5fe4bae829a824ba035f25fc4656ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadowSprite: {fileID: 643106423155187601}
   shadowOffset: {x: 0.2, y: -0.2}
 --- !u!1 &5663401050141313987
 GameObject:
@@ -169,8 +170,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -502567665
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -195,11 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc983b925074ec1a4f4f8ff172d42ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setting: {fileID: 0}
+  settingObject: {fileID: 0}
   blockPhysic: {fileID: 2799326887936687126}
   blockAnimator: {fileID: 496098030198029003}
   blockRenderer: {fileID: 1807197362627294317}
-  shadow: {fileID: 643106423155187601}
 --- !u!114 &2799326887936687126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,4 +238,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 8823979296850194357}
-  shadow: {fileID: 643106423155187601}
+  shadow: {fileID: 8370114628622797696}

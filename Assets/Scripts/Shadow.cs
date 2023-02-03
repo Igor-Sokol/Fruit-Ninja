@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class Shadow : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer shadowSprite;
     [SerializeField] private Vector2 shadowOffset;
+
+    public bool ShadowEnabled { get => shadowSprite.enabled; set => shadowSprite.enabled = value; }
     
+    public void SetSprite(Sprite originSprite)
+    {
+        shadowSprite.sprite = originSprite;
+    }
+
     private void Update()
     {
         var parentPosition = transform.parent.position;

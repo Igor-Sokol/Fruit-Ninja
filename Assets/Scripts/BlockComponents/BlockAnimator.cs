@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Animations;
 using UnityEngine;
 
@@ -7,11 +8,16 @@ namespace BlockComponents
     {
         private IAnimation[] _animations;
 
+        public IEnumerable<IAnimation> Animations => _animations;
+
         private void Update()
         {
-            foreach (var anim in _animations)
+            if (_animations != null)
             {
-                anim.UpdateAnimation(transform, Time.deltaTime);
+                foreach (var anim in _animations)
+                {
+                    anim.UpdateAnimation(transform, Time.deltaTime);
+                }
             }
         }
         

@@ -12,6 +12,7 @@ namespace BlockComponents
         [SerializeField] private PlayingField playingField;
         [SerializeField] private BlockPool blockPool;
         [SerializeField] private BlockContainer blockContainer;
+        [SerializeField] private BlockContainer brokenPartContainer;
         [SerializeField] private Rect zone;
 
         private void Start()
@@ -27,14 +28,14 @@ namespace BlockComponents
 
         private void Update()
         {
-            CheckBeyondZone();
+            CheckBeyondZone(blockContainer);
+            CheckBeyondZone(brokenPartContainer);
         }
 
-        private void CheckBeyondZone()
+        private void CheckBeyondZone(BlockContainer container)
         {
             List<Block> blocksToRemove = null;
-            
-            foreach (var block in blockContainer.Blocks)
+            foreach (var block in container.Blocks)
             {
                 if (BlockBeyondZone(block.BlockPhysic))
                 {
@@ -46,14 +47,19 @@ namespace BlockComponents
                     blocksToRemove.Add(block);
                 }
             }
-
+            
             if (blocksToRemove != null)
             {
-                foreach (var block in blocksToRemove)
-                {
-                    blockContainer.RemoveBlock(block);
-                    blockPool.ReturnBlock(block);
-                }
+                DeleteBlock(blocksToRemove, container);
+            }
+        }
+
+        private void DeleteBlock(IEnumerable<Block> blocks, BlockContainer container)
+        {
+            foreach (var block in blocks)
+            {
+                container.RemoveBlock(block);
+                blockPool.ReturnBlock(block);
             }
         }
 

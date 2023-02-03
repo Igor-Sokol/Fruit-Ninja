@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a633bcaa8d34449288ffc47b9906e36b, type: 3}
   m_Name: Pomegranate
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: f90abc081e6d2614f87ddbe5b1ce0765, type: 3}
-  colliderRadius: 0.87
-  enableShadow: 1
+  blockSetting:
+    sprite: {fileID: 21300000, guid: f90abc081e6d2614f87ddbe5b1ce0765, type: 3}
+    colliderRadius: 0.87
+    enableShadow: 1
+    cuttingService: 1

@@ -41,8 +41,20 @@ TagManager:
   - name: Background
     uniqueID: 1099270103
     locked: 0
+  - name: Blot
+    uniqueID: 435827423
+    locked: 0
   - name: Shadow
     uniqueID: 4169629863
+    locked: 0
+  - name: Fruit
+    uniqueID: 3792399631
+    locked: 0
+  - name: Effects
+    uniqueID: 1886477265
+    locked: 0
+  - name: UI
+    uniqueID: 330809825
     locked: 0
   - name: Default
     uniqueID: 0

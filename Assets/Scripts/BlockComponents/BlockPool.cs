@@ -8,7 +8,7 @@ namespace BlockComponents
         private ObjectPool<Block> _pool;
 
         [SerializeField] private Block prefab;
-        [SerializeField] private BlockSetting[] blockSettings;
+        [SerializeField] private BlockSettingObject[] blockSettings;
 
         private void Awake()
         {
@@ -24,9 +24,14 @@ namespace BlockComponents
             return fruit;
         }
 
-        public void ReturnBlock(Block blockPhysic)
+        public Block GetEmptyBlock()
         {
-            _pool.Return(blockPhysic);
+            return _pool.Get();
+        }
+        
+        public void ReturnBlock(Block block)
+        {
+            _pool.Return(block);
         }
     }
 }

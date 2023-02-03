@@ -5,11 +5,10 @@ namespace Adaptive
     public class FullscreenSprite : MonoBehaviour
     {
         [SerializeField] private PlayingField playingField;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         
         void Awake()
         {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-
             transform.position = Vector2.zero;
 
             Vector2 spriteSize = spriteRenderer.sprite.bounds.size;

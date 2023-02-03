@@ -44,6 +44,7 @@ public class ObjectPool<T> where T : MonoBehaviour
     public void Return(T obj)
     {
         obj.gameObject.SetActive(false);
+        obj.transform.SetParent(container);
         _objects.Push(obj);
     }
         

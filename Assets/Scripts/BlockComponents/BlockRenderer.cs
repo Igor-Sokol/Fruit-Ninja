@@ -5,21 +5,17 @@ namespace BlockComponents
     public class BlockRenderer : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer sprite;
-        [SerializeField] private SpriteRenderer shadow;
+        [SerializeField] private Shadow shadow;
 
+        public Shadow Shadow => shadow;
+
+        public Sprite Sprite => sprite.sprite;
+        
         public void Renderer(Sprite sprite, bool enableShadow)
         {
             this.sprite.sprite = sprite;
-            
-            if (enableShadow)
-            {
-                shadow.sprite = sprite;
-                shadow.enabled = true;
-            }
-            else
-            {
-                shadow.enabled = false;
-            }
+            shadow.SetSprite(sprite);
+            shadow.ShadowEnabled = enableShadow;
         }
     }
 }

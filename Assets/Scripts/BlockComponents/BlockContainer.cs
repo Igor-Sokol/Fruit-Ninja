@@ -17,6 +17,7 @@ namespace BlockComponents
         public void AddBlock(Block block)
         {
             _blocks.Add(block);
+            block.transform.SetParent(transform);
         }
 
         public void RemoveBlock(Block block)

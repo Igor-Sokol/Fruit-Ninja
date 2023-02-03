@@ -15,5 +15,7 @@ namespace Extensions
 
             return rotatedVector;
         }
+        
+        public static Vector2 Rotate(this Vector2 direction, float degree) => Rotate((Vector3)direction, degree);
     }
 }

@@ -1,24 +1,42 @@
+using CutSystem;
 using UnityEngine;
 
 namespace BlockComponents
 {
-    public class Block : MonoBehaviour
+    public class Block : MonoBehaviour, ICutting
     {
-        [SerializeField] private BlockSetting setting;
+        private BlockSetting _blockSetting;
+        private CuttingService _cuttingService;
+        
+        [SerializeField] private BlockSettingObject settingObject;
         [SerializeField] private BlockPhysic blockPhysic;
         [SerializeField] private BlockAnimator blockAnimator;
         [SerializeField] private BlockRenderer blockRenderer;
-        [SerializeField] private SpriteRenderer shadow;
 
         public BlockPhysic BlockPhysic => blockPhysic;
         public BlockAnimator BlockAnimator => blockAnimator;
         public BlockRenderer BlockRenderer => blockRenderer;
 
-        public void SetUp(BlockSetting setting)
+        public void SetUp(BlockSettingObject settingObject)
         {
-            this.setting = setting;
-            blockPhysic.SetColliderRadius(this.setting.ColliderRadius);
-            blockRenderer.Renderer(setting.Sprite, setting.EnableShadow);
+            this.settingObject = settingObject;
+            SetUp(this.settingObject.BlockSetting);
+        } 
+        
+        public void SetUp(BlockSetting blockSetting)
+        {
+            _blockSetting = blockSetting;
+            blockPhysic.SetColliderRadius(blockSetting.ColliderRadius);
+            blockRenderer.Renderer(blockSetting.Sprite, blockSetting.EnableShadow);
+            _cuttingService = blockSetting.CuttingService;
+        }
+
+        public void Cut(Vector2 bladeVector)
+        {
+            if (_cuttingService)
+            {
+                _cuttingService.Cut(this, bladeVector);
+            }
         }
     }
 }
