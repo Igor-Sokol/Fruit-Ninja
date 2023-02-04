@@ -30,7 +30,7 @@ namespace BlockComponents
             _velocity += Physics.gravity * Time.deltaTime;
             transform.position += _velocity * Time.deltaTime;
         }
-    
+        
         [Conditional("UNITY_EDITOR")]
         private void OnDrawGizmosSelected()
         {

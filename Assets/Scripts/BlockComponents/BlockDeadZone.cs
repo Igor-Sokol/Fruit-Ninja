@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Adaptive;
 using UnityEngine;
 
@@ -14,6 +13,8 @@ namespace BlockComponents
         [SerializeField] private BlockPool blockPool;
         [SerializeField] private BlockContainer[] blockContainers;
         [SerializeField] private Rect zone;
+
+        public Rect Zone => zone;
 
         public event Action<BlockContainer, int> OnBlocksRemoved; 
 
@@ -93,26 +94,6 @@ namespace BlockComponents
             actualPosition = playingField.PositionFromPercentage(new Vector2(zone.width, zone.height));
             _actualDeadZone.width = actualPosition.x;
             _actualDeadZone.height = actualPosition.y;
-        }
-    
-        [Conditional("UNITY_EDITOR")]
-        private void OnDrawGizmos()
-        {
-            if (!Application.isPlaying) return;
-        
-            Gizmos.color = Color.red;
-
-            Gizmos.DrawLine(playingField.PositionFromPercentage(new Vector2(zone.x, zone.y)), 
-                playingField.PositionFromPercentage(new Vector2(zone.width, zone.y)));
-        
-            Gizmos.DrawLine(playingField.PositionFromPercentage(new Vector2(zone.width, zone.y)),
-                playingField.PositionFromPercentage(new Vector2(zone.width, zone.height)));
-        
-            Gizmos.DrawLine(playingField.PositionFromPercentage(new Vector2(zone.width, zone.height)),
-                playingField.PositionFromPercentage(new Vector2(zone.x, zone.height)));
-        
-            Gizmos.DrawLine(playingField.PositionFromPercentage(new Vector2(zone.x, zone.height)),
-                playingField.PositionFromPercentage(new Vector2(zone.x, zone.y)));
         }
     }
 }
