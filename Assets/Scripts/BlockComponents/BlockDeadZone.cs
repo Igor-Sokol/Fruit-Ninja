@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Adaptive;
@@ -11,28 +12,25 @@ namespace BlockComponents
     
         [SerializeField] private PlayingField playingField;
         [SerializeField] private BlockPool blockPool;
-        [SerializeField] private BlockContainer blockContainer;
-        [SerializeField] private BlockContainer brokenPartContainer;
+        [SerializeField] private BlockContainer[] blockContainers;
         [SerializeField] private Rect zone;
+
+        public event Action<BlockContainer, int> OnBlocksRemoved; 
 
         private void Start()
         {
-            var actualPosition = playingField.PositionFromPercentage(new Vector2(zone.x, zone.y));
-            _actualDeadZone.x = actualPosition.x;
-            _actualDeadZone.y = actualPosition.y;
-        
-            actualPosition = playingField.PositionFromPercentage(new Vector2(zone.width, zone.height));
-            _actualDeadZone.width = actualPosition.x;
-            _actualDeadZone.height = actualPosition.y;
+            SetUpDeadZone();
         }
 
         private void Update()
         {
-            CheckBeyondZone(blockContainer);
-            CheckBeyondZone(brokenPartContainer);
+            foreach (var container in blockContainers)
+            {
+                CheckBeyondZone(container);
+            }
         }
 
-        private void CheckBeyondZone(BlockContainer container)
+        private int CheckBeyondZone(BlockContainer container)
         {
             List<Block> blocksToRemove = null;
             foreach (var block in container.Blocks)
@@ -51,7 +49,11 @@ namespace BlockComponents
             if (blocksToRemove != null)
             {
                 DeleteBlock(blocksToRemove, container);
+                OnBlocksRemoved?.Invoke(container, blocksToRemove.Count);
+                return blocksToRemove.Count;
             }
+
+            return 0;
         }
 
         private void DeleteBlock(IEnumerable<Block> blocks, BlockContainer container)
@@ -80,6 +82,17 @@ namespace BlockComponents
             }
 
             return false;
+        }
+
+        private void SetUpDeadZone()
+        {
+            var actualPosition = playingField.PositionFromPercentage(new Vector2(zone.x, zone.y));
+            _actualDeadZone.x = actualPosition.x;
+            _actualDeadZone.y = actualPosition.y;
+        
+            actualPosition = playingField.PositionFromPercentage(new Vector2(zone.width, zone.height));
+            _actualDeadZone.width = actualPosition.x;
+            _actualDeadZone.height = actualPosition.y;
         }
     
         [Conditional("UNITY_EDITOR")]
