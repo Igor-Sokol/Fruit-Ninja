@@ -9,6 +9,8 @@ namespace BlockComponents
         private List<Block> _blocks;
 
         public IEnumerable<Block> Blocks => _blocks;
+        public int BlocksCount => _blocks.Count;
+
 
         private void Awake()
         {

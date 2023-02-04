@@ -12,6 +12,7 @@ namespace SpawnSystem
     public class SpawnerManager : MonoBehaviour
     {
         private float[] _spawnerPriority;
+        private Coroutine spawnerHandler;
 
         [SerializeField] private PlayingField playingField;
         [SerializeField] private DynamicDifficulty difficultyController;
@@ -28,9 +29,22 @@ namespace SpawnSystem
         private void Start()
         {
             InitSpawnersPosition();
-            StartCoroutine(Spawn());
+            EnableSpawners();
         }
 
+        public void EnableSpawners()
+        {
+            spawnerHandler = StartCoroutine(Spawn());
+        }
+
+        public void DisableSpawners()
+        {
+            if (spawnerHandler != null)
+            {
+                StopCoroutine(spawnerHandler);
+            }
+        }
+        
         private IEnumerator Spawn()
         {
             while (true)

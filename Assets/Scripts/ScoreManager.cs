@@ -13,6 +13,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text bestScoreText;
     [SerializeField] private float increaseSpeed;
 
+    public int CurrentScore => _currentScore;
+    public int BestScore => _bestScore;
+
     public void AddScore(int score)
     {
         _currentScore += score;
@@ -22,6 +25,17 @@ public class ScoreManager : MonoBehaviour
         {
             StartCoroutine(ScoreIncrease());
         }
+    }
+
+    public void Clear()
+    {
+        _tempScoreValue = 0;
+        
+        _currentScore = 0;
+        _bestScore = 0;
+
+        bestScoreText.text = _currentScore.ToString();
+        currentScoreText.text = _bestScore.ToString();
     }
 
     private IEnumerator ScoreIncrease()

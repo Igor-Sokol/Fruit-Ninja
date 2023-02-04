@@ -27,6 +27,11 @@ namespace DifficultySystem
             _timer += Time.deltaTime;
         }
 
+        public void Clear()
+        {
+            _timer = 0;
+        }
+        
         private float GetDifficultyPercentage()
         {
             var minute = _timer / 60;

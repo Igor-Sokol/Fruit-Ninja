@@ -26,6 +26,8 @@ namespace HealthSystem
 
         public void AddHeart(int count)
         {
+            if (_currentHealth >= maxHealth) return;
+            
             for (int i = 0; i < count && _currentHealth < maxHealth; i++)
             {
                 _hearts[_currentHealth].Appear();
@@ -35,16 +37,18 @@ namespace HealthSystem
 
         public void RemoveHeart(int count)
         {
+            if (_currentHealth <= 0) return;
+            
             for (int i = 0; i < count; i++)
             {
+                _hearts[_currentHealth - 1].Disappear();
+                _currentHealth--;
+                
                 if (_currentHealth <= 0)
                 {
                     OnPlayerLose?.Invoke();
                     return;
                 }
-            
-                _hearts[_currentHealth - 1].Disappear();
-                _currentHealth--;
             }
         }
 
