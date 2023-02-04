@@ -10,7 +10,12 @@ namespace CutSystem.CuttingServices
         [SerializeField] private BlockContainer playingBlockContainer;
         [SerializeField] private BlockContainer brokenPartsContainer;
         [SerializeField] private BlockPool blockPool;
+        [SerializeField] private ScoreManager scoreManager;
+        [SerializeField] private TextParticle particle;
+        [SerializeField] private Transform canvas;
+        [SerializeField] private Camera workingCamera;
         [SerializeField] private float partsForce;
+        [SerializeField] private int[] dropScores;
 
         public override void Cut(Block block, Vector2 bladeVector)
         {
@@ -25,6 +30,12 @@ namespace CutSystem.CuttingServices
         
             brokenPartsContainer.AddBlock(parts.left);
             brokenPartsContainer.AddBlock(parts.right);
+
+            var score = dropScores[Random.Range(0, dropScores.Length)];
+            scoreManager.AddScore(score);
+            
+            var textParticle = Instantiate(particle, workingCamera.WorldToScreenPoint(block.transform.position), Quaternion.identity, canvas);
+            textParticle.SetText(score.ToString());
         }
 
         private (Block left, Block right) CreateParts(Block actualBlock)

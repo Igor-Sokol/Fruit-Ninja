@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ac9afb9b58c31444bf0f39f7a56d2bc, type: 2}
   m_sharedMaterial: {fileID: 4678393077974406169, guid: 3ac9afb9b58c31444bf0f39f7a56d2bc, type: 2}
@@ -909,6 +909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 779381274}
+  - component: {fileID: 779381275}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -930,6 +931,21 @@ Transform:
   m_Father: {fileID: 1263645800}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779381275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779381273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4286f44d9f30ee64f9bfb4e282489a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScoreText: {fileID: 533851553}
+  bestScoreText: {fileID: 161153313}
+  increaseSpeed: 100
 --- !u!1 &799601722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,7 +1945,12 @@ MonoBehaviour:
   playingBlockContainer: {fileID: 503679824}
   brokenPartsContainer: {fileID: 1305927229}
   blockPool: {fileID: 1471112644}
+  scoreManager: {fileID: 779381275}
+  particle: {fileID: 1634791794836741911, guid: 4bfba26c531dcba43afe89544421a0f6, type: 3}
+  canvas: {fileID: 1143230370}
+  workingCamera: {fileID: 519420031}
   partsForce: 8
+  dropScores: 19000000320000004b00000064000000
 --- !u!1 &1867074700
 GameObject:
   m_ObjectHideFlags: 0
