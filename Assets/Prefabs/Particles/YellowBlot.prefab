@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7875066841233267493}
   - component: {fileID: 7875066841233267492}
   - component: {fileID: 7875066841233267495}
+  - component: {fileID: 2338703033527770798}
   m_Layer: 0
   m_Name: YellowBlot
   m_TagString: Untagged
@@ -4804,3 +4805,17 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2338703033527770798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875066841233267494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681dbd155a135d04abd16d62acf31cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 7875066841233267492}
+  speed: 5

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1260802809966811848}
   - component: {fileID: 1260802809966811851}
   - component: {fileID: 1260802809966811850}
+  - component: {fileID: -2491175155554625695}
   m_Layer: 0
   m_Name: GreenBlot
   m_TagString: Untagged
@@ -4804,3 +4805,17 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-2491175155554625695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260802809966811845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681dbd155a135d04abd16d62acf31cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1260802809966811851}
+  speed: 5
