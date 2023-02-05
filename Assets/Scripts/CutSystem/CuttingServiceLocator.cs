@@ -8,13 +8,13 @@ namespace CutSystem
 {
     public class CuttingServiceLocator : Singleton<CuttingServiceLocator>
     {
-        private Dictionary<int, Type> cuttingServiceTypes;
+        private List<Type> _cuttingServiceTypes;
 
         [SerializeField] private CuttingService[] cuttingServices;
 
         private void Awake()
         {
-            CreateServiceTypeDictionary();
+            CreateServiceTypeList();
         }
 
         public List<CuttingService> GetServices(CuttingServiceType serviceType)
@@ -31,7 +31,7 @@ namespace CutSystem
             {
                 if (((int)serviceType & 1) > 0)
                 {
-                    Type type = cuttingServiceTypes[i];
+                    Type type = _cuttingServiceTypes[(int)Mathf.Sqrt(i)];
                     var service = cuttingServices.FirstOrDefault(s => s.GetType() == type);
                     services.Add(service);
                 }
@@ -40,13 +40,13 @@ namespace CutSystem
             return services;
         }
 
-        private void CreateServiceTypeDictionary()
+        private void CreateServiceTypeList()
         {
-            cuttingServiceTypes = new Dictionary<int, Type>
+            _cuttingServiceTypes = new List<Type>()
             {
-                { 1 << 0, typeof(PartsCutter) },
-                { 1 << 1, typeof(BlotParticle) },
-                { 1 << 2, typeof(ScoreIncrease) }
+                { typeof(PartsCutter) },
+                { typeof(BlotParticle) },
+                { typeof(ScoreIncrease) }
             };
         }
     }
