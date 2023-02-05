@@ -1,4 +1,5 @@
 using System;
+using ScoreStorageSystem;
 using UnityEngine;
 
 namespace ScoreSystem
@@ -8,10 +9,18 @@ namespace ScoreSystem
         private int _currentScore;
         private int _bestScore;
 
+        [SerializeField] private ScoreStorage scoreStorage;
+        
         public int CurrentScore => _currentScore;
         public int BestScore => _bestScore;
         public event Action<int> GameScoreChanged;
         public event Action<int> BestScoreChanged;
+        public event Action ScoreLoaded;
+
+        private void Awake()
+        {
+            Load();
+        }
 
         public void AddScore(int score)
         {
@@ -21,19 +30,16 @@ namespace ScoreSystem
             if (_currentScore > _bestScore)
             {
                 _bestScore = _currentScore;
+                scoreStorage.SaveScore(_bestScore);
                 BestScoreChanged?.Invoke(_bestScore);
             }
         }
 
-        public void Clear()
+        public void Load()
         {
             _currentScore = 0;
-            ReadBestScore();
-        }
-
-        private void ReadBestScore()
-        {
-            _bestScore = 0;
+            _bestScore = scoreStorage.LoadScore();
+            ScoreLoaded?.Invoke();
         }
     }
 }

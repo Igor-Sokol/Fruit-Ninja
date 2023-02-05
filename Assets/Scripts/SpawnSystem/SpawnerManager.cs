@@ -30,7 +30,6 @@ namespace SpawnSystem
         private void Start()
         {
             InitSpawnersPosition();
-            EnableSpawners();
         }
 
         public void EnableSpawners()

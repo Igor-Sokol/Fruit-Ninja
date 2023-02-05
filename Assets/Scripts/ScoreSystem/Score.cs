@@ -22,6 +22,12 @@ namespace ScoreSystem
             _coroutineHandler ??= StartCoroutine(ScoreChanger());
         }
 
+        public void ForceSetValue(int score)
+        {
+            _previousScore = score;
+            ChangeText(score);
+        }
+
         private void ChangeText(int score)
         {
             tmpText.text = text + score;

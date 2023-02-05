@@ -1,3 +1,4 @@
+using SceneChangeSystem;
 using ScoreSystem;
 using TMPro;
 using UnityEngine;
@@ -8,12 +9,13 @@ namespace UI
 {
     public class LosePopUp : MonoBehaviour
     {
-        [FormerlySerializedAs("gameRestar")] [FormerlySerializedAs("gameRestarter")] [FormerlySerializedAs("gameManager")] [SerializeField] private GameRestart gameRestart;
+        [SerializeField] private GameStarter gameStarter;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Score currentScoreText;
         [SerializeField] private Score bestScoreText;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button menuButton;
+        [SerializeField] private string sceneName;
         [SerializeField] private Animation animationRenderer;
         [SerializeField] private string enableAnimation;
         [SerializeField] private string disableAnimation;
@@ -21,16 +23,20 @@ namespace UI
         private void OnEnable()
         {
             restartButton.onClick.AddListener(RestartButton);
+            menuButton.onClick.AddListener(MenuButton);
         }
 
         private void OnDisable()
         {
             restartButton.onClick.RemoveListener(RestartButton);
+            menuButton.onClick.RemoveListener(MenuButton);
         }
 
         public void Show(int currentScore, int bestScore)
         {
+            currentScoreText.ForceSetValue(0);
             currentScoreText.SetValue(currentScore);
+            bestScoreText.ForceSetValue(0);
             bestScoreText.SetValue(bestScore);
 
             Enable();
@@ -38,10 +44,16 @@ namespace UI
 
         private void RestartButton()
         {
-            gameRestart.RestartGame();
+            gameStarter.ReInitGame();
+            gameStarter.StartGame();
             Disable();
         }
 
+        private void MenuButton()
+        {
+            SceneChanger.Instance.LoadScene(sceneName);
+        }
+        
         private void Enable()
         {
             animationRenderer.Play(enableAnimation);

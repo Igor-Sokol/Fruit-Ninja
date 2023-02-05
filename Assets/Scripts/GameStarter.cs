@@ -3,12 +3,13 @@ using System.Linq;
 using BlockComponents;
 using DifficultySystem;
 using HealthSystem;
+using SceneChangeSystem;
 using ScoreSystem;
 using SpawnSystem;
 using UI;
 using UnityEngine;
 
-public class GameRestart : MonoBehaviour
+public class GameStarter : MonoBehaviour
 {
     [SerializeField] private HealthService healthService;
     [SerializeField] private HealthView healthView;
@@ -17,7 +18,20 @@ public class GameRestart : MonoBehaviour
     [SerializeField] private SpawnerManager spawnerManager;
     [SerializeField] private BlockContainer[] containers;
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private GameScoreView gameScoreView;
     [SerializeField] private DynamicDifficulty difficulty;
+
+    private void Start()
+    {
+        if (SceneChanger.IsValid)
+        {
+            SceneChanger.Instance.OnSceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            StartGame();
+        }
+    }
 
     private void OnEnable()
     {
@@ -29,14 +43,18 @@ public class GameRestart : MonoBehaviour
         healthService.OnPlayerLose -= OnPlayerLose;
     }
 
-    public void RestartGame()
+    public void StartGame()
     {
-        scoreManager.Clear();
         bladeMover.Active = true;
+        spawnerManager.EnableSpawners();
+    }
+
+    public void ReInitGame()
+    {
         difficulty.Clear();
         healthService.Clear();
         healthView.Clear();
-        spawnerManager.EnableSpawners();
+        scoreManager.Load();
     }
 
     private void OnPlayerLose()
@@ -47,6 +65,12 @@ public class GameRestart : MonoBehaviour
         StartCoroutine(CheckEmptyPlayingField());
     }
 
+    private void OnSceneLoaded()
+    {
+        SceneChanger.Instance.OnSceneLoaded -= OnSceneLoaded;
+        StartGame();
+    }
+    
     private IEnumerator CheckEmptyPlayingField()
     {
         while (true)
