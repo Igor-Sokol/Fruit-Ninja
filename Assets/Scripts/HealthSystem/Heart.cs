@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace HealthSystem
@@ -7,6 +8,8 @@ namespace HealthSystem
         [SerializeField] private Animation animationRender;
         [SerializeField] private string appearanceAnimation;
         [SerializeField] private string disappearanceAnimation;
+
+        public event Action<Heart> OnDisappeared;
 
         public void Appear()
         {
@@ -22,6 +25,7 @@ namespace HealthSystem
         private void HeartDisableCallback()
         {
             gameObject.SetActive(false);
+            OnDisappeared?.Invoke(this);
         }
     }
 }

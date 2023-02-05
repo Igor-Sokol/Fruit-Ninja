@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61682ac5f5674703bc2ce4412d294e29, type: 3}
   m_Name: ScaleAnimation
   m_EditorClassIdentifier: 
-  minScaleRange: {x: 1, y: 1}
-  maxScaleRange: {x: 1.1, y: 1.4}
+  scaleRange: {x: 0.7, y: 2}
   speedRange: {x: 0.5, y: 0.9}

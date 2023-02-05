@@ -16,5 +16,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: dc50dd31e3fe9a845a06fbe41458c211, type: 3}
     colliderRadius: 0.99
     enableShadow: 1
-    cuttingService: 1
+    cuttingService: -1
     cuttingParticle: {fileID: 7875066841233267492, guid: b55416ebca674c4409f1f66e343cbeb8, type: 3}

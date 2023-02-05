@@ -20,6 +20,7 @@ namespace SpawnSystem
         [SerializeField] private BlockContainer blockContainer;
         [SerializeField] private BlockPool blockPool;
         [SerializeField] private Spawner[] spawners;
+        [SerializeField] private float spawnScale; 
 
         private void Awake()
         {
@@ -52,6 +53,7 @@ namespace SpawnSystem
                 for (int i = 0; i < difficultyController.FruitsInPack; i++)
                 {
                     var block = blockPool.GetRandomFruit();
+                    block.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
                     blockContainer.AddBlock(block);
                     block.BlockAnimator.SetAnimations(animationManager.GetRandomAnimations());
                     var randomSpawner = GetRandomSpawner();

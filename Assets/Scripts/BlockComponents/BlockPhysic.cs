@@ -8,7 +8,7 @@ namespace BlockComponents
         private Vector3 _velocity;
         [SerializeField] private float colliderRadius;
 
-        public float ColliderRadius => colliderRadius;
+        public float ColliderRadius => colliderRadius * transform.localScale.x;
     
         public void AddForce(Vector2 direction, float force)
         {

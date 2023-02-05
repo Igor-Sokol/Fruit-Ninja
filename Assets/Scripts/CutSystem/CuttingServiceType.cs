@@ -1,8 +1,12 @@
+using System;
+
 namespace CutSystem
 {
+    [Flags]
     public enum CuttingServiceType
     {
-        None,
-        FruitCutter,
+        PartsCutter = 1,
+        BlotParticle = 2,
+        ScoreIncrease = 4,
     }
 }

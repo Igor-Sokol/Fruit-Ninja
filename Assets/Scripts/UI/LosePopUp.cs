@@ -1,16 +1,17 @@
-using System.Collections;
+using ScoreSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
 {
     public class LosePopUp : MonoBehaviour
     {
-        [SerializeField] private GameManager gameManager;
+        [FormerlySerializedAs("gameRestar")] [FormerlySerializedAs("gameRestarter")] [FormerlySerializedAs("gameManager")] [SerializeField] private GameRestart gameRestart;
         [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private TMP_Text currentScoreText;
-        [SerializeField] private TMP_Text bestScoreText;
+        [SerializeField] private Score currentScoreText;
+        [SerializeField] private Score bestScoreText;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button menuButton;
         [SerializeField] private Animation animationRenderer;
@@ -29,15 +30,15 @@ namespace UI
 
         public void Show(int currentScore, int bestScore)
         {
-            currentScoreText.text = currentScore.ToString();
-            bestScoreText.text = bestScore.ToString();
-            
+            currentScoreText.SetValue(currentScore);
+            bestScoreText.SetValue(bestScore);
+
             Enable();
         }
 
         private void RestartButton()
         {
-            gameManager.RestartGame();
+            gameRestart.RestartGame();
             Disable();
         }
 

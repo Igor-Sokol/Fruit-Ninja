@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CutSystem;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace BlockComponents
     [Serializable]
     public struct BlockSetting
     {
-        private CuttingService _cuttingService;
+        private List<CuttingService> _cuttingService;
         
         [SerializeField] private Sprite sprite;
         [SerializeField] private float colliderRadius;
@@ -20,17 +21,17 @@ namespace BlockComponents
         public bool EnableShadow => enableShadow;
         public ParticleSystem CuttingParticle => cuttingParticle;
 
-        public CuttingService CuttingService => _cuttingService
+        public List<CuttingService> CuttingService => (_cuttingService != null && _cuttingService.Count > 0) 
             ? _cuttingService
-            : (_cuttingService = CuttingServiceLocator.Instance.GetService(cuttingService));
+            : _cuttingService = CuttingServiceLocator.Instance.GetServices(cuttingService);
 
         public BlockSetting(Sprite sprite, float colliderRadius, bool enableShadow, 
-            CuttingService cuttingService = null, ParticleSystem cuttingParticle = null)
+            List<CuttingService> cuttingService = null, ParticleSystem cuttingParticle = null)
         {
             this.sprite = sprite;
             this.colliderRadius = colliderRadius;
             this.enableShadow = enableShadow;
-            this.cuttingService = CuttingServiceType.None;
+            this.cuttingService = default;
             this._cuttingService = cuttingService;
             this.cuttingParticle = cuttingParticle;
         }

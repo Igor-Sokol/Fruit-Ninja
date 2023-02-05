@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Animations;
 using UnityEngine;
 
@@ -6,21 +7,23 @@ namespace BlockComponents
 {
     public class BlockAnimator : MonoBehaviour
     {
-        private IAnimation[] _animations;
+        private List<IAnimation> _animations;
 
         public IEnumerable<IAnimation> Animations => _animations;
 
+        private void Awake()
+        {
+            _animations = new List<IAnimation>();
+        }
+
         private void Update()
         {
-            if (_animations != null)
+            foreach (var anim in _animations)
             {
-                foreach (var anim in _animations)
-                {
-                    anim.UpdateAnimation(transform, Time.deltaTime);
-                }
+                anim.UpdateAnimation(transform, Time.deltaTime);
             }
         }
         
-        public void SetAnimations(IAnimation[] animations) => _animations = animations;
+        public void SetAnimations(IEnumerable<IAnimation> animations) => _animations = animations.ToList();
     }
 }

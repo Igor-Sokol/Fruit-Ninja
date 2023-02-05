@@ -3,13 +3,15 @@ using System.Linq;
 using BlockComponents;
 using DifficultySystem;
 using HealthSystem;
+using ScoreSystem;
 using SpawnSystem;
 using UI;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameRestart : MonoBehaviour
 {
-    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private HealthService healthService;
+    [SerializeField] private HealthView healthView;
     [SerializeField] private LosePopUp losePopUp;
     [SerializeField] private BladeMover bladeMover;
     [SerializeField] private SpawnerManager spawnerManager;
@@ -19,12 +21,12 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        healthBar.OnPlayerLose += OnPlayerLose;
+        healthService.OnPlayerLose += OnPlayerLose;
     }
 
     private void OnDisable()
     {
-        healthBar.OnPlayerLose -= OnPlayerLose;
+        healthService.OnPlayerLose -= OnPlayerLose;
     }
 
     public void RestartGame()
@@ -32,7 +34,8 @@ public class GameManager : MonoBehaviour
         scoreManager.Clear();
         bladeMover.Active = true;
         difficulty.Clear();
-        healthBar.Init();
+        healthService.Clear();
+        healthView.Clear();
         spawnerManager.EnableSpawners();
     }
 

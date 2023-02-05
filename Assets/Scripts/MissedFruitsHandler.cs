@@ -1,11 +1,12 @@
 using BlockComponents;
 using HealthSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MissedFruitsHandler : MonoBehaviour
 {
     [SerializeField] private BlockContainer fruitsContainer;
-    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private HealthService healthService;
     [SerializeField] private BlockDeadZone blockDeadZone;
 
     private void OnEnable()
@@ -22,7 +23,7 @@ public class MissedFruitsHandler : MonoBehaviour
     {
         if (blockContainer == fruitsContainer)
         {
-            healthBar.RemoveHeart(deletedBlocks);
+            healthService.RemoveHealth(deletedBlocks);
         }
     }
 }
