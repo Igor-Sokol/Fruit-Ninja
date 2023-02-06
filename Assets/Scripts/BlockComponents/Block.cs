@@ -1,14 +1,16 @@
 using System.Collections.Generic;
+using BeyondZoneSystem;
 using BlockConfiguration;
 using CuttingSystem;
 using UnityEngine;
 
 namespace BlockComponents
 {
-    public class Block : MonoBehaviour, ICutting
+    public class Block : MonoBehaviour, ICutting, IBeyondService
     {
         private BlockSetting _blockSetting;
-        private List<CuttingService> _cuttingService;
+        private List<ICuttingService> _cuttingService;
+        private List<IBeyondService> _beyondServices;
         
         [SerializeField] private BlockSettingObject settingObject;
         [SerializeField] private BlockPhysic blockPhysic;
@@ -19,6 +21,12 @@ namespace BlockComponents
         public BlockPhysic BlockPhysic => blockPhysic;
         public BlockAnimator BlockAnimator => blockAnimator;
         public BlockRenderer BlockRenderer => blockRenderer;
+
+        private void Awake()
+        {
+            _cuttingService = new List<ICuttingService>();
+            _beyondServices = new List<IBeyondService>();
+        }
 
         public void SetUp(BlockSettingObject settingObject)
         {
@@ -31,7 +39,24 @@ namespace BlockComponents
             _blockSetting = blockSetting;
             blockPhysic.SetColliderRadius(blockSetting.ColliderRadius);
             blockRenderer.Renderer(blockSetting.Sprite, blockSetting.EnableShadow);
-            _cuttingService = blockSetting.CuttingService;
+
+            _cuttingService.Clear();
+            if (blockSetting.CuttingServicesSettings != null)
+            {
+                foreach (var cuttingServiceSetting in blockSetting.CuttingServicesSettings)
+                {
+                    _cuttingService.Add(cuttingServiceSetting.GetService());
+                }
+            }
+            
+            _beyondServices.Clear();
+            if (blockSetting.BeyondServiceSettings != null)
+            {
+                foreach (var serviceSetting in blockSetting.BeyondServiceSettings)
+                {
+                    _beyondServices.Add(serviceSetting.GetService());
+                }
+            }
         }
 
         public void Cut(Vector2 bladeVector)
@@ -39,6 +64,14 @@ namespace BlockComponents
             foreach (var service in _cuttingService)
             {
                 service.Cut(this, bladeVector);
+            }
+        }
+
+        public void BeyondZoneAction()
+        {
+            foreach (var service in _beyondServices)
+            {
+                service.BeyondZoneAction();
             }
         }
     }

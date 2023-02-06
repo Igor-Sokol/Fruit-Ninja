@@ -290,7 +290,6 @@ MonoBehaviour:
   blockPool: {fileID: 1471112644}
   blockContainers:
   - {fileID: 503679824}
-  - {fileID: 1305927229}
   zone:
     serializedVersion: 2
     x: -0.22
@@ -342,7 +341,6 @@ Transform:
   - {fileID: 330410362}
   - {fileID: 2032580604}
   - {fileID: 503679825}
-  - {fileID: 1305927228}
   - {fileID: 1471112643}
   - {fileID: 813697492}
   m_Father: {fileID: 0}
@@ -541,9 +539,8 @@ GameObject:
   m_Component:
   - component: {fileID: 503679825}
   - component: {fileID: 503679824}
-  - component: {fileID: 503679826}
   m_Layer: 0
-  m_Name: FruitsContainer
+  m_Name: PlayingFieldContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,21 +572,6 @@ Transform:
   m_Father: {fileID: 425550760}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &503679826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503679823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c3b6391b0c8e534c926d817c14d630a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruitsContainer: {fileID: 503679824}
-  healthService: {fileID: 1912087594}
-  blockDeadZone: {fileID: 330410361}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 721323810}
+  - {fileID: 1417053013}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1322,9 +1305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playingBlockContainer: {fileID: 503679824}
-  brokenPartsContainer: {fileID: 1305927229}
   blockPool: {fileID: 1471112644}
-  partsForce: 8
 --- !u!114 &721323813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,8 +1332,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 779381275}
   canvas: {fileID: 1143230370}
-  particle: {fileID: 1634791794836741911, guid: 4bfba26c531dcba43afe89544421a0f6, type: 3}
-  dropScores: 19000000320000004b00000064000000
 --- !u!1 &726896910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,7 +1624,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 425550760}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &813697493
 TrailRenderer:
@@ -2218,9 +2197,7 @@ MonoBehaviour:
   spawnerManager: {fileID: 1867074702}
   containers:
   - {fileID: 503679824}
-  - {fileID: 1305927229}
   scoreManager: {fileID: 779381275}
-  gameScoreView: {fileID: 1319552290}
   difficulty: {fileID: 561848543}
 --- !u!1 &1091128611
 GameObject:
@@ -2446,49 +2423,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1305927227
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1305927228}
-  - component: {fileID: 1305927229}
-  m_Layer: 0
-  m_Name: BrokenFruitsContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1305927228
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305927227}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 425550760}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1305927229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305927227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0933cbef2ce45959f2551c15a37949c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1319552288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,6 +2476,65 @@ MonoBehaviour:
   scoreManager: {fileID: 779381275}
   gameScoreView: {fileID: 533851555}
   bestScoreView: {fileID: 1606627436}
+--- !u!1 &1417053012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417053013}
+  - component: {fileID: 1417053015}
+  - component: {fileID: 1417053014}
+  m_Layer: 0
+  m_Name: BeyondZoneServices
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417053013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417053012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 688917260}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417053014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417053012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b064d58e284616a6505fe9d47bed06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthService: {fileID: 1912087594}
+--- !u!114 &1417053015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417053012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00eaba890e9f4378889c905672b052f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beyondServices:
+  - {fileID: 1417053014}
 --- !u!1 &1428332003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,7 +2747,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 425550760}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1471112644
 MonoBehaviour:

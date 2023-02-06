@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using BeyondZoneSystem;
 using BlockComponents;
 using UnityEngine;
 
 namespace PlayingFieldComponents
 {
-    public class BlockDeadZone : MonoBehaviour
+    public class BeyondZone : MonoBehaviour
     {
         private Rect _actualDeadZone;
     
@@ -15,8 +16,6 @@ namespace PlayingFieldComponents
         [SerializeField] private Rect zone;
 
         public Rect Zone => zone;
-
-        public event Action<BlockContainer, int> OnBlocksRemoved; 
 
         private void Start()
         {
@@ -50,7 +49,6 @@ namespace PlayingFieldComponents
             if (blocksToRemove != null)
             {
                 DeleteBlock(blocksToRemove, container);
-                OnBlocksRemoved?.Invoke(container, blocksToRemove.Count);
                 return blocksToRemove.Count;
             }
 
@@ -61,6 +59,11 @@ namespace PlayingFieldComponents
         {
             foreach (var block in blocks)
             {
+                if (block is IBeyondService beyondService)
+                {
+                    beyondService.BeyondZoneAction();
+                }
+                
                 container.RemoveBlock(block);
                 blockPool.ReturnBlock(block);
             }

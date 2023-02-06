@@ -5,16 +5,26 @@ using Extensions;
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace CuttingSystem.CuttingServices
+namespace CuttingSystem.Implementations
 {
-    public class PartsCutter : CuttingService
+    public class PartsCutter : ICuttingService
     {
-        [SerializeField] private BlockContainer playingBlockContainer;
-        [SerializeField] private BlockContainer brokenPartsContainer;
-        [SerializeField] private BlockPool blockPool;
-        [SerializeField] private float partsForce;
+        private readonly BlockContainer _playingBlockContainer;
+        private readonly BlockPool _blockPool;
+        private float _partsForce;
 
-        public override void Cut(Block block, Vector2 bladeVector)
+        public void Init(float partsForce)
+        {
+            _partsForce = partsForce;
+        }
+
+        public PartsCutter(BlockContainer playingBlockContainer, BlockPool blockPool)
+        {
+            _playingBlockContainer = playingBlockContainer;
+            _blockPool = blockPool;
+        }
+
+        public void Cut(Block block, Vector2 bladeVector)
         {
             var currentSpriteRect = block.BlockRenderer.Sprite.rect;
             
@@ -27,20 +37,20 @@ namespace CuttingSystem.CuttingServices
 
             var normalizedBlade = bladeVector.normalized;
             leftPart.BlockPhysic.SetForce(normalizedBlade.Rotate(-90f) + (Vector2)block.BlockPhysic.Velocity.normalized,
-                partsForce);
+                _partsForce);
             rightPart.BlockPhysic.SetForce(normalizedBlade.Rotate(90f) + (Vector2)block.BlockPhysic.Velocity.normalized,
-                partsForce);
+                _partsForce);
         
-            playingBlockContainer.RemoveBlock(block);
-            blockPool.ReturnBlock(block);
+            _playingBlockContainer.RemoveBlock(block);
+            _blockPool.ReturnBlock(block);
         
-            brokenPartsContainer.AddBlock(leftPart);
-            brokenPartsContainer.AddBlock(rightPart);
+            _playingBlockContainer.AddBlock(leftPart);
+            _playingBlockContainer.AddBlock(rightPart);
         }
 
         private Block CreatePart(Block block, Rect textureRect, Vector2 texturePivot)
         {
-            var part = blockPool.GetEmptyBlock();
+            var part = _blockPool.GetEmptyBlock();
             part.transform.position = block.transform.position;
             part.transform.localScale = block.transform.localScale;
             part.BlockAnimator.SetAnimations(block.BlockAnimator.Animations.ToArray());

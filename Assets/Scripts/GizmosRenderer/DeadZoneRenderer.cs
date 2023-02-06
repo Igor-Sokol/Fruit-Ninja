@@ -8,7 +8,7 @@ namespace GizmosRenderer
 {
     public class DeadZoneRenderer : MonoBehaviour
     {
-        [SerializeField] private BlockDeadZone[] deadZones;
+        [SerializeField] private BeyondZone[] deadZones;
         [SerializeField] private PlayingField playingField;
         
         [Conditional("UNITY_EDITOR")]
