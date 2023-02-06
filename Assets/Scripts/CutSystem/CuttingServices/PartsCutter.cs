@@ -24,8 +24,10 @@ namespace CutSystem.CuttingServices
                 new Vector2(0f, 0.5f));
 
             var normalizedBlade = bladeVector.normalized;
-            leftPart.BlockPhysic.AddForce(normalizedBlade.Rotate(-90f), partsForce);
-            rightPart.BlockPhysic.AddForce(normalizedBlade.Rotate(90f), partsForce);
+            leftPart.BlockPhysic.SetForce(normalizedBlade.Rotate(-90f) + (Vector2)block.BlockPhysic.Velocity.normalized,
+                partsForce);
+            rightPart.BlockPhysic.SetForce(normalizedBlade.Rotate(90f) + (Vector2)block.BlockPhysic.Velocity.normalized,
+                partsForce);
         
             playingBlockContainer.RemoveBlock(block);
             blockPool.ReturnBlock(block);

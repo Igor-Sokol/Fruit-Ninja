@@ -45,7 +45,6 @@ namespace UI
         private void RestartButton()
         {
             gameStarter.ReInitGame();
-            gameStarter.StartGame();
             Disable();
         }
 
@@ -64,6 +63,11 @@ namespace UI
         {
             animationRenderer.Play(disableAnimation);
             canvasGroup.interactable = false;
+        }
+
+        private void AnimationDisableCallback()
+        {
+            gameStarter.StartGame();
         }
     }
 }

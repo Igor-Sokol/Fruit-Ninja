@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Particles
 {
+    [RequireComponent(typeof(ParticleSystemRenderer))]
     public class OrderLayerDecrease : MonoBehaviour
     {
         private ParticleSystemRenderer _particleRenderer;

@@ -6,13 +6,25 @@ namespace BlockComponents
     public class BlockPhysic : MonoBehaviour
     {
         private Vector3 _velocity;
+        
         [SerializeField] private float colliderRadius;
 
         public float ColliderRadius => colliderRadius * transform.localScale.x;
-    
-        public void AddForce(Vector2 direction, float force)
+        public Vector3 Velocity => _velocity;
+
+        public void SetForce(Vector2 direction, float force)
         {
             _velocity = direction.normalized * force;
+        }
+
+        public void AddForce(Vector2 direction, float force)
+        {
+            _velocity += (Vector3)(direction.normalized * force);
+        }
+
+        public void SetVelocity(Vector3 velocity)
+        {
+            _velocity = velocity;
         }
 
         public void SetColliderRadius(float value)

@@ -29,7 +29,7 @@ namespace SpawnSystem
             Vector3 launchDirection = transform.up.Rotate(Random.Range(angel1, angel2));
 
             blockPhysic.transform.position = launchPoint;
-            blockPhysic.AddForce(launchDirection, Random.Range(forceRange.x, forceRange.y));
+            blockPhysic.SetForce(launchDirection, Random.Range(forceRange.x, forceRange.y));
         }
     }
 }
