@@ -3,7 +3,7 @@ using Particles;
 using ScoreSystem;
 using UnityEngine;
 
-namespace CutSystem.CuttingServices
+namespace CuttingSystem.CuttingServices
 {
     public class ScoreIncrease : CuttingService
     {

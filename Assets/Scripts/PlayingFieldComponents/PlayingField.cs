@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Adaptive
+namespace PlayingFieldComponents
 {
     public class PlayingField : MonoBehaviour
     {

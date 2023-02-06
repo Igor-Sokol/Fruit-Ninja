@@ -1,6 +1,6 @@
 using System;
 
-namespace CutSystem
+namespace CuttingSystem
 {
     [Flags]
     public enum CuttingServiceType

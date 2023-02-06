@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CutSystem.CuttingServices;
+using CuttingSystem.CuttingServices;
 using UnityEngine;
 
-namespace CutSystem
+namespace CuttingSystem
 {
     public class CuttingServiceLocator : Singleton<CuttingServiceLocator>
     {

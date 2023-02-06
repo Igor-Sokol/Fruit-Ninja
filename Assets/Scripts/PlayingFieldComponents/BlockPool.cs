@@ -1,7 +1,9 @@
+using BlockComponents;
+using BlockConfiguration;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace BlockComponents
+namespace PlayingFieldComponents
 {
     public class BlockPool : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using BlockComponents;
 using UnityEngine;
 
-namespace CutSystem.CuttingServices
+namespace CuttingSystem.CuttingServices
 {
     public class BlotParticle : CuttingService
     {

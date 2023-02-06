@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Adaptive;
+using BlockComponents;
 using UnityEngine;
 
-namespace BlockComponents
+namespace PlayingFieldComponents
 {
     public class BlockDeadZone : MonoBehaviour
     {

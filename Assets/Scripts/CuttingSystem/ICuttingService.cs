@@ -1,7 +1,7 @@
 using BlockComponents;
 using UnityEngine;
 
-namespace CutSystem
+namespace CuttingSystem
 {
     public interface ICuttingService
     {

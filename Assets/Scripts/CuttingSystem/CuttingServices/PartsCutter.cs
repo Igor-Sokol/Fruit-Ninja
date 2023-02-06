@@ -1,9 +1,11 @@
 using System.Linq;
 using BlockComponents;
+using BlockConfiguration;
 using Extensions;
+using PlayingFieldComponents;
 using UnityEngine;
 
-namespace CutSystem.CuttingServices
+namespace CuttingSystem.CuttingServices
 {
     public class PartsCutter : CuttingService
     {

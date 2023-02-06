@@ -4,6 +4,7 @@ using Adaptive;
 using Animations;
 using BlockComponents;
 using DifficultySystem;
+using PlayingFieldComponents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
+using BlockComponents;
 using UnityEngine;
 
-namespace BlockComponents
+namespace PlayingFieldComponents
 {
     public class BlockContainer : MonoBehaviour
     {
