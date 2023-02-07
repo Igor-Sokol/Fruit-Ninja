@@ -1,6 +1,7 @@
 using SceneChangeSystem;
 using ScoreSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
@@ -8,7 +9,7 @@ namespace UI
     public class MenuView : MonoBehaviour
     {
         [SerializeField] private ScoreManager scoreManager;
-        [SerializeField] private Score score;
+        [FormerlySerializedAs("score")] [SerializeField] private TextValue textValue;
         [SerializeField] private Button gameButton;
         [SerializeField] private string sceneName;
         [SerializeField] private Button exitButton;
@@ -34,7 +35,7 @@ namespace UI
 
         private void SetScore()
         {
-            score.ForceSetValue(scoreManager.BestScore);
+            textValue.ForceSetValue(scoreManager.BestScore);
         }
 
         private void GameButton()

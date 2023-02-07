@@ -12,8 +12,8 @@ namespace UI
     {
         [SerializeField] private GameStarter gameStarter;
         [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private Score currentScoreText;
-        [SerializeField] private Score bestScoreText;
+        [FormerlySerializedAs("currentScoreText")] [SerializeField] private TextValue currentTextValueText;
+        [FormerlySerializedAs("bestScoreText")] [SerializeField] private TextValue bestTextValueText;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button menuButton;
         [SerializeField] private string sceneName;
@@ -35,10 +35,10 @@ namespace UI
 
         public void Show(int currentScore, int bestScore)
         {
-            currentScoreText.ForceSetValue(0);
-            currentScoreText.SetValue(currentScore);
-            bestScoreText.ForceSetValue(0);
-            bestScoreText.SetValue(bestScore);
+            currentTextValueText.ForceSetValue(0);
+            currentTextValueText.SetValue(currentScore);
+            bestTextValueText.ForceSetValue(0);
+            bestTextValueText.SetValue(bestScore);
 
             Enable();
         }

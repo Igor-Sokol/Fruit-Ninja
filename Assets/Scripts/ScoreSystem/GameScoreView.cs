@@ -1,13 +1,15 @@
 using System;
+using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScoreSystem
 {
     public class GameScoreView : MonoBehaviour
     {
         [SerializeField] private ScoreManager scoreManager;
-        [SerializeField] private Score gameScoreView;
-        [SerializeField] private Score bestScoreView;
+        [FormerlySerializedAs("gameScoreView")] [SerializeField] private TextValue gameTextValueView;
+        [FormerlySerializedAs("bestScoreView")] [SerializeField] private TextValue bestTextValueView;
 
         private void Awake()
         {
@@ -16,21 +18,21 @@ namespace ScoreSystem
 
         public void Init()
         {
-            gameScoreView.ForceSetValue(scoreManager.CurrentScore);
-            bestScoreView.ForceSetValue(scoreManager.BestScore);
+            gameTextValueView.ForceSetValue(scoreManager.CurrentScore);
+            bestTextValueView.ForceSetValue(scoreManager.BestScore);
         }
 
         private void OnEnable()
         {
-            scoreManager.GameScoreChanged += gameScoreView.SetValue;
-            scoreManager.BestScoreChanged += bestScoreView.SetValue;
+            scoreManager.GameScoreChanged += gameTextValueView.SetValue;
+            scoreManager.BestScoreChanged += bestTextValueView.SetValue;
             scoreManager.ScoreLoaded += Init;
         }
 
         private void OnDisable()
         {
-            scoreManager.GameScoreChanged -= gameScoreView.SetValue;
-            scoreManager.BestScoreChanged -= bestScoreView.SetValue;
+            scoreManager.GameScoreChanged -= gameTextValueView.SetValue;
+            scoreManager.BestScoreChanged -= bestTextValueView.SetValue;
             scoreManager.ScoreLoaded -= Init;
         }
     }

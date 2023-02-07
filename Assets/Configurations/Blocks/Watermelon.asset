@@ -20,5 +20,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 00ef1a32584e9d04c9f201fe803430fc, type: 2}
     - {fileID: 11400000, guid: d07239d02bdec27469d1e5632631fda9, type: 2}
     - {fileID: 11400000, guid: f5fff050d5adff143872e5b356e4d924, type: 2}
+    - {fileID: 11400000, guid: a3c2c38b607c6234fb234cdafb787117, type: 2}
     beyondServiceSettings:
     - {fileID: 11400000, guid: 0785c8a0e4668df458ab7a56eccbed11, type: 2}
