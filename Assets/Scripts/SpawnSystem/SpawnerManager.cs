@@ -6,6 +6,7 @@ using BlockComponents;
 using DifficultySystem;
 using PlayingFieldComponents;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace SpawnSystem
@@ -13,13 +14,13 @@ namespace SpawnSystem
     public class SpawnerManager : MonoBehaviour
     {
         private float[] _spawnerPriority;
-        private Coroutine spawnerHandler;
+        private Coroutine _spawnerHandler;
 
         [SerializeField] private PlayingField playingField;
         [SerializeField] private DynamicDifficulty difficultyController;
         [SerializeField] private AnimationManager animationManager;
         [SerializeField] private BlockContainer blockContainer;
-        [SerializeField] private BlockPool blockPool;
+        [SerializeField] private BlockStackGenerator blockStackGenerator;
         [SerializeField] private Spawner[] spawners;
         [SerializeField] private float spawnScale; 
 
@@ -35,14 +36,14 @@ namespace SpawnSystem
 
         public void EnableSpawners()
         {
-            spawnerHandler = StartCoroutine(Spawn());
+            _spawnerHandler = StartCoroutine(Spawn());
         }
 
         public void DisableSpawners()
         {
-            if (spawnerHandler != null)
+            if (_spawnerHandler != null)
             {
-                StopCoroutine(spawnerHandler);
+                StopCoroutine(_spawnerHandler);
             }
         }
         
@@ -50,9 +51,8 @@ namespace SpawnSystem
         {
             while (true)
             {
-                for (int i = 0; i < difficultyController.FruitsInPack; i++)
+                foreach (var block in blockStackGenerator.GetBlocks())
                 {
-                    var block = blockPool.GetRandomFruit();
                     block.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
                     blockContainer.AddBlock(block);
                     block.BlockAnimator.SetAnimations(animationManager.GetRandomAnimations());
@@ -61,7 +61,7 @@ namespace SpawnSystem
                 
                     yield return new WaitForSeconds(difficultyController.FruitInterval);
                 }
-            
+
                 yield return new WaitForSeconds(difficultyController.PackInterval);
             }
         }

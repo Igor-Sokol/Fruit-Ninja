@@ -8,7 +8,7 @@ namespace CuttingSystem.Implementations
     public class Explode : ICuttingService
     {
         private readonly BlockContainer _playingFieldBlocks;
-        private readonly BlockPool _blockPool;
+        private readonly BlockStackGenerator _blockStackGenerator;
         private float _range;
         private float _force;
 
@@ -18,10 +18,10 @@ namespace CuttingSystem.Implementations
             _force = force;
         }
         
-        public Explode(BlockContainer playingFieldBlocks, BlockPool blockPool)
+        public Explode(BlockContainer playingFieldBlocks, BlockStackGenerator blockStackGenerator)
         {
             _playingFieldBlocks = playingFieldBlocks;
-            _blockPool = blockPool;
+            _blockStackGenerator = blockStackGenerator;
         }
         
         public void Cut(Block block, Vector2 bladeVector)
@@ -36,7 +36,7 @@ namespace CuttingSystem.Implementations
             }
             
             _playingFieldBlocks.RemoveBlock(block);
-            _blockPool.ReturnBlock(block);
+            _blockStackGenerator.ReturnBlock(block);
         }
     }
 }

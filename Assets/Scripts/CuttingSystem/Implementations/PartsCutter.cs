@@ -10,7 +10,7 @@ namespace CuttingSystem.Implementations
     public class PartsCutter : ICuttingService
     {
         private readonly BlockContainer _playingBlockContainer;
-        private readonly BlockPool _blockPool;
+        private readonly BlockStackGenerator _blockStackGenerator;
         private float _partsForce;
 
         public void Init(float partsForce)
@@ -18,10 +18,10 @@ namespace CuttingSystem.Implementations
             _partsForce = partsForce;
         }
 
-        public PartsCutter(BlockContainer playingBlockContainer, BlockPool blockPool)
+        public PartsCutter(BlockContainer playingBlockContainer, BlockStackGenerator blockStackGenerator)
         {
             _playingBlockContainer = playingBlockContainer;
-            _blockPool = blockPool;
+            _blockStackGenerator = blockStackGenerator;
         }
 
         public void Cut(Block block, Vector2 bladeVector)
@@ -42,7 +42,7 @@ namespace CuttingSystem.Implementations
                 _partsForce);
         
             _playingBlockContainer.RemoveBlock(block);
-            _blockPool.ReturnBlock(block);
+            _blockStackGenerator.ReturnBlock(block);
         
             _playingBlockContainer.AddBlock(leftPart);
             _playingBlockContainer.AddBlock(rightPart);
@@ -50,7 +50,7 @@ namespace CuttingSystem.Implementations
 
         private Block CreatePart(Block block, Rect textureRect, Vector2 texturePivot)
         {
-            var part = _blockPool.GetEmptyBlock();
+            var part = _blockStackGenerator.GetEmptyBlock();
             part.transform.position = block.transform.position;
             part.transform.localScale = block.transform.localScale;
             part.BlockAnimator.SetAnimations(block.BlockAnimator.Animations.ToArray());

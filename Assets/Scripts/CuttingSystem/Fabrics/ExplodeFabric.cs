@@ -7,11 +7,11 @@ namespace CuttingSystem.Fabrics
     public class ExplodeFabric : CuttingServiceFabric
     {
         [SerializeField] private BlockContainer playingFieldBlocks;
-        [SerializeField] private BlockPool blockPool;
+        [SerializeField] private BlockStackGenerator blockStackGenerator;
         
         public override ICuttingService Create()
         {
-            return new Explode(playingFieldBlocks, blockPool);
+            return new Explode(playingFieldBlocks, blockStackGenerator);
         }
     }
 }

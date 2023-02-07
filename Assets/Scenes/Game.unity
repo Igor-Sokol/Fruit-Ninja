@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playingField: {fileID: 425550761}
-  blockPool: {fileID: 1471112644}
+  blockStackGenerator: {fileID: 1471112644}
   blockContainers:
   - {fileID: 503679824}
   zone:
@@ -1535,7 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playingBlockContainer: {fileID: 503679824}
-  blockPool: {fileID: 1471112644}
+  blockStackGenerator: {fileID: 1471112644}
 --- !u!114 &721323813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playingFieldBlocks: {fileID: 503679824}
-  blockPool: {fileID: 1471112644}
+  blockStackGenerator: {fileID: 1471112644}
 --- !u!114 &721323818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3048,17 +3048,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6183815d49094bc1849422e360c3e77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dynamicDifficulty: {fileID: 561848543}
   prefab: {fileID: 6329125470226908168, guid: be4dd6ceeb0bc3d498db151482627133, type: 3}
-  blockSettings:
-  - {fileID: 11400000, guid: 135e519c48599924b8ab915d413384ea, type: 2}
-  - {fileID: 11400000, guid: 6fe9cb9e1f94b2a47b78d991c3da90ad, type: 2}
-  - {fileID: 11400000, guid: 53a3b1f4849ec4b40b2a25c8845e172d, type: 2}
-  - {fileID: 11400000, guid: 9f5806a0abb536241a7d724dfe148787, type: 2}
-  - {fileID: 11400000, guid: 35a788a51475ae64c9f4f5eac85b59ec, type: 2}
-  - {fileID: 11400000, guid: 32376f74bcf722e4ebba8d723cb49b30, type: 2}
-  - {fileID: 11400000, guid: d2dd52ef84c81c84e99e5aa32798b170, type: 2}
-  - {fileID: 11400000, guid: dfa70ac983129854abc34016c1c2271c, type: 2}
-  - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
+  blocks:
+  - maximumAllowable: 1
+    priority: 8
+    blocks:
+    - {fileID: 11400000, guid: dfa70ac983129854abc34016c1c2271c, type: 2}
+    - {fileID: 11400000, guid: 135e519c48599924b8ab915d413384ea, type: 2}
+    - {fileID: 11400000, guid: 6fe9cb9e1f94b2a47b78d991c3da90ad, type: 2}
+    - {fileID: 11400000, guid: 53a3b1f4849ec4b40b2a25c8845e172d, type: 2}
+    - {fileID: 11400000, guid: 9f5806a0abb536241a7d724dfe148787, type: 2}
+    - {fileID: 11400000, guid: 35a788a51475ae64c9f4f5eac85b59ec, type: 2}
+    - {fileID: 11400000, guid: 32376f74bcf722e4ebba8d723cb49b30, type: 2}
+    - {fileID: 11400000, guid: d2dd52ef84c81c84e99e5aa32798b170, type: 2}
+  - maximumAllowable: 0.5
+    priority: 1
+    blocks:
+    - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
 --- !u!1 &1593506548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,7 +3796,7 @@ MonoBehaviour:
   difficultyController: {fileID: 561848543}
   animationManager: {fileID: 1091128612}
   blockContainer: {fileID: 503679824}
-  blockPool: {fileID: 1471112644}
+  blockStackGenerator: {fileID: 1471112644}
   spawners:
   - {fileID: 646491322}
   - {fileID: 1885830493}
@@ -3889,8 +3896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d785db0fe0143efa4997db23623e252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  startHealth: 50
+  maxHealth: 5
+  startHealth: 3
 --- !u!1 &2007644080
 GameObject:
   m_ObjectHideFlags: 0

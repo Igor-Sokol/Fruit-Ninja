@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BeyondZoneSystem;
 using BlockComponents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PlayingFieldComponents
 {
@@ -11,7 +12,7 @@ namespace PlayingFieldComponents
         private Rect _actualDeadZone;
     
         [SerializeField] private PlayingField playingField;
-        [SerializeField] private BlockPool blockPool;
+        [SerializeField] private BlockStackGenerator blockStackGenerator;
         [SerializeField] private BlockContainer[] blockContainers;
         [SerializeField] private Rect zone;
 
@@ -65,7 +66,7 @@ namespace PlayingFieldComponents
                 }
                 
                 container.RemoveBlock(block);
-                blockPool.ReturnBlock(block);
+                blockStackGenerator.ReturnBlock(block);
             }
         }
 
