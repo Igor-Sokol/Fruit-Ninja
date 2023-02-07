@@ -11,6 +11,7 @@ public class ComboRenderer : MonoBehaviour
     [SerializeField] private ComboManager comboManager;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextValue[] textValues;
+    [SerializeField] private int comboValueToShow;
 
     private void OnEnable()
     {
@@ -24,14 +25,17 @@ public class ComboRenderer : MonoBehaviour
 
     private void ShowCombo()
     {
-        _timer = 0;
-        
-        foreach (var textValue in textValues)
+        if (comboManager.CurrentCombo >= comboValueToShow)
         {
-            textValue.ForceSetValue(comboManager.CurrentCombo);
-        }
+            _timer = 0;
+        
+            foreach (var textValue in textValues)
+            {
+                textValue.ForceSetValue(comboManager.CurrentCombo);
+            }
 
-        _comboAnimationHandler ??= StartCoroutine(ComboAnimation());
+            _comboAnimationHandler ??= StartCoroutine(ComboAnimation());
+        }
     }
 
     private IEnumerator ComboAnimation()

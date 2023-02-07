@@ -1317,6 +1317,7 @@ MonoBehaviour:
   textValues:
   - {fileID: 1647234656}
   - {fileID: 255821261}
+  comboValueToShow: 2
 --- !u!225 &709048737
 CanvasGroup:
   m_ObjectHideFlags: 0
