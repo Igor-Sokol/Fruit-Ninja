@@ -2,11 +2,11 @@ using CuttingSystem.Implementations;
 
 namespace CuttingSystem.Fabrics
 {
-    public class BlotParticleFabric : CuttingServiceFabric
+    public class CutParticleFabric : CuttingServiceFabric
     {
         public override ICuttingService Create()
         {
-            return new BlotParticle();
+            return new CutParticle();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace CuttingSystem.Settings
     {
         public override Type CuttingServiceType => typeof(ComboIncrease);
         public override Type CuttingServiceFabricType => typeof(ComboIncreaseFabric);
+        
         public override ICuttingService GetService()
         {
             var fabric = CuttingServiceFabricLocator.Instance.GetServiceFabric(CuttingServiceFabricType);

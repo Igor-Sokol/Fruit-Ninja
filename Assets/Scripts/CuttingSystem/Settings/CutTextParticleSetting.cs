@@ -6,24 +6,24 @@ using UnityEngine;
 
 namespace CuttingSystem.Settings
 {
-    [CreateAssetMenu(fileName = "ScoreIncreaseSetting", menuName = "CuttingServicesSettings/ScoreIncreaseSetting")]
-    public class ScoreIncreaseSetting : CuttingServiceSetting
+    [CreateAssetMenu(fileName = "CutTextParticleSetting", menuName = "CuttingServicesSettings/CutTextParticleSetting")]
+    public class CutTextParticleSetting : CuttingServiceSetting
     {
-        [SerializeField] private int score;
         [SerializeField] private TextParticle textParticle;
+        [SerializeField] private string text;
         
-        public override Type CuttingServiceType => typeof(ScoreIncrease);
-        public override Type CuttingServiceFabricType => typeof(ScoreIncreaseFabric);
-        
+        public override Type CuttingServiceType => typeof(CutTextParticle);
+        public override Type CuttingServiceFabricType => typeof(CutTextParticleFabric);
+
         public override ICuttingService GetService()
         {
             var fabric = CuttingServiceFabricLocator.Instance.GetServiceFabric(CuttingServiceFabricType);
             if (!fabric) return null;
 
-            var implementation = fabric.Create() as ScoreIncrease;
+            var implementation = fabric.Create() as CutTextParticle;
             if (implementation == null) return null;
             
-            implementation.Init(score, textParticle);
+            implementation.Init(textParticle, text);
             return implementation;
         }
     }

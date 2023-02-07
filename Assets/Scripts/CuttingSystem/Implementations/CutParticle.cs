@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CuttingSystem.Implementations
 {
-    public class BlotParticle : ICuttingService
+    public class CutParticle : ICuttingService
     {
         private ParticleSystem _cuttingParticle;
 

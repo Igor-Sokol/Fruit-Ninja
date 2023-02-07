@@ -1478,6 +1478,9 @@ GameObject:
   - component: {fileID: 721323814}
   - component: {fileID: 721323813}
   - component: {fileID: 721323815}
+  - component: {fileID: 721323816}
+  - component: {fileID: 721323817}
+  - component: {fileID: 721323818}
   m_Layer: 0
   m_Name: CuttingServices
   m_TagString: Untagged
@@ -1516,6 +1519,9 @@ MonoBehaviour:
   - {fileID: 721323814}
   - {fileID: 721323813}
   - {fileID: 721323815}
+  - {fileID: 721323816}
+  - {fileID: 721323817}
+  - {fileID: 721323818}
 --- !u!114 &721323812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,6 +1576,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboManager: {fileID: 2007644082}
+--- !u!114 &721323816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721323809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ea6ef6ca145729405b7ea193c9bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthService: {fileID: 1912087594}
+--- !u!114 &721323817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721323809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2d7c93a24f4a908b010bdbb091a265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playingFieldBlocks: {fileID: 503679824}
+  blockPool: {fileID: 1471112644}
+--- !u!114 &721323818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721323809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e30162765542dfba1306fff822c987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1143230370}
 --- !u!1 &726896910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,7 +3016,7 @@ GameObject:
   - component: {fileID: 1471112643}
   - component: {fileID: 1471112644}
   m_Layer: 0
-  m_Name: BlockPools
+  m_Name: BlockPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3012,6 +3058,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32376f74bcf722e4ebba8d723cb49b30, type: 2}
   - {fileID: 11400000, guid: d2dd52ef84c81c84e99e5aa32798b170, type: 2}
   - {fileID: 11400000, guid: dfa70ac983129854abc34016c1c2271c, type: 2}
+  - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
 --- !u!1 &1593506548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3842,8 +3889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d785db0fe0143efa4997db23623e252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  startHealth: 3
+  maxHealth: 50
+  startHealth: 50
 --- !u!1 &2007644080
 GameObject:
   m_ObjectHideFlags: 0
