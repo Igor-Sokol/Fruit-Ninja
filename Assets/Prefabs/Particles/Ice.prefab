@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4754093860103177163}
   - component: {fileID: 920012749368936002}
   m_Layer: 0
-  m_Name: Explode
+  m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4759,7 +4759,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b04ed4ca4949ac44cabda5d685fdc60f, type: 2}
+  - {fileID: 2100000, guid: 7bc4721ceea96024fad260285ad48a8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

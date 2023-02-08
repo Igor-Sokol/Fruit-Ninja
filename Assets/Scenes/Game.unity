@@ -1561,6 +1561,7 @@ GameObject:
   - component: {fileID: 721323818}
   - component: {fileID: 721323819}
   - component: {fileID: 721323820}
+  - component: {fileID: 721323821}
   m_Layer: 0
   m_Name: CuttingServices
   m_TagString: Untagged
@@ -1604,6 +1605,7 @@ MonoBehaviour:
   - {fileID: 721323818}
   - {fileID: 721323819}
   - {fileID: 721323820}
+  - {fileID: 721323821}
 --- !u!114 &721323812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,6 +1727,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playingFieldContainer: {fileID: 503679824}
   blockStackGenerator: {fileID: 1471112644}
+--- !u!114 &721323821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721323809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de08b8bc8f944fa986f7e3a34d120fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScaleManager: {fileID: 2124577423}
 --- !u!1 &726896910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2816,6 +2831,7 @@ Transform:
   - {fileID: 779381274}
   - {fileID: 1912087593}
   - {fileID: 2007644081}
+  - {fileID: 2124577422}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3159,6 +3175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dynamicDifficulty: {fileID: 561848543}
+  timeScaleManager: {fileID: 2124577423}
   prefab: {fileID: 6329125470226908168, guid: be4dd6ceeb0bc3d498db151482627133, type: 3}
   blocks:
   - maximumAllowable: 1
@@ -3179,7 +3196,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
     restrictions: []
   - maximumAllowable: 0.3
-    priority: 0.2
+    priority: 0.5
     blocks:
     - {fileID: 11400000, guid: 017086016bf38164cb16ade66020f553, type: 2}
     restrictions:
@@ -3188,6 +3205,11 @@ MonoBehaviour:
     priority: 0.5
     blocks:
     - {fileID: 11400000, guid: 93cb70d22071ad4488804437256e24f2, type: 2}
+    restrictions: []
+  - maximumAllowable: 0.3
+    priority: 0.5
+    blocks:
+    - {fileID: 11400000, guid: 6e033c214151e2e4cab34a0e66e55cae, type: 2}
     restrictions: []
 --- !u!1 &1593506548
 GameObject:
@@ -4366,3 +4388,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playingField: {fileID: 425550761}
   spriteRenderer: {fileID: 2114635422}
+--- !u!1 &2124577421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124577422}
+  - component: {fileID: 2124577423}
+  m_Layer: 0
+  m_Name: BlockTimeScaleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2124577422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124577421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1263645800}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124577423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124577421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69bb4f60a9a487b86f41cc368519868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultScale: 1

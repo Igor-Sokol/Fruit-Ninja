@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BlockComponents;
 using DifficultySystem;
+using Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,7 +13,8 @@ namespace BlockStackSystem
     {
         private ObjectPool<Block> _pool;
 
-        [SerializeField] private DynamicDifficulty dynamicDifficulty; 
+        [SerializeField] private DynamicDifficulty dynamicDifficulty;
+        [SerializeField] private TimeScaleManager timeScaleManager;
         [SerializeField] private Block prefab;
         [SerializeField] private BlockStackSetting[] blocks;
 
@@ -24,7 +26,10 @@ namespace BlockStackSystem
 
         public Block GetEmptyBlock()
         {
-            return _pool.Get();
+            var block = _pool.Get();
+            block.SetTimeScaleManager(timeScaleManager);
+
+            return block;
         }
         
         public void ReturnBlock(Block block)
@@ -86,6 +91,7 @@ namespace BlockStackSystem
                         var settingObject = settingObjects[Random.Range(0, settingObjects.Length)];
                         var block = _pool.Get();
                         block.SetUp(settingObject);
+                        block.SetTimeScaleManager(timeScaleManager);
                         yield return block;
                     }
                 }

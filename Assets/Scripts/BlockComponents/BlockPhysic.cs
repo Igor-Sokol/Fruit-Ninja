@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Managers;
 using UnityEngine;
 
 namespace BlockComponents
@@ -6,12 +7,18 @@ namespace BlockComponents
     public class BlockPhysic : MonoBehaviour
     {
         private Vector3 _velocity;
-        
+
         [SerializeField] private float colliderRadius;
+        [SerializeField] private TimeScaleManager timeScaleManager;
 
         public float ColliderRadius => colliderRadius * transform.localScale.x;
         public Vector3 Velocity => _velocity;
 
+        public void SetTimeScaleManager(TimeScaleManager scaleManager)
+        {
+            timeScaleManager = scaleManager;
+        }
+        
         public void SetForce(Vector2 direction, float force)
         {
             _velocity = direction.normalized * force;
@@ -39,8 +46,10 @@ namespace BlockComponents
 
         private void PhysicsUpdate()
         {
-            _velocity += Physics.gravity * Time.deltaTime;
-            transform.position += _velocity * Time.deltaTime;
+            float timeScale = timeScaleManager ? timeScaleManager.CurrentScale : Time.timeScale;
+            
+            _velocity += Physics.gravity * (Time.deltaTime * timeScale);
+            transform.position += _velocity * (Time.deltaTime * timeScale);
         }
         
         [Conditional("UNITY_EDITOR")]

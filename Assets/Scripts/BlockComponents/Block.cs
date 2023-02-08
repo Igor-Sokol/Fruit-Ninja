@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using BeyondZoneSystem;
 using BlockConfiguration;
 using CuttingSystem;
+using Managers;
 using UnityEngine;
 
 namespace BlockComponents
@@ -11,11 +12,12 @@ namespace BlockComponents
         private BlockSetting _blockSetting;
         private List<ICuttingService> _cuttingService;
         private List<IBeyondService> _beyondServices;
-        
+
         [SerializeField] private BlockSettingObject settingObject;
         [SerializeField] private BlockPhysic blockPhysic;
         [SerializeField] private BlockAnimator blockAnimator;
         [SerializeField] private BlockRenderer blockRenderer;
+        [SerializeField] private TimeScaleManager timeScaleManager;
 
         public BlockSetting BlockSetting => _blockSetting;
         public BlockPhysic BlockPhysic => blockPhysic;
@@ -26,8 +28,16 @@ namespace BlockComponents
         {
             _cuttingService = new List<ICuttingService>();
             _beyondServices = new List<IBeyondService>();
+            SetTimeScaleManager(timeScaleManager);
         }
 
+        public void SetTimeScaleManager(TimeScaleManager scaleManager)
+        {
+            timeScaleManager = scaleManager;
+            BlockAnimator.SetTimeScaleManager(scaleManager);
+            blockPhysic.SetTimeScaleManager(scaleManager);
+        }
+        
         public void SetUp(BlockSettingObject settingObject)
         {
             this.settingObject = settingObject;
