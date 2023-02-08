@@ -31,12 +31,17 @@ namespace BlockStackSystem
         {
             _pool.Return(block);
         }
-        
+
         public IEnumerable<Block> GetBlocks()
         {
-            int blocksCount = dynamicDifficulty.FruitsInPack;
+            return GetBlocks(blocks, dynamicDifficulty.FruitsInPack);
+        }
+        
+        public IEnumerable<Block> GetBlocks(BlockStackSetting[] stackSettings, int count)
+        {
+            int blocksCount = count;
             Dictionary<BlockStackSetting, int> endSettings = new Dictionary<BlockStackSetting, int>();
-            List<BlockStackSetting> availableStackSettings = new List<BlockStackSetting>(blocks.Where(b => b.Restrictions.All(r => !r.IsRestricted())));
+            List<BlockStackSetting> availableStackSettings = new List<BlockStackSetting>(stackSettings.Where(b => b.Restrictions.All(r => !r.IsRestricted())));
             List<(BlockStackSetting, float)> weightArray = CreatePriorityArray(availableStackSettings, b => b.Priority);
 
             for (int i = 0; i < blocksCount; i++)
