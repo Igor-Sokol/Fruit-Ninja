@@ -2,7 +2,7 @@ using System.Collections;
 using Managers;
 using UnityEngine;
 
-namespace UI
+namespace UI.Game
 {
     public class ComboRenderer : MonoBehaviour
     {

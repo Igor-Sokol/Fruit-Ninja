@@ -2,7 +2,7 @@ using PlayingFieldComponents;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace UI
+namespace UI.Game
 {
     public class BladeMover : MonoBehaviour, IDragHandler, IBeginDragHandler
     {

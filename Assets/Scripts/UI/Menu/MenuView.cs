@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Menu
 {
     public class MenuView : MonoBehaviour
     {

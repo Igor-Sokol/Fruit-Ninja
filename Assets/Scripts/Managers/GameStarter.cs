@@ -7,6 +7,7 @@ using SceneChangeSystem;
 using ScoreSystem;
 using SpawnSystem;
 using UI;
+using UI.Game;
 using UnityEngine;
 
 namespace Managers

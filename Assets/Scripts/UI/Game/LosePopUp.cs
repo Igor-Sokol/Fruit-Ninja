@@ -1,12 +1,10 @@
 using Managers;
 using SceneChangeSystem;
-using ScoreSystem;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Game
 {
     public class LosePopUp : MonoBehaviour
     {
