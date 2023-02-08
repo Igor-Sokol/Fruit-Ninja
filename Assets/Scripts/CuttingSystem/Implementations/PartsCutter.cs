@@ -1,6 +1,7 @@
 using System.Linq;
 using BlockComponents;
 using BlockConfiguration;
+using BlockStackSystem;
 using Extensions;
 using PlayingFieldComponents;
 using UnityEngine;
@@ -40,10 +41,7 @@ namespace CuttingSystem.Implementations
                 _partsForce);
             rightPart.BlockPhysic.SetForce(normalizedBlade.Rotate(90f) + (Vector2)block.BlockPhysic.Velocity.normalized,
                 _partsForce);
-        
-            _playingBlockContainer.RemoveBlock(block);
-            _blockStackGenerator.ReturnBlock(block);
-        
+
             _playingBlockContainer.AddBlock(leftPart);
             _playingBlockContainer.AddBlock(rightPart);
         }

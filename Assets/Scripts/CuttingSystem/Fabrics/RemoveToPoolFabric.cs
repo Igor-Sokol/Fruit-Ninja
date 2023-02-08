@@ -2,19 +2,17 @@ using BlockStackSystem;
 using CuttingSystem.Implementations;
 using PlayingFieldComponents;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CuttingSystem.Fabrics
 {
-    public class PartsCutterFabric : CuttingServiceFabric
+    public class RemoveToPoolFabric : CuttingServiceFabric
     {
-        [SerializeField] private BlockContainer playingBlockContainer;
+        [SerializeField] private BlockContainer playingFieldBlocks;
         [SerializeField] private BlockStackGenerator blockStackGenerator;
-
-
+        
         public override ICuttingService Create()
         {
-            return new PartsCutter(playingBlockContainer, blockStackGenerator);
+            return new RemoveToPool(playingFieldBlocks, blockStackGenerator);
         }
     }
 }

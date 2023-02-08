@@ -29,9 +29,11 @@ namespace HealthSystem
         
         public void AddHealth(int value)
         {
-            _currentHealth = _currentHealth + value > maxHealth ? maxHealth : _currentHealth + value;
-            
-            HealthIncreased?.Invoke(value);
+            if (_currentHealth + value <= maxHealth)
+            {
+                _currentHealth += value;
+                HealthIncreased?.Invoke(value);
+            }
         }
         
         public void RemoveHealth(int value)

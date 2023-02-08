@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BeyondZoneSystem;
 using BlockComponents;
+using BlockStackSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 

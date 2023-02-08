@@ -6,7 +6,7 @@ using DifficultySystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace PlayingFieldComponents
+namespace BlockStackSystem
 {
     public class BlockStackGenerator : MonoBehaviour
     {
@@ -36,12 +36,15 @@ namespace PlayingFieldComponents
         {
             int blocksCount = dynamicDifficulty.FruitsInPack;
             Dictionary<BlockStackSetting, int> endSettings = new Dictionary<BlockStackSetting, int>();
-            List<BlockStackSetting> availableStackSettings = new List<BlockStackSetting>(blocks);
+            List<BlockStackSetting> availableStackSettings = new List<BlockStackSetting>(blocks.Where(b => b.Restrictions.All(r => !r.IsRestricted())));
             List<(BlockStackSetting, float)> weightArray = CreatePriorityArray(availableStackSettings, b => b.Priority);
 
             for (int i = 0; i < blocksCount; i++)
             {
-                BlockStackSetting nextStack = GetRandomItem(weightArray);
+                if (!TryGetRandomItem(weightArray, out var nextStack))
+                {
+                    break;
+                }
 
                 float percentage = endSettings.ContainsKey(nextStack)
                     ? ((endSettings[nextStack] + 1) / (float)blocksCount)
@@ -84,7 +87,7 @@ namespace PlayingFieldComponents
             }
         }
         
-        private T GetRandomItem<T>(IReadOnlyList<(T item, float weight)> items)
+        private bool TryGetRandomItem<T>(IReadOnlyList<(T item, float weight)> items, out T result)
         {
             float random = Random.value;
 
@@ -92,11 +95,13 @@ namespace PlayingFieldComponents
             {
                 if (random <= items[i].weight)
                 {
-                    return items[i].item;
+                    result = items[i].item;
+                    return true;
                 }
             }
 
-            throw new ArgumentException("Incorrect items weight.", nameof(items));
+            result = default;
+            return false;
         }
         
         private List<(T, float)> CreatePriorityArray<T>(IReadOnlyList<T> items, Func<T, float> getPriority)
@@ -106,7 +111,12 @@ namespace PlayingFieldComponents
             float prioritiesSum = items.Sum(getPriority);
             if (prioritiesSum <= 0)
             {
-                throw new ArgumentException("Items have zero priorities.", nameof(items));
+                foreach (var item in items)
+                {
+                    result.Add((item, 0f));
+                }
+
+                return result;
             }
         
             float temp = 0;

@@ -10075,7 +10075,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmpText: {fileID: 310291347}
   text: 
-  scoreChangeTime: 0
+  endText: 
+  valueChangeTime: 0
 --- !u!1 &493832654
 GameObject:
   m_ObjectHideFlags: 0
@@ -16289,7 +16290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 493832657}
-  score: {fileID: 310291349}
+  textValue: {fileID: 310291349}
   gameButton: {fileID: 1370296702}
   sceneName: Game
   exitButton: {fileID: 1389023751}
