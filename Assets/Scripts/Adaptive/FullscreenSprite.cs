@@ -8,7 +8,7 @@ namespace Adaptive
         [SerializeField] private PlayingField playingField;
         [SerializeField] private SpriteRenderer spriteRenderer;
         
-        void Awake()
+        void Start()
         {
             transform.position = Vector2.zero;
 

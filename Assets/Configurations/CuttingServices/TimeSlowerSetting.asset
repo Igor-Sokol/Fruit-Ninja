@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TimeSlowerSetting
   m_EditorClassIdentifier: 
   scale: 0.3
-  slowSeconds: 5
+  slowSeconds: 2.5
