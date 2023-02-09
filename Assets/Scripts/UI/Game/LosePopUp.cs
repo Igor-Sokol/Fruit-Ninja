@@ -1,7 +1,6 @@
 using Managers;
 using SceneChangeSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI.Game
@@ -10,8 +9,8 @@ namespace UI.Game
     {
         [SerializeField] private GameStarter gameStarter;
         [SerializeField] private CanvasGroup canvasGroup;
-        [FormerlySerializedAs("currentScoreText")] [SerializeField] private TextValue currentTextValueText;
-        [FormerlySerializedAs("bestScoreText")] [SerializeField] private TextValue bestTextValueText;
+        [SerializeField] private TextValue currentTextValueText;
+        [SerializeField] private TextValue bestTextValueText;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button menuButton;
         [SerializeField] private string sceneName;
@@ -56,12 +55,14 @@ namespace UI.Game
         {
             animationRenderer.Play(enableAnimation);
             canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
         }
 
         private void Disable()
         {
             animationRenderer.Play(disableAnimation);
             canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
         }
 
         private void AnimationDisableCallback()
