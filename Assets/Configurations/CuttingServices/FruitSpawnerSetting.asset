@@ -27,4 +27,5 @@ MonoBehaviour:
     restrictions: []
   count: 5
   force: 7
-  spawnOffset: 2.7
+  spawnRange: 2.7
+  spawnOffset: {x: 0, y: 0.6}

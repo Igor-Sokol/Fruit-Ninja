@@ -12,7 +12,8 @@ namespace CuttingSystem.Settings
         [SerializeField] private BlockStackSetting[] blockStackSettings;
         [SerializeField] private int count;
         [SerializeField] private float force;
-        [SerializeField] private float spawnOffset;
+        [SerializeField] private float spawnRange;
+        [SerializeField] private Vector2 spawnOffset;
         
         public override Type CuttingServiceType => typeof(FruitSpawner);
         public override Type CuttingServiceFabricType => typeof(FruitSpawnerFabric);
@@ -25,7 +26,7 @@ namespace CuttingSystem.Settings
             var implementation = fabric.Create() as FruitSpawner;
             if (implementation == null) return null;
             
-            implementation.Init(blockStackSettings, count, force, spawnOffset);
+            implementation.Init(blockStackSettings, count, force, spawnRange, spawnOffset);
             return implementation;
         }
     }

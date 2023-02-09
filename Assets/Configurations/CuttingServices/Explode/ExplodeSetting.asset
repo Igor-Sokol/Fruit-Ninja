@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ExplodeSetting
   m_EditorClassIdentifier: 
   range: 10
-  force: 8
+  force: 15

@@ -13,13 +13,15 @@ namespace CuttingSystem.Implementations
         private BlockStackSetting[] _blockStackSettings;
         private int _count;
         private float _force;
-        private float _spawnOffset;
+        private float _spawnRangeOffset;
+        private Vector2 _spawnOffset;
 
-        public void Init(BlockStackSetting[] blockStackSettings, int count, float force, float spawnOffset)
+        public void Init(BlockStackSetting[] blockStackSettings, int count, float force, float spawnRangeOffset, Vector2 spawnOffset)
         {
             _blockStackSettings = blockStackSettings;
             _count = count;
             _force = force;
+            _spawnRangeOffset = spawnRangeOffset;
             _spawnOffset = spawnOffset;
         }
         
@@ -36,7 +38,7 @@ namespace CuttingSystem.Implementations
             for (int i = 0; i < newBlocks.Count; i++)
             {
                 var newBlock = newBlocks[i];
-                newBlock.transform.position = block.transform.position + (Vector3)Random.insideUnitCircle * _spawnOffset;
+                newBlock.transform.position = block.transform.position + (Vector3)_spawnOffset + (Vector3)Random.insideUnitCircle * _spawnRangeOffset;
                 newBlock.BlockPhysic.SetForce(block.BlockPhysic.Velocity.normalized, _force);
                 _playingFieldContainer.AddBlock(newBlock);
             }
