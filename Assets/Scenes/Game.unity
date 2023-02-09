@@ -3179,7 +3179,7 @@ MonoBehaviour:
   prefab: {fileID: 6329125470226908168, guid: be4dd6ceeb0bc3d498db151482627133, type: 3}
   blocks:
   - maximumAllowable: 1
-    priority: 8
+    priority: 70
     blocks:
     - {fileID: 11400000, guid: dfa70ac983129854abc34016c1c2271c, type: 2}
     - {fileID: 11400000, guid: 135e519c48599924b8ab915d413384ea, type: 2}
@@ -3191,23 +3191,23 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d2dd52ef84c81c84e99e5aa32798b170, type: 2}
     restrictions: []
   - maximumAllowable: 0.5
-    priority: 1
+    priority: 30
     blocks:
     - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
     restrictions: []
   - maximumAllowable: 0.3
-    priority: 0.5
+    priority: 5
     blocks:
     - {fileID: 11400000, guid: 017086016bf38164cb16ade66020f553, type: 2}
     restrictions:
     - {fileID: 355439077}
   - maximumAllowable: 0.3
-    priority: 0.5
+    priority: 5
     blocks:
     - {fileID: 11400000, guid: 93cb70d22071ad4488804437256e24f2, type: 2}
     restrictions: []
   - maximumAllowable: 0.3
-    priority: 0.5
+    priority: 5
     blocks:
     - {fileID: 11400000, guid: 6e033c214151e2e4cab34a0e66e55cae, type: 2}
     restrictions: []
