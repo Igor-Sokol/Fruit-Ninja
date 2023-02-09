@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 25
   textParticle: {fileID: 1634791794836741911, guid: 4bfba26c531dcba43afe89544421a0f6, type: 3}
+  randomSpawnOffsetMultiply: 5

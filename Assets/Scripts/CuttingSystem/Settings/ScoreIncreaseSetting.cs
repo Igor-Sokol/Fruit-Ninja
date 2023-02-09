@@ -11,6 +11,7 @@ namespace CuttingSystem.Settings
     {
         [SerializeField] private int score;
         [SerializeField] private TextParticle textParticle;
+        [SerializeField] private float randomSpawnOffsetMultiply;
         
         public override Type CuttingServiceType => typeof(ScoreIncrease);
         public override Type CuttingServiceFabricType => typeof(ScoreIncreaseFabric);
@@ -23,7 +24,7 @@ namespace CuttingSystem.Settings
             var implementation = fabric.Create() as ScoreIncrease;
             if (implementation == null) return null;
             
-            implementation.Init(score, textParticle);
+            implementation.Init(score, textParticle, randomSpawnOffsetMultiply);
             return implementation;
         }
     }
