@@ -4,18 +4,23 @@ namespace Animations
 {
     public class ScaleAnimation : IAnimation
     {
-        private Vector3 _targetScale;
+        private float _timer;
+        private Vector2 _scaleRange;
         private float _speed;
 
-        public void SetUp(float targetScale, float speed)
+        public void SetUp(Vector2 scaleRange, float speed)
         {
-            _targetScale = new Vector3(targetScale, targetScale, targetScale);
+            _scaleRange = scaleRange;
             _speed = speed;
         }
-        
+
         public void UpdateAnimation(Transform transform, float deltaTime)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, _targetScale, _speed * Time.deltaTime);
+            _timer += deltaTime;
+
+            transform.localScale = Vector3.Lerp(new Vector3(_scaleRange.x, _scaleRange.x),
+                new Vector3(_scaleRange.y, _scaleRange.y),
+                Mathf.PingPong(_timer * _speed, 1));
         }
     }
 }
