@@ -28,4 +28,4 @@ MonoBehaviour:
   count: 5
   force: 7
   spawnRange: 2.7
-  spawnOffset: {x: 0, y: 0.6}
+  uncutTime: 0.1

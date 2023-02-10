@@ -3193,7 +3193,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d2dd52ef84c81c84e99e5aa32798b170, type: 2}
     restrictions: []
   - maximumAllowable: 0.5
-    priority: 30
+    priority: 15
     blocks:
     - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
     restrictions: []
@@ -3204,7 +3204,7 @@ MonoBehaviour:
     restrictions:
     - {fileID: 355439077}
   - maximumAllowable: 0.3
-    priority: 1
+    priority: 5555
     blocks:
     - {fileID: 11400000, guid: 93cb70d22071ad4488804437256e24f2, type: 2}
     restrictions: []
