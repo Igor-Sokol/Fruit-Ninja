@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f333ca9c223c418394e8dd14d4e9ca13, type: 3}
+  m_Name: MakeMagnetField
+  m_EditorClassIdentifier: 
+  magnetFieldSettings: {fileID: 11400000, guid: ca10214d16cec6840a9a7cef0e4e4585, type: 2}
+  particle: {fileID: 25125535963066817, guid: 668bfcce1dac5074480de578694a4de0, type: 3}
+  seconds: 2.5
