@@ -1,5 +1,6 @@
 using System.Collections;
 using Managers;
+using PlayingFieldComponents;
 using UnityEngine;
 
 namespace UI.Game
@@ -11,6 +12,7 @@ namespace UI.Game
     
         [SerializeField] private ComboManager comboManager;
         [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private PlayingField playingField;
         [SerializeField] private TextValue[] textValues;
         [SerializeField] private int comboValueToShow;
 
@@ -24,6 +26,18 @@ namespace UI.Game
             comboManager.OnComboIncreased -= ShowCombo;
         }
 
+        public void SetPosition(Vector3 position)
+        {
+            RectTransform rect = transform as RectTransform;
+            
+            if (!rect) return;
+
+            float xPosition = Mathf.Clamp(position.x, 0, playingField.Resolution.x - rect.rect.width);
+            float yPosition = Mathf.Clamp(position.y, 0, playingField.Resolution.y - rect.rect.height);
+
+            transform.position = new Vector2(xPosition, yPosition);
+        }
+        
         private void ShowCombo()
         {
             if (comboManager.CurrentCombo >= comboValueToShow)

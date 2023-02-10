@@ -11,6 +11,8 @@ namespace PlayingFieldComponents
         public Vector2 FieldRightUpper { get; private set; }
         public Vector2 HalfFieldSize { get; private set; }
 
+        public Vector2 Resolution { get; private set; }
+
         private void Awake()
         {
             UpdateFieldSize();
@@ -26,6 +28,8 @@ namespace PlayingFieldComponents
 
         private void UpdateFieldSize()
         {
+            Resolution = new Vector2(Screen.width, Screen.height);
+            
             FieldLeftBottom = workingCamera.ScreenToWorldPoint(new Vector3(0, 0, 0));
             FieldRightUpper = workingCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
 
