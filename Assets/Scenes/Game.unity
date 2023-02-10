@@ -515,6 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 425550760}
   - component: {fileID: 425550761}
+  - component: {fileID: 425550762}
   m_Layer: 0
   m_Name: PlayingField
   m_TagString: Untagged
@@ -554,6 +555,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workingCamera: {fileID: 519420031}
+--- !u!114 &425550762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425550759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f804821edf414dd093df6c3cd6d6a0a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playingField: {fileID: 503679824}
 --- !u!1 &470513957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1350,7 @@ Transform:
   m_Children:
   - {fileID: 721323810}
   - {fileID: 1417053013}
+  - {fileID: 1924276023}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1565,6 +1580,7 @@ GameObject:
   - component: {fileID: 721323819}
   - component: {fileID: 721323820}
   - component: {fileID: 721323821}
+  - component: {fileID: 721323822}
   m_Layer: 0
   m_Name: CuttingServices
   m_TagString: Untagged
@@ -1609,6 +1625,7 @@ MonoBehaviour:
   - {fileID: 721323819}
   - {fileID: 721323820}
   - {fileID: 721323821}
+  - {fileID: 721323822}
 --- !u!114 &721323812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,6 +1762,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeScaleManager: {fileID: 2124577423}
   filterRenderer: {fileID: 1719823899}
+--- !u!114 &721323822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721323809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e73c957487464f82a6da8e6e14a3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726896910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,6 +3245,11 @@ MonoBehaviour:
     blocks:
     - {fileID: 11400000, guid: 6e033c214151e2e4cab34a0e66e55cae, type: 2}
     restrictions: []
+  - maximumAllowable: 0.3
+    priority: 1
+    blocks:
+    - {fileID: 11400000, guid: bc05111513afe8242a74aae15e4bac08, type: 2}
+    restrictions: []
 --- !u!1 &1593506548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,6 +4230,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   startHealth: 3
+--- !u!1 &1924276022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1924276023}
+  - component: {fileID: 1924276025}
+  - component: {fileID: 1924276024}
+  m_Layer: 0
+  m_Name: OnPlayingFieldServices
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1924276023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924276022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 688917260}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924276024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924276022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b3dcf0c40a41d19007696b370c2b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playingField: {fileID: 503679824}
+--- !u!114 &1924276025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924276022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85fb63f1939457fb5c3c46c351e8da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playingFieldServiceFabrics:
+  - {fileID: 1924276024}
 --- !u!1 &2007644080
 GameObject:
   m_ObjectHideFlags: 0
