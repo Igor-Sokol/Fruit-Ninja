@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using BeyondZoneSystem;
 using BlockConfiguration;
 using CuttingSystem;
@@ -10,7 +11,7 @@ namespace BlockComponents
     public class Block : MonoBehaviour, ICutting, IBeyondService
     {
         private BlockSetting _blockSetting;
-        private List<ICuttingService> _cuttingService;
+        private CuttingManager _cuttingManager;
         private List<IBeyondService> _beyondServices;
 
         [SerializeField] private BlockSettingObject settingObject;
@@ -23,10 +24,13 @@ namespace BlockComponents
         public BlockPhysic BlockPhysic => blockPhysic;
         public BlockAnimator BlockAnimator => blockAnimator;
         public BlockRenderer BlockRenderer => blockRenderer;
+        public CuttingManager CuttingManager => _cuttingManager;
 
         private void Awake()
         {
-            _cuttingService = new List<ICuttingService>();
+            _cuttingManager = gameObject.AddComponent<CuttingManager>();
+            _cuttingManager.Init(this, null);
+            
             _beyondServices = new List<IBeyondService>();
             SetTimeScaleManager(timeScaleManager);
         }
@@ -49,14 +53,11 @@ namespace BlockComponents
             _blockSetting = blockSetting;
             blockPhysic.SetColliderRadius(blockSetting.ColliderRadius);
             blockRenderer.Renderer(blockSetting.Sprite, blockSetting.EnableShadow);
-
-            _cuttingService.Clear();
+            
+            _cuttingManager.Clear();
             if (blockSetting.CuttingServicesSettings != null)
             {
-                foreach (var cuttingServiceSetting in blockSetting.CuttingServicesSettings)
-                {
-                    _cuttingService.Add(cuttingServiceSetting.GetService());
-                }
+                _cuttingManager.Init(this, blockSetting.CuttingServicesSettings.Select(c => c.GetService()));
             }
             
             _beyondServices.Clear();
@@ -71,10 +72,7 @@ namespace BlockComponents
 
         public void Cut(Vector2 bladeVector)
         {
-            foreach (var service in _cuttingService)
-            {
-                service.Cut(this, bladeVector);
-            }
+            _cuttingManager.Cut(bladeVector);
         }
 
         public void BeyondZoneAction()
