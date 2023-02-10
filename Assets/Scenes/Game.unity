@@ -2591,7 +2591,6 @@ MonoBehaviour:
     prefab: {fileID: 771630110573462633, guid: da2aa9814c598504bb8dd0ee1c9ae340, type: 3}
     container: {fileID: 726896911}
   container: {fileID: 977418414}
-  playingField: {fileID: 425550761}
   gridLayoutGroup: {fileID: 977418416}
   heartMoveTime: 1
 --- !u!1 &1034899033
@@ -3234,7 +3233,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
     restrictions: []
   - maximumAllowable: 0.3
-    priority: 555
+    priority: 1
     blocks:
     - {fileID: 11400000, guid: 017086016bf38164cb16ade66020f553, type: 2}
     restrictions:
