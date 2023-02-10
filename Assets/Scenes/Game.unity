@@ -2507,8 +2507,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977418414}
-  - component: {fileID: 977418416}
   - component: {fileID: 977418415}
+  - component: {fileID: 977418416}
   - component: {fileID: 977418417}
   m_Layer: 5
   m_Name: HealthBar
@@ -2832,7 +2832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 157.7}
+  m_AnchoredPosition: {x: 0, y: 157.7002}
   m_SizeDelta: {x: 892, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1263645799
@@ -3234,7 +3234,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
     restrictions: []
   - maximumAllowable: 0.3
-    priority: 1
+    priority: 555
     blocks:
     - {fileID: 11400000, guid: 017086016bf38164cb16ade66020f553, type: 2}
     restrictions:

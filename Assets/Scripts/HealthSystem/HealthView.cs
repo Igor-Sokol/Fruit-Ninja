@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace HealthSystem
 {
+    [RequireComponent(typeof(RectTransform))]
     public class HealthView : MonoBehaviour
     {
         private List<Heart> _hearts;
@@ -15,7 +16,6 @@ namespace HealthSystem
         [SerializeField] private HealthService healthService;
         [SerializeField] private ObjectPool<Heart> heartPool;
         [SerializeField] private Transform container;
-        [SerializeField] private PlayingField playingField;
         [SerializeField] private GridLayoutGroup gridLayoutGroup;
         [SerializeField] private float heartMoveTime;
             
@@ -81,13 +81,13 @@ namespace HealthSystem
         {
             int elementId = _healthOnBar;
 
-            Vector2 position = playingField.WorldToScreenPoint(gridLayoutGroup.transform.position);
+            Vector2 position = gridLayoutGroup.transform.localPosition;
             position -= new Vector2(gridLayoutGroup.cellSize.x / 2, gridLayoutGroup.cellSize.y / 2);
             
             position -= new Vector2(elementId % gridLayoutGroup.constraintCount * (gridLayoutGroup.spacing.x + gridLayoutGroup.cellSize.x), 0);
             position -= new Vector2(0, elementId / gridLayoutGroup.constraintCount * (gridLayoutGroup.spacing.y + gridLayoutGroup.cellSize.y));
 
-            return playingField.ScreenToWorldPoint(position);
+            return gridLayoutGroup.transform.TransformVector(position);
         }
 
         private void ReturnHeart(Heart heart)
@@ -111,7 +111,7 @@ namespace HealthSystem
         private IEnumerator MoveHeartToPosition(Heart heart, Vector2 startPosition, Vector2 targetPosition)
         {
             float timer = 0;
-
+            
             while (timer < heartMoveTime)
             {
                 timer += Time.deltaTime;
