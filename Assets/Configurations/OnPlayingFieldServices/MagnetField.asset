@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd45fccf1a747fa9f58d20fef83b72d, type: 3}
   m_Name: MagnetField
   m_EditorClassIdentifier: 
-  force: 5
+  force: 10
   influenceExclusions:
   - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
   - {fileID: 11400000, guid: bc05111513afe8242a74aae15e4bac08, type: 2}
