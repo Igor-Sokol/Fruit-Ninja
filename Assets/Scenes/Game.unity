@@ -1376,7 +1376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 716, y: 474}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 650, y: 294}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &709048736
@@ -1393,10 +1393,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboManager: {fileID: 2007644082}
   canvasGroup: {fileID: 709048737}
+  playingField: {fileID: 425550761}
   textValues:
   - {fileID: 1647234656}
   - {fileID: 255821261}
   comboValueToShow: 2
+  moveSpeed: 2
 --- !u!225 &709048737
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1405,7 +1407,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709048733}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1661,6 +1663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboManager: {fileID: 2007644082}
+  comboRenderer: {fileID: 709048736}
 --- !u!114 &721323816
 MonoBehaviour:
   m_ObjectHideFlags: 0

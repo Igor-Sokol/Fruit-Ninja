@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eda395e826549f3ba8a97cb0bfdcbdd, type: 3}
   m_Name: ComboIncreaseSetting
   m_EditorClassIdentifier: 
+  changeComboPosition: 1

@@ -26,6 +26,16 @@ namespace PlayingFieldComponents
             return position;
         }
 
+        public Vector2 WorldToScreenPoint(Vector3 position)
+        {
+            return workingCamera.WorldToScreenPoint(position);
+        }
+        
+        public Vector2 ScreenToWorldPoint(Vector3 position)
+        {
+            return workingCamera.ScreenToWorldPoint(position);
+        }
+        
         private void UpdateFieldSize()
         {
             Resolution = new Vector2(Screen.width, Screen.height);

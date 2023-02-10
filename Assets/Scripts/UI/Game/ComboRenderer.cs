@@ -7,6 +7,8 @@ namespace UI.Game
 {
     public class ComboRenderer : MonoBehaviour
     {
+        private Coroutine _moveToPositionHandler;
+        private Vector2 _newPosition;
         private Coroutine _comboAnimationHandler;
         private float _timer;
     
@@ -15,6 +17,7 @@ namespace UI.Game
         [SerializeField] private PlayingField playingField;
         [SerializeField] private TextValue[] textValues;
         [SerializeField] private int comboValueToShow;
+        [SerializeField] private float moveSpeed;
 
         private void OnEnable()
         {
@@ -26,16 +29,17 @@ namespace UI.Game
             comboManager.OnComboIncreased -= ShowCombo;
         }
 
-        public void SetPosition(Vector3 position)
+        public void SetPosition(Vector3 wordPosition)
         {
             RectTransform rect = transform as RectTransform;
-            
             if (!rect) return;
 
-            float xPosition = Mathf.Clamp(position.x, 0, playingField.Resolution.x - rect.rect.width);
-            float yPosition = Mathf.Clamp(position.y, 0, playingField.Resolution.y - rect.rect.height);
+            Vector2 pointPosition = playingField.WorldToScreenPoint(wordPosition);
+            float xPosition = Mathf.Clamp(pointPosition.x, 0, playingField.Resolution.x - rect.rect.width);
+            float yPosition = Mathf.Clamp(pointPosition.y, 0, playingField.Resolution.y - rect.rect.height);
 
-            transform.position = new Vector2(xPosition, yPosition);
+            _newPosition = playingField.ScreenToWorldPoint(new Vector2(xPosition, yPosition));
+            _moveToPositionHandler ??= StartCoroutine(MoveToPositionHandler());
         }
         
         private void ShowCombo()
@@ -65,6 +69,18 @@ namespace UI.Game
             }
 
             _comboAnimationHandler = null;
+        }
+
+        private IEnumerator MoveToPositionHandler()
+        {
+            while (((Vector2)transform.position - _newPosition).magnitude > 0.1f)
+            {
+                transform.position = Vector2.Lerp(transform.position, _newPosition, moveSpeed * Time.deltaTime);
+                
+                yield return null;
+            }
+
+            _moveToPositionHandler = null;
         }
     }
 }
