@@ -79,9 +79,19 @@ namespace CuttingSystem
         {
             if (_state)
             {
-                foreach (var service in _cuttingServices)
+                for (int i = 0; i < _cuttingServices.Count; i++)
                 {
-                    service.Cut(_block, bladeVector);
+                    var result = _cuttingServices[i].Cut(_block, bladeVector);
+
+                    switch (result)
+                    {
+                        case ServiceCallbackAction.Delete:
+                        {
+                            _cuttingServices.RemoveAt(i);
+                            i--;
+                            break;
+                        }
+                    }
                 }
             }
         }

@@ -32,7 +32,7 @@ namespace CuttingSystem.Implementations
             _blockStackGenerator = blockStackGenerator;
         }
         
-        public void Cut(Block block, Vector2 bladeVector)
+        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
             List<Block> newBlocks = new List<Block>(_blockStackGenerator.GetBlocks(_blockStackSettings, _count));
 
@@ -45,6 +45,8 @@ namespace CuttingSystem.Implementations
                 newBlock.BlockPhysic.SetForce((block.BlockPhysic.Velocity + newDirection).normalized, _force);
                 _playingFieldContainer.AddBlock(newBlock);
             }
+
+            return ServiceCallbackAction.None;
         }
     }
 }

@@ -16,10 +16,12 @@ namespace CuttingSystem.Implementations
             _blockStackGenerator = blockStackGenerator;
         }
         
-        public void Cut(Block block, Vector2 bladeVector)
+        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
             _playingFieldBlocks.RemoveBlock(block);
             _blockStackGenerator.ReturnBlock(block);
+
+            return ServiceCallbackAction.None;
         }
     }
 }

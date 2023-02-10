@@ -24,10 +24,12 @@ namespace CuttingSystem.Implementations
             _filterRenderer = filterRenderer;
         }
         
-        public void Cut(Block block, Vector2 bladeVector)
+        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
             _timeScaleManager.SetTimeScale(_scale, _time);
             _filterRenderer.Show(_time);
+
+            return ServiceCallbackAction.None;
         }
     }
 }

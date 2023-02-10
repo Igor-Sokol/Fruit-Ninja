@@ -22,7 +22,7 @@ namespace CuttingSystem.Implementations
             _comboRenderer = comboRenderer;
         }
         
-        public void Cut(Block block, Vector2 bladeVector)
+        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
             _comboManager.IncreaseCombo();
 
@@ -30,6 +30,8 @@ namespace CuttingSystem.Implementations
             {
                 _comboRenderer.SetPosition(block.transform.position);
             }
+
+            return ServiceCallbackAction.None;
         }
     }
 }

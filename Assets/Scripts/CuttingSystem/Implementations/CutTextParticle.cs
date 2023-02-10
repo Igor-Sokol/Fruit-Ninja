@@ -21,10 +21,12 @@ namespace CuttingSystem.Implementations
             _canvas = canvas;
         }
         
-        public void Cut(Block block, Vector2 bladeVector)
+        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
             var textParticle = Object.Instantiate(_particle, block.transform.position, Quaternion.identity, _canvas);
             textParticle.SetText(_text);
+
+            return ServiceCallbackAction.None;
         }
     }
 }

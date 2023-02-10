@@ -4,15 +4,17 @@ using BeyondZoneSystem;
 using BlockConfiguration;
 using CuttingSystem;
 using Managers;
+using PlayingFieldServices;
 using UnityEngine;
 
 namespace BlockComponents
 {
-    public class Block : MonoBehaviour, ICutting, IBeyondService
+    public class Block : MonoBehaviour, ICutting, IBeyondService, IOnPlayingField
     {
         private BlockSetting _blockSetting;
         private CuttingManager _cuttingManager;
         private List<IBeyondService> _beyondServices;
+        private PlayingFieldServiceManager _playingFieldServiceManager;
 
         [SerializeField] private BlockSettingObject settingObject;
         [SerializeField] private BlockPhysic blockPhysic;
@@ -25,6 +27,7 @@ namespace BlockComponents
         public BlockAnimator BlockAnimator => blockAnimator;
         public BlockRenderer BlockRenderer => blockRenderer;
         public CuttingManager CuttingManager => _cuttingManager;
+        public PlayingFieldServiceManager PlayingFieldServiceManager => _playingFieldServiceManager;
 
         private void Awake()
         {
@@ -32,6 +35,10 @@ namespace BlockComponents
             _cuttingManager.Init(this, null);
             
             _beyondServices = new List<IBeyondService>();
+            
+            _playingFieldServiceManager = gameObject.AddComponent<PlayingFieldServiceManager>();
+            _cuttingManager.Init(this, null);
+
             SetTimeScaleManager(timeScaleManager);
         }
 
@@ -68,6 +75,12 @@ namespace BlockComponents
                     _beyondServices.Add(serviceSetting.GetService());
                 }
             }
+            
+            _playingFieldServiceManager.Clear();
+            if (blockSetting.PlayingFieldServiceSettings != null)
+            {
+                _playingFieldServiceManager.Init(this, blockSetting.PlayingFieldServiceSettings.Select(c => c.GetService()));
+            }
         }
 
         public void Cut(Vector2 bladeVector)
@@ -81,6 +94,11 @@ namespace BlockComponents
             {
                 service.BeyondZoneAction();
             }
+        }
+
+        public void OnPlayingField()
+        {
+            _playingFieldServiceManager.OnPlayingField();
         }
     }
 }

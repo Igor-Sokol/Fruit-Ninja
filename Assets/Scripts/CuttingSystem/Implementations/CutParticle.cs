@@ -12,10 +12,12 @@ namespace CuttingSystem.Implementations
             _cuttingParticle = cuttingParticle;
         }
         
-        public void Cut(Block block, Vector2 bladeVector)
+        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
             var blotParticle = Object.Instantiate(_cuttingParticle, block.transform.position, Quaternion.identity);
             blotParticle.transform.localScale = block.transform.localScale;
+
+            return ServiceCallbackAction.None;
         }
     }
 }

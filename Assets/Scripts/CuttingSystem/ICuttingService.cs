@@ -5,6 +5,6 @@ namespace CuttingSystem
 {
     public interface ICuttingService
     {
-        void Cut(Block block, Vector2 bladeVector);
+        ServiceCallbackAction Cut(Block block, Vector2 bladeVector);
     }
 }
