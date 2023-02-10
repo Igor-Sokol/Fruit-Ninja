@@ -7,6 +7,7 @@ namespace CuttingSystem.Implementations
     public class HealthChanger : ICuttingService
     {
         private readonly HealthService _healthService;
+        private readonly HealthView _healthView;
         private int _value;
         private HealthChangeMode _healthChangeMode;
 
@@ -16,9 +17,10 @@ namespace CuttingSystem.Implementations
             _healthChangeMode = healthChangeMode;
         }
         
-        public HealthChanger(HealthService healthService)
+        public HealthChanger(HealthService healthService, HealthView healthView)
         {
             _healthService = healthService;
+            _healthView = healthView;
         }
 
         public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
@@ -26,6 +28,7 @@ namespace CuttingSystem.Implementations
             switch (_healthChangeMode)
             {
                 case HealthChangeMode.Add:
+                    _healthView.SetSpawnPosition(block.transform.position);
                     _healthService.AddHealth(_value);
                     break;
                 case HealthChangeMode.Remove:

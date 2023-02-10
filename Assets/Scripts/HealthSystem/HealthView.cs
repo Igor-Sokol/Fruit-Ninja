@@ -1,16 +1,23 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
+using PlayingFieldComponents;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HealthSystem
 {
     public class HealthView : MonoBehaviour
     {
         private List<Heart> _hearts;
+        private int _healthOnBar;
+        private Vector2? _customSpawnPosition;
 
         [SerializeField] private HealthService healthService;
         [SerializeField] private ObjectPool<Heart> heartPool;
         [SerializeField] private Transform container;
+        [SerializeField] private PlayingField playingField;
+        [SerializeField] private GridLayoutGroup gridLayoutGroup;
+        [SerializeField] private float heartMoveTime;
             
         private void Start()
         {
@@ -21,6 +28,7 @@ namespace HealthSystem
 
         public void Clear()
         {
+            _customSpawnPosition = null;
             foreach (var heart in _hearts)
             {
                 heartPool.Return(heart);
@@ -34,9 +42,13 @@ namespace HealthSystem
             for (int i = 0; i < count; i++)
             {
                 var heart = heartPool.Get();
-                heart.transform.SetParent(container);
                 _hearts.Add(heart);
                 heart.Appear();
+
+
+
+                StartCoroutine(MoveHeartToPosition(heart, GetSpawnPosition(), GetNextGridPosition()));
+                _healthOnBar++;
             }
         }
         
@@ -49,7 +61,33 @@ namespace HealthSystem
 
                 heart.OnDisappeared += ReturnHeart;
                 heart.Disappear();
+                _healthOnBar--;
             }
+        }
+
+        public void SetSpawnPosition(Vector2 wordPosition)
+        {
+            _customSpawnPosition = wordPosition;
+        }
+        
+        private Vector2 GetSpawnPosition()
+        {
+            if (_customSpawnPosition.HasValue) return _customSpawnPosition.Value;
+
+            return GetNextGridPosition();
+        }
+        
+        private Vector2 GetNextGridPosition()
+        {
+            int elementId = _healthOnBar;
+
+            Vector2 position = playingField.WorldToScreenPoint(gridLayoutGroup.transform.position);
+            position -= new Vector2(gridLayoutGroup.cellSize.x / 2, gridLayoutGroup.cellSize.y / 2);
+            
+            position -= new Vector2(elementId % gridLayoutGroup.constraintCount * (gridLayoutGroup.spacing.x + gridLayoutGroup.cellSize.x), 0);
+            position -= new Vector2(0, elementId / gridLayoutGroup.constraintCount * (gridLayoutGroup.spacing.y + gridLayoutGroup.cellSize.y));
+
+            return playingField.ScreenToWorldPoint(position);
         }
 
         private void ReturnHeart(Heart heart)
@@ -68,6 +106,22 @@ namespace HealthSystem
         {
             healthService.HealthIncreased -= AddHeart;
             healthService.HealthDecreased -= RemoveHeart;
+        }
+
+        private IEnumerator MoveHeartToPosition(Heart heart, Vector2 startPosition, Vector2 targetPosition)
+        {
+            float timer = 0;
+
+            while (timer < heartMoveTime)
+            {
+                timer += Time.deltaTime;
+                
+                heart.transform.position = Vector2.Lerp(startPosition, targetPosition, timer / heartMoveTime);
+
+                yield return null;
+            }
+            
+            heart.transform.SetParent(container);
         }
     }
 }

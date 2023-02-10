@@ -7,10 +7,11 @@ namespace CuttingSystem.Fabrics
     public class HealthChangerFabric : CuttingServiceFabric
     {
         [SerializeField] private HealthService healthService;
+        [SerializeField] private HealthView healthView;
         
         public override ICuttingService Create()
         {
-            return new HealthChanger(healthService);
+            return new HealthChanger(healthService, healthView);
         }
     }
 }

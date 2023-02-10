@@ -1694,6 +1694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthService: {fileID: 1912087594}
+  healthView: {fileID: 977418417}
 --- !u!114 &721323817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2590,6 +2591,9 @@ MonoBehaviour:
     prefab: {fileID: 771630110573462633, guid: da2aa9814c598504bb8dd0ee1c9ae340, type: 3}
     container: {fileID: 726896911}
   container: {fileID: 977418414}
+  playingField: {fileID: 425550761}
+  gridLayoutGroup: {fileID: 977418416}
+  heartMoveTime: 1
 --- !u!1 &1034899033
 GameObject:
   m_ObjectHideFlags: 0
