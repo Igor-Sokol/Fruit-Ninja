@@ -20,7 +20,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a3c2c38b607c6234fb234cdafb787117, type: 2}
     - {fileID: 11400000, guid: 2589e0505e87d834a94bfad6b8b96b11, type: 2}
     - {fileID: 11400000, guid: 0f6ad88f465ce7446ac1bfb1d822d13c, type: 2}
+    - {fileID: 11400000, guid: 3c03500b82b251945ab8202f9927f012, type: 2}
     - {fileID: 11400000, guid: f5fff050d5adff143872e5b356e4d924, type: 2}
     - {fileID: 11400000, guid: 228bbbbe0a2c2d04fa51784e0e04e2b5, type: 2}
     beyondServiceSettings:
     - {fileID: 11400000, guid: 0785c8a0e4668df458ab7a56eccbed11, type: 2}
+    playingFieldServiceSettings: []

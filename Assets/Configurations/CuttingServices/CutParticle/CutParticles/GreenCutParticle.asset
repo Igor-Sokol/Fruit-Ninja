@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eb124345b6b4fc08c146ad9292d043d, type: 3}
-  m_Name: RedBlotParticleSetting 3
+  m_Name: GreenCutParticle
   m_EditorClassIdentifier: 
-  particle: {fileID: 8084454834471757820, guid: 9685669e675ffad408e8d2b0c13b32fd, type: 3}
+  particle: {fileID: 660963108399889030, guid: fcabf85dc53fe6844b5f94594960f698, type: 3}

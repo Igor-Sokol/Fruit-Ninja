@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eb124345b6b4fc08c146ad9292d043d, type: 3}
-  m_Name: YellowBlotParticleSetting 1
+  m_Name: PurpleBlotParticleSetting
   m_EditorClassIdentifier: 
-  particle: {fileID: 7875066841233267492, guid: b55416ebca674c4409f1f66e343cbeb8, type: 3}
+  particle: {fileID: 5042924507883069772, guid: baac002530c864043bafc6a208e491e0, type: 3}

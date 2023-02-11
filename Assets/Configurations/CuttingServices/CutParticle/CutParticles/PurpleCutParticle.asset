@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eb124345b6b4fc08c146ad9292d043d, type: 3}
-  m_Name: PurpleBlotParticleSetting 4
+  m_Name: PurpleCutParticle
   m_EditorClassIdentifier: 
-  particle: {fileID: 5042924507883069772, guid: baac002530c864043bafc6a208e491e0, type: 3}
+  particle: {fileID: 9129263351123337468, guid: 29bac8871f7749d4d9fd07ee050afe05, type: 3}
