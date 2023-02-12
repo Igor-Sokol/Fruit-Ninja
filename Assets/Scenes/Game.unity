@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 813697493}
   playingBlockContainer: {fileID: 503679824}
-  bladeLength: 0.3
+  bladeLength: 0.2
 --- !u!1 &841958141
 GameObject:
   m_ObjectHideFlags: 0
