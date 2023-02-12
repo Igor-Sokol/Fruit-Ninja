@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace TimerSystem
@@ -23,16 +22,8 @@ namespace TimerSystem
 
         public void AddTimer(ITimerAction timerAction, float seconds)
         {
-            AddTimer(seconds, timerAction.OnComplete, timerAction.OnBegin, timerAction.OnUpdate);
-        }
-        
-        public void AddTimer(float seconds, Action onComplete, Action onBegin = null, Action onUpdate = null)
-        {
             TimerCounter counter = GetTimerCounter();
-            counter.OnBegin += onBegin;
-            counter.OnUpdate += onUpdate;
-            counter.OnComplete += onComplete;
-            counter.Start(seconds);
+            counter.Start(timerAction, seconds);
         }
 
         private TimerCounter GetTimerCounter()
