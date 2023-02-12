@@ -1,5 +1,7 @@
 using BlockComponents;
+using PlayingFieldServices;
 using PlayingFieldServices.Settings;
+using TimerActions;
 using TimerSystem;
 using UnityEngine;
 
@@ -20,18 +22,10 @@ namespace CuttingSystem.Implementations
         
         public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
-            block.BlockPhysic.enabled = false;
-
-            var magnetService = _magnetFieldSettings.GetService();
-            block.PlayingFieldServiceManager.AddService(magnetService);
-            var particleInstance = Object.Instantiate(_particle, block.transform.position, Quaternion.identity);
+            IPlayingFieldService[] playingFieldServices = new[] { _magnetFieldSettings.GetService() };
+            ParticleSystem[] particles = new[] { _particle };
             
-            Timer.Instance.AddTimer(_seconds, () =>
-            {
-                block.BlockPhysic.enabled = true;
-                block.PlayingFieldServiceManager.RemoveService(magnetService);
-                Object.Destroy(particleInstance.gameObject);
-            });
+            Timer.Instance.AddTimer(new InvulnerableTimeAction(block, playingFieldServices, particles), _seconds);
 
             return ServiceCallbackAction.Delete;
         }
