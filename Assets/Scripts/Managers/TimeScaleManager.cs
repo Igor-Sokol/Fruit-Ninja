@@ -12,12 +12,25 @@ namespace Managers
         [SerializeField] private float defaultScale;
 
         public float CurrentScale { get; private set; }
+        public float DefaultScale => defaultScale;
 
         private void Awake()
         {
             CurrentScale = defaultScale;
         }
 
+        public void SetTimeScale(float scale)
+        {
+            if (scale < 0) return;
+
+            if (_scaleTimerHandler != null)
+            {
+                StopCoroutine(_scaleTimerHandler);
+            }
+
+            CurrentScale = scale;
+        }
+        
         public void SetTimeScale(float scale, float seconds)
         {
             if (scale < 0) return;

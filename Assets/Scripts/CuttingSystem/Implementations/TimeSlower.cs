@@ -1,5 +1,7 @@
 using BlockComponents;
 using Managers;
+using TimerActions;
+using TimerSystem;
 using UI;
 using UnityEngine;
 
@@ -26,8 +28,7 @@ namespace CuttingSystem.Implementations
         
         public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
         {
-            _timeScaleManager.SetTimeScale(_scale, _time);
-            _filterRenderer.Show(_time);
+            Timer.Instance.AddTimer(new FrozenTimeAction(_timeScaleManager, _filterRenderer, _scale, _time), _time);
 
             return ServiceCallbackAction.None;
         }
