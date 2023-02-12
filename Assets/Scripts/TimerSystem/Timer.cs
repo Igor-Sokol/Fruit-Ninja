@@ -21,10 +21,17 @@ namespace TimerSystem
             }
         }
 
-        public void AddTimer(float seconds, Action callback)
+        public void AddTimer(ITimerAction timerAction, float seconds)
+        {
+            AddTimer(seconds, timerAction.OnComplete, timerAction.OnBegin, timerAction.OnUpdate);
+        }
+        
+        public void AddTimer(float seconds, Action onComplete, Action onBegin = null, Action onUpdate = null)
         {
             TimerCounter counter = GetTimerCounter();
-            counter.OnTime += callback;
+            counter.OnBegin += onBegin;
+            counter.OnUpdate += onUpdate;
+            counter.OnComplete += onComplete;
             counter.Start(seconds);
         }
 

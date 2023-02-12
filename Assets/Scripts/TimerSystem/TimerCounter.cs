@@ -5,27 +5,26 @@ namespace TimerSystem
     public class TimerCounter
     {
         private float _secondsLeft;
-        private Action _onTime;
         private bool _isWorking;
 
         public bool IsWorking => _isWorking;
-    
-        public event Action OnTime
-        {
-            add => _onTime = (Action)Delegate.Combine(_onTime, value);
-            remove => _onTime = (Action)Delegate.Remove(_onTime, value);
-        }
+        public event Action OnBegin;
+        public event Action OnUpdate;
+        public event Action OnComplete;
 
         public void Start(float seconds)
         {
             _secondsLeft = seconds;
             _isWorking = true;
+            OnBegin?.Invoke();
         }
     
         private void Reset()
         {
             _isWorking = false;
-            _onTime = null;
+            OnBegin = null;
+            OnUpdate = null;
+            OnComplete = null;
         }
     
         public void UpdateCounter(float deltaTime)
@@ -33,10 +32,11 @@ namespace TimerSystem
             if (!_isWorking) return;
 
             _secondsLeft -= deltaTime;
-
+            OnUpdate?.Invoke();
+            
             if (_secondsLeft <= 0)
             {
-                _onTime?.Invoke();
+                OnComplete?.Invoke();
                 Reset();
             }
         }
