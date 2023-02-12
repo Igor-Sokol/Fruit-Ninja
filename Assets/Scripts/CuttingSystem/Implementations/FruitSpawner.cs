@@ -42,7 +42,7 @@ namespace CuttingSystem.Implementations
 
                 Vector3 newDirection = Random.insideUnitCircle;
                 newBlock.transform.position = block.transform.position + (newDirection * _spawnRangeOffset);
-                newBlock.BlockPhysic.SetForce((block.BlockPhysic.Velocity + newDirection).normalized, _force);
+                newBlock.BlockPhysic.SetVelocity(block.BlockPhysic.Velocity + newDirection * _force);
                 _playingFieldContainer.AddBlock(newBlock);
             }
 
