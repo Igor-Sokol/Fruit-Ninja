@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -9,7 +10,7 @@ namespace UI
         private float _timer;
         private float _waitTime;
         
-        [SerializeField] private SpriteRenderer image;
+        [SerializeField] private Image image;
         [SerializeField][Range(0, 1)] private float showTiming;
         [SerializeField][Range(0, 1)] private float enableAlpha;
         [SerializeField][Range(0, 1)] private float disableAlpha;
