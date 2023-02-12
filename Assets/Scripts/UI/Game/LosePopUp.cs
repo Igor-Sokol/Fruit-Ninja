@@ -54,14 +54,12 @@ namespace UI.Game
         private void Enable()
         {
             animationRenderer.Play(enableAnimation);
-            canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
         }
 
         private void Disable()
         {
             animationRenderer.Play(disableAnimation);
-            canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
 
