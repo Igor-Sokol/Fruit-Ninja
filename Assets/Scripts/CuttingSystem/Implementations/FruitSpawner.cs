@@ -40,9 +40,10 @@ namespace CuttingSystem.Implementations
             {
                 newBlock.CuttingManager.SwitchState(false, _uncutTime);
 
-                Vector3 newDirection = Random.insideUnitCircle;
-                newBlock.transform.position = block.transform.position + (newDirection * _spawnRangeOffset);
-                newBlock.BlockPhysic.SetVelocity(block.BlockPhysic.Velocity + newDirection * _force);
+                newBlock.transform.position = block.transform.position + (Vector3)(Random.insideUnitCircle * _spawnRangeOffset);
+
+                var direction = ((newBlock.transform.position - block.transform.position).normalized + Vector3.up).normalized;
+                newBlock.BlockPhysic.SetVelocity(block.BlockPhysic.Velocity + direction * _force);
                 _playingFieldContainer.AddBlock(newBlock);
             }
 
