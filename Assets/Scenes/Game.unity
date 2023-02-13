@@ -1411,7 +1411,7 @@ MonoBehaviour:
   - {fileID: 1647234656}
   - {fileID: 255821261}
   comboValueToShow: 2
-  moveSpeed: 2
+  moveSpeed: 5
 --- !u!225 &709048737
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3404,7 +3404,7 @@ MonoBehaviour:
     restrictions:
     - {fileID: 355439077}
   - maximumAllowable: 0.3
-    priority: 555
+    priority: 1
     blocks:
     - {fileID: 11400000, guid: 93cb70d22071ad4488804437256e24f2, type: 2}
     restrictions: []
@@ -4477,7 +4477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCombo: 5
-  comboShowTime: 2
+  comboShowTime: 0.5
 --- !u!1 &2032580603
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d2dd52ef84c81c84e99e5aa32798b170, type: 2}
     restrictions: []
   count: 5
-  force: 0
-  spawnRange: 3
+  force: 3
+  spawnRange: 1
   uncutTime: 0.1
