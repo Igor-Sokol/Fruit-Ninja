@@ -10,9 +10,9 @@ namespace SceneChangeSystem
         private float _timer;
         private AsyncOperation _sceneLoadHandler;
 
-        [SerializeField] private LoadingUI loadingUI;
-        [SerializeField] private float secondBeforeLoading;
-        [SerializeField] private float secondAfterLoading;
+        private LoadingUI _loadingUI;
+        private float _secondBeforeLoading;
+        private float _secondAfterLoading;
 
         public event Action OnSceneLoaded;
 
@@ -24,7 +24,11 @@ namespace SceneChangeSystem
             }
             else
             {
-                loadingUI.gameObject.SetActive(true);
+                _secondBeforeLoading = SceneLoaderConfig.Instance.SecondBeforeLoading;
+                _secondAfterLoading = SceneLoaderConfig.Instance.SecondAfterLoading;
+                
+                _loadingUI = Instantiate(SceneLoaderConfig.Instance.LoadingUIPrefab, transform);
+
                 DontDestroyOnLoad(this);
             }
         }
@@ -36,9 +40,9 @@ namespace SceneChangeSystem
 
         private IEnumerator LoadNewScene(string sceneName)
         {
-            loadingUI.Enable();
+            _loadingUI.Enable();
             
-            _timer = secondBeforeLoading;
+            _timer = _secondBeforeLoading;
             while (_timer > 0)
             {
                 _timer -= Time.deltaTime;
@@ -47,9 +51,9 @@ namespace SceneChangeSystem
             
             _sceneLoadHandler = SceneManager.LoadSceneAsync(sceneName);
             yield return _sceneLoadHandler;
-            loadingUI.Disable();
+            _loadingUI.Disable();
             
-            _timer = secondAfterLoading;
+            _timer = _secondAfterLoading;
             while (_timer > 0)
             {
                 _timer -= Time.deltaTime;
