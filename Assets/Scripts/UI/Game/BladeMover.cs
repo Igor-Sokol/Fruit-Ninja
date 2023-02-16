@@ -16,9 +16,7 @@ namespace UI.Game
         public void OnBeginDrag(PointerEventData eventData)
         {
             blade.transform.position = (Vector2)workingCamera.ScreenToWorldPoint(eventData.position);
-            blade.ClearTrail();
-            
-            _dragging = true;
+            OnBeginDrag();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -31,7 +29,21 @@ namespace UI.Game
         
         public void OnEndDrag(PointerEventData eventData)
         {
+            OnEndDrag();
+        }
+
+        private void OnBeginDrag()
+        {
+            blade.ClearTrail();
+            blade.enabled = true;
+            
+            _dragging = true;
+        }
+        
+        public void OnEndDrag()
+        {
             _dragging = false;
+            blade.enabled = false;
         }
     }
 }
