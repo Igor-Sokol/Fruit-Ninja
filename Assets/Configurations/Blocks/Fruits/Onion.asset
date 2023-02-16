@@ -18,10 +18,10 @@ MonoBehaviour:
     enableShadow: 1
     cuttingServices:
     - {fileID: 11400000, guid: a3c2c38b607c6234fb234cdafb787117, type: 2}
+    - {fileID: 11400000, guid: 2589e0505e87d834a94bfad6b8b96b11, type: 2}
     - {fileID: 11400000, guid: b95585718998a13499d73a6052b41824, type: 2}
     - {fileID: 11400000, guid: b652de1284475db4f9539b5c1c23f0f4, type: 2}
     - {fileID: 11400000, guid: f5fff050d5adff143872e5b356e4d924, type: 2}
-    - {fileID: 11400000, guid: 2589e0505e87d834a94bfad6b8b96b11, type: 2}
     - {fileID: 11400000, guid: 228bbbbe0a2c2d04fa51784e0e04e2b5, type: 2}
     beyondServiceSettings:
     - {fileID: 11400000, guid: 0785c8a0e4668df458ab7a56eccbed11, type: 2}
