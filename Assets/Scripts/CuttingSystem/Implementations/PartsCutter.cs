@@ -55,7 +55,7 @@ namespace CuttingSystem.Implementations
             part.transform.localScale = block.transform.localScale;
             part.BlockAnimator.SetAnimations(block.BlockAnimator.Animations.ToArray());
             
-            var sprite = Sprite.Create(block.BlockRenderer.Sprite.texture, textureRect, texturePivot);
+            var sprite = Sprite.Create(block.BlockRenderer.Sprite.texture, textureRect, texturePivot, block.BlockRenderer.Sprite.pixelsPerUnit);
 
             BlockSetting leftSetting = new BlockSetting(sprite, block.BlockPhysic.ColliderRadius,
                 block.BlockRenderer.Shadow.ShadowEnabled);
