@@ -9,7 +9,7 @@ namespace UI.Menu
     public class MenuView : MonoBehaviour
     {
         [SerializeField] private ScoreManager scoreManager;
-        [FormerlySerializedAs("score")] [SerializeField] private TextValue textValue;
+        [SerializeField] private TextValue textValue;
         [SerializeField] private Button gameButton;
         [SerializeField] private string sceneName;
         [SerializeField] private Button exitButton;
@@ -46,6 +46,10 @@ namespace UI.Menu
         private void ExitButton()
         {
             Application.Quit();
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.ExitPlaymode();
+#endif
         }
     }
 }
