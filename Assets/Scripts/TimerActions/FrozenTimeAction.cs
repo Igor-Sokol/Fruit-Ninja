@@ -20,13 +20,13 @@ namespace TimerActions
             _time = time;
         }
         
-        public void OnBegin()
+        public void OnBegin(float secondsLeft)
         {
             _timeScaleManager.SetTimeScale(_scale);
             _filterRenderer.Show(_time);
         }
 
-        public void OnUpdate()
+        public void OnUpdate(float secondsLeft)
         {
         }
 

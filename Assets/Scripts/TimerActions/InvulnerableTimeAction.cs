@@ -20,7 +20,7 @@ namespace TimerActions
             _particlePrefabs = particlePrefabs;
         }
 
-        public void OnBegin()
+        public void OnBegin(float secondsLeft)
         {
             _block.BlockPhysic.enabled = false;
 
@@ -43,7 +43,7 @@ namespace TimerActions
             }
         }
 
-        public void OnUpdate()
+        public void OnUpdate(float secondsLeft)
         {
         }
 

@@ -15,7 +15,7 @@ namespace TimerSystem
             _isWorking = true;
             _timerAction = timerAction;
             _secondsLeft = seconds;
-            _timerAction.OnBegin();
+            _timerAction.OnBegin(SecondsLeft);
         }
     
         private void Reset()
@@ -29,7 +29,7 @@ namespace TimerSystem
             if (!_isWorking) return;
 
             _secondsLeft -= deltaTime;
-            _timerAction.OnUpdate();
+            _timerAction.OnUpdate(SecondsLeft);
             
             if (_secondsLeft <= 0)
             {
