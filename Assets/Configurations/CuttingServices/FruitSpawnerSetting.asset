@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: FruitSpawnerSetting
   m_EditorClassIdentifier: 
   blockStackSettings:
-  - maximumAllowable: 1
+  - maxAllowablePercentage: 1
+    maxAllowable: Infinity
     priority: 1
     blocks:
     - {fileID: 11400000, guid: dfa70ac983129854abc34016c1c2271c, type: 2}
