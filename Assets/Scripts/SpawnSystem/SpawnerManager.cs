@@ -17,8 +17,8 @@ namespace SpawnSystem
         private float[] _spawnerPriority;
         private Coroutine _spawnerHandler;
 
-        [SerializeField] private PlayingField playingField;
-        [SerializeField] private DynamicDifficulty difficultyController;
+        [SerializeField] private PlayingField playingField; 
+        [SerializeField] private DifficultySetting difficultyController;
         [SerializeField] private AnimationManager animationManager;
         [SerializeField] private BlockContainer blockContainer;
         [SerializeField] private BlockStackGenerator blockStackGenerator;

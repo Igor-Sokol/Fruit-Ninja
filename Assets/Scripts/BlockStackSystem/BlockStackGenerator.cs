@@ -13,7 +13,7 @@ namespace BlockStackSystem
     {
         private ObjectPool<Block> _pool;
 
-        [SerializeField] private DynamicDifficulty dynamicDifficulty;
+        [SerializeField] private DifficultySetting dynamicDifficulty;
         [SerializeField] private TimeScaleManager timeScaleManager;
         [SerializeField] private Block prefab;
         [SerializeField] private BlockStackSetting[] blocks;

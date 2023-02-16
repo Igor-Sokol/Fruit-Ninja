@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DifficultySystem
 {
-    public class DynamicDifficulty : MonoBehaviour
+    public class DynamicDifficulty : DifficultySetting
     {
         private float _timer;
         private float _secondsToMaxDifficult;
@@ -13,9 +13,9 @@ namespace DifficultySystem
         [SerializeField] private Vector2 fruitIntervalRange;
         [SerializeField] private DifficultyPoint[] difficultGraph;
     
-        public int FruitsInPack => (int)Mathf.Lerp(fruitsInPackRange.x, fruitsInPackRange.y, GetDifficultyPercentage());
-        public float PackInterval => Mathf.Lerp(packIntervalRange.x, packIntervalRange.y, GetDifficultyPercentage());
-        public float FruitInterval => Mathf.Lerp(fruitIntervalRange.x, fruitIntervalRange.y, GetDifficultyPercentage());
+        public override int FruitsInPack => (int)Mathf.Lerp(fruitsInPackRange.x, fruitsInPackRange.y, GetDifficultyPercentage());
+        public override float PackInterval => Mathf.Lerp(packIntervalRange.x, packIntervalRange.y, GetDifficultyPercentage());
+        public override float FruitInterval => Mathf.Lerp(fruitIntervalRange.x, fruitIntervalRange.y, GetDifficultyPercentage());
 
         private void Awake()
         {
