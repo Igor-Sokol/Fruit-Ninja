@@ -59,8 +59,10 @@ namespace BlockStackSystem
                 float percentage = endSettings.ContainsKey(nextStack)
                     ? ((endSettings[nextStack] + 1) / (float)blocksCount)
                     : 0;
+                float currentCount = endSettings.ContainsKey(nextStack)
+                    ? endSettings[nextStack] + 1 : 0;
 
-                if (percentage > nextStack.MaximumAmountPercentage)
+                if (percentage > nextStack.MaxAmountPercentage || currentCount > nextStack.MaxAllowable)
                 {
                     availableStackSettings.Remove(nextStack);
                     weightArray = CreatePriorityArray(availableStackSettings, b => b.Priority);
