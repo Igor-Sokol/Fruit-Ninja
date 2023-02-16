@@ -3380,7 +3380,8 @@ MonoBehaviour:
   timeScaleManager: {fileID: 2124577423}
   prefab: {fileID: 6329125470226908168, guid: be4dd6ceeb0bc3d498db151482627133, type: 3}
   blocks:
-  - maximumAllowable: 1
+  - maxAllowablePercentage: 1
+    maxAllowable: Infinity
     priority: 70
     blocks:
     - {fileID: 11400000, guid: dfa70ac983129854abc34016c1c2271c, type: 2}
@@ -3392,31 +3393,42 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 32376f74bcf722e4ebba8d723cb49b30, type: 2}
     - {fileID: 11400000, guid: d2dd52ef84c81c84e99e5aa32798b170, type: 2}
     restrictions: []
-  - maximumAllowable: 0.5
+  - maxAllowablePercentage: 0.5
+    maxAllowable: Infinity
     priority: 15
     blocks:
     - {fileID: 11400000, guid: bdcb5e6449c5ae04082729cb9ebe9da2, type: 2}
     restrictions: []
-  - maximumAllowable: 0.3
+  - maxAllowablePercentage: 0.3
+    maxAllowable: Infinity
     priority: 1
     blocks:
     - {fileID: 11400000, guid: 017086016bf38164cb16ade66020f553, type: 2}
     restrictions:
     - {fileID: 355439077}
-  - maximumAllowable: 0.3
+  - maxAllowablePercentage: 0.3
+    maxAllowable: Infinity
     priority: 1
     blocks:
     - {fileID: 11400000, guid: 93cb70d22071ad4488804437256e24f2, type: 2}
     restrictions: []
-  - maximumAllowable: 0.3
+  - maxAllowablePercentage: 0.3
+    maxAllowable: Infinity
     priority: 1
     blocks:
     - {fileID: 11400000, guid: 6e033c214151e2e4cab34a0e66e55cae, type: 2}
     restrictions: []
-  - maximumAllowable: 0.3
+  - maxAllowablePercentage: 0.3
+    maxAllowable: Infinity
     priority: 1
     blocks:
     - {fileID: 11400000, guid: bc05111513afe8242a74aae15e4bac08, type: 2}
+    restrictions: []
+  - maxAllowablePercentage: 0.3
+    maxAllowable: 1
+    priority: 1
+    blocks:
+    - {fileID: 11400000, guid: 509ed83166424dd459bc6e80bfd2a060, type: 2}
     restrictions: []
 --- !u!1 &1537403001
 GameObject:
