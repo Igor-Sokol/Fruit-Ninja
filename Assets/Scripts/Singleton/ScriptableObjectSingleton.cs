@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Singleton
@@ -12,17 +13,7 @@ namespace Singleton
             {
                 if (!_instance)
                 {
-                    T[] instances = Resources.FindObjectsOfTypeAll<T>();
-
-                    if (instances.Length == 1)
-                    {
-                        _instance = instances[0];
-                        _instance.hideFlags = HideFlags.DontUnloadUnusedAsset;
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                    _instance = Resources.LoadAll<T>(string.Empty).FirstOrDefault();
                 }
 
                 return _instance;
