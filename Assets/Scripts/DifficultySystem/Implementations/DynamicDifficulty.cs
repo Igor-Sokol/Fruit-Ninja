@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace DifficultySystem
+namespace DifficultySystem.Implementations
 {
     public class DynamicDifficulty : DifficultySetting
     {

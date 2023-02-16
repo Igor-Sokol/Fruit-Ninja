@@ -17,8 +17,7 @@ namespace SpawnSystem
         private float[] _spawnerPriority;
         private Coroutine _spawnerHandler;
 
-        [SerializeField] private PlayingField playingField; 
-        [SerializeField] private DifficultySetting difficultyController;
+        [SerializeField] private PlayingField playingField;
         [SerializeField] private AnimationManager animationManager;
         [SerializeField] private BlockContainer blockContainer;
         [SerializeField] private BlockStackGenerator blockStackGenerator;
@@ -52,6 +51,7 @@ namespace SpawnSystem
         {
             while (true)
             {
+                float blocksCount = 0f;
                 foreach (var block in blockStackGenerator.GetBlocks())
                 {
                     block.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
@@ -59,11 +59,14 @@ namespace SpawnSystem
                     block.BlockAnimator.SetAnimations(animationManager.GetRandomAnimations());
                     var randomSpawner = GetRandomSpawner();
                     randomSpawner.Launch(block.BlockPhysic);
-                
-                    yield return new WaitForSeconds(difficultyController.FruitInterval);
+                    blocksCount++;
+
+                    if (blocksCount >= blockStackGenerator.CurrentDifficultySetting.FruitsInPack) break;
+                    
+                    yield return new WaitForSeconds(blockStackGenerator.CurrentDifficultySetting.FruitInterval);
                 }
 
-                yield return new WaitForSeconds(difficultyController.PackInterval);
+                yield return new WaitForSeconds(blockStackGenerator.CurrentDifficultySetting.PackInterval);
             }
         }
 

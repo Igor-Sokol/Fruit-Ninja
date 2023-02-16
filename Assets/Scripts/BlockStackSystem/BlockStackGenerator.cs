@@ -12,16 +12,26 @@ namespace BlockStackSystem
     public class BlockStackGenerator : MonoBehaviour
     {
         private ObjectPool<Block> _pool;
+        private IDifficultySetting _currentCurrentDifficultySetting;
+        private BlockStackSetting[] _blockStackSettings;
 
         [SerializeField] private DifficultySetting dynamicDifficulty;
         [SerializeField] private TimeScaleManager timeScaleManager;
         [SerializeField] private Block prefab;
         [SerializeField] private BlockStackSetting[] blocks;
 
+        public IDifficultySetting CurrentDifficultySetting => _currentCurrentDifficultySetting;
+        public IDifficultySetting DefaultDifficultySetting => dynamicDifficulty;
+        public BlockStackSetting[] CurrentStackSettings => _blockStackSettings;
+        public BlockStackSetting[] DefaultStackSettings => blocks;
+
         private void Awake()
         {
             _pool = new ObjectPool<Block>();
             _pool.Init(prefab, transform);
+            
+            SetDifficult(DefaultDifficultySetting);
+            SetStackSettings(DefaultStackSettings);
         }
 
         public Block GetEmptyBlock()
@@ -37,9 +47,24 @@ namespace BlockStackSystem
             _pool.Return(block);
         }
 
+        public void SetDifficult(DifficultySetting difficultySetting)
+        {
+            _currentCurrentDifficultySetting = difficultySetting;
+        }
+        
+        public void SetDifficult(IDifficultySetting difficultySetting)
+        {
+            _currentCurrentDifficultySetting = difficultySetting;
+        }
+
+        public void SetStackSettings(BlockStackSetting[] stackSettings)
+        {
+            _blockStackSettings = stackSettings;
+        }
+
         public IEnumerable<Block> GetBlocks()
         {
-            return GetBlocks(blocks, dynamicDifficulty.FruitsInPack);
+            return GetBlocks(_blockStackSettings, _currentCurrentDifficultySetting.FruitsInPack);
         }
         
         public IEnumerable<Block> GetBlocks(BlockStackSetting[] stackSettings, int count)

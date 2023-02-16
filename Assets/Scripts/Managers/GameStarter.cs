@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using DifficultySystem;
+using DifficultySystem.Implementations;
 using HealthSystem;
 using PlayingFieldComponents;
 using SceneChangeSystem;
