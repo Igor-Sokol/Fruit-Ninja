@@ -1579,6 +1579,7 @@ GameObject:
   - component: {fileID: 721323820}
   - component: {fileID: 721323821}
   - component: {fileID: 721323822}
+  - component: {fileID: 721323823}
   m_Layer: 0
   m_Name: CuttingServices
   m_TagString: Untagged
@@ -1624,6 +1625,7 @@ MonoBehaviour:
   - {fileID: 721323820}
   - {fileID: 721323821}
   - {fileID: 721323822}
+  - {fileID: 721323823}
 --- !u!114 &721323812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,6 +1775,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e73c957487464f82a6da8e6e14a3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &721323823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721323809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7e495e689f4318a4e57511b0459599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bladeMover: {fileID: 893527307}
 --- !u!1 &726896910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,7 +3441,7 @@ MonoBehaviour:
     restrictions: []
   - maxAllowablePercentage: 0.3
     maxAllowable: 1
-    priority: 1
+    priority: 5
     blocks:
     - {fileID: 11400000, guid: 509ed83166424dd459bc6e80bfd2a060, type: 2}
     restrictions: []
