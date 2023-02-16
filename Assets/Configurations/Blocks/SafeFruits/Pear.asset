@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a633bcaa8d34449288ffc47b9906e36b, type: 3}
+  m_Name: Pear
+  m_EditorClassIdentifier: 
+  blockSetting:
+    sprite: {fileID: 21300000, guid: af614754801067f46aefd32565ec1c1d, type: 3}
+    colliderRadius: 1.11
+    enableShadow: 1
+    cuttingServices:
+    - {fileID: 11400000, guid: a3c2c38b607c6234fb234cdafb787117, type: 2}
+    - {fileID: 11400000, guid: b4765bed51932db419ffafe8dbc0b9e6, type: 2}
+    - {fileID: 11400000, guid: 814c433e320bedb4f886f482963793cc, type: 2}
+    - {fileID: 11400000, guid: 8bb6f9f2e0c1783458b0da49b4452f32, type: 2}
+    - {fileID: 11400000, guid: f5fff050d5adff143872e5b356e4d924, type: 2}
+    - {fileID: 11400000, guid: 228bbbbe0a2c2d04fa51784e0e04e2b5, type: 2}
+    beyondServiceSettings: []
+    playingFieldServiceSettings: []
