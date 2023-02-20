@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BlockStackSystem.Restrictions
+namespace Blocks.BlockStackSystem.Restrictions
 {
     public abstract class Restriction : MonoBehaviour, IRestriction
     {

@@ -1,8 +1,8 @@
 using System;
-using ScoreStorageSystem;
+using GameSystems.ScoreStorageSystem;
 using UnityEngine;
 
-namespace ScoreSystem
+namespace GameSystems.ScoreSystem
 {
     public class ScoreManager : MonoBehaviour
     {

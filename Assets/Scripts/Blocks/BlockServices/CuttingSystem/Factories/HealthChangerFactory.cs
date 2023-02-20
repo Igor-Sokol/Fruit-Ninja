@@ -1,10 +1,10 @@
 using System;
-using CuttingSystem.Implementations;
-using DependencyInjection;
-using HealthSystem;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using GameSystems.HealthSystem;
+using Models.DependencyInjection;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "HealthChangerSetting", menuName = "CuttingServicesSettings/HealthChangerSetting")]
     public class HealthChangerFactory : CuttingServiceFactory

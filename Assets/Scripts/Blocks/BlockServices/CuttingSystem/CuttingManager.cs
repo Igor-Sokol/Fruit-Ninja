@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using BlockComponents;
+using Blocks.BlockComponents;
 using UnityEngine;
 
-namespace CuttingSystem
+namespace Blocks.BlockServices.CuttingSystem
 {
     public class CuttingManager : MonoBehaviour, ICutting
     {

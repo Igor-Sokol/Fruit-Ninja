@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using Models.Singleton;
 using UnityEngine;
 
-namespace TimerSystem
+namespace Models.Timers.TimerSystem
 {
     public class Timer : Singleton<Timer>
     {

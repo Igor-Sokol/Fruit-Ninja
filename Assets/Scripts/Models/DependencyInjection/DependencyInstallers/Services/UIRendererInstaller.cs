@@ -1,11 +1,10 @@
-using System;
-using DependencyInjection.Contracts;
-using HealthSystem;
+using GameSystems.HealthSystem;
+using Models.DependencyInjection.Contracts;
 using UI;
 using UI.Game;
 using UnityEngine;
 
-namespace DependencyInjection.DependencyInstallers.Services
+namespace Models.DependencyInjection.DependencyInstallers.Services
 {
     public class UIRendererInstaller : ServiceInstaller
     {

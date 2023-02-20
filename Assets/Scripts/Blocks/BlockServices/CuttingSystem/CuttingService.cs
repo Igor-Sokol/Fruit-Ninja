@@ -1,7 +1,7 @@
-using BlockComponents;
+using Blocks.BlockComponents;
 using UnityEngine;
 
-namespace CuttingSystem
+namespace Blocks.BlockServices.CuttingSystem
 {
     public abstract class CuttingService : MonoBehaviour, ICuttingService
     {

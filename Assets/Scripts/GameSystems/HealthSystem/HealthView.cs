@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using PlayingFieldComponents;
+using Models.ObjectPools;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HealthSystem
+namespace GameSystems.HealthSystem
 {
     [RequireComponent(typeof(RectTransform))]
     public class HealthView : MonoBehaviour

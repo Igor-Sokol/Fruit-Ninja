@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CuttingSystem
+namespace Blocks.BlockServices.CuttingSystem
 {
     public interface ICutting
     {

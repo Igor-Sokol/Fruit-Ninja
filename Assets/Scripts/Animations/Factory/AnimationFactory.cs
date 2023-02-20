@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Animations.Fabric
+namespace Animations.Factory
 {
     public abstract class AnimationFactory : ScriptableObject, IAnimationFactory
     {

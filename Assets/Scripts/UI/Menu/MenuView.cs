@@ -1,6 +1,6 @@
-using DependencyInjection;
-using SceneChangeSystem;
-using ScoreSystem;
+using GameSystems.SceneChangeSystem;
+using GameSystems.ScoreSystem;
+using Models.DependencyInjection;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;

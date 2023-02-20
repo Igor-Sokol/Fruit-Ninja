@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using BeyondZoneSystem;
-using BlockComponents;
-using BlockStackSystem;
+using Blocks.BlockComponents;
+using Blocks.BlockServices.BeyondZoneSystem;
+using Blocks.BlockStackSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 

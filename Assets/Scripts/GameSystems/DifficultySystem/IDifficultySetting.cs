@@ -1,4 +1,4 @@
-namespace DifficultySystem
+namespace GameSystems.DifficultySystem
 {
     public interface IDifficultySetting
     {

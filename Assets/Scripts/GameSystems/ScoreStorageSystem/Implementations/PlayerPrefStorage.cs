@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ScoreStorageSystem.Implementations
+namespace GameSystems.ScoreStorageSystem.Implementations
 {
     public class PlayerPrefStorage : ScoreStorage
     {

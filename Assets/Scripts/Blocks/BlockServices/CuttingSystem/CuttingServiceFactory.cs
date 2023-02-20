@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace CuttingSystem
+namespace Blocks.BlockServices.CuttingSystem
 {
     public abstract class CuttingServiceFactory : ScriptableObject
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DifficultySystem.Implementations
+namespace GameSystems.DifficultySystem.Implementations
 {
     [Serializable]
     public struct StaticSetting : IDifficultySetting

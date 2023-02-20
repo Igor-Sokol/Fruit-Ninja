@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlockComponents;
-using DifficultySystem;
+using Blocks.BlockComponents;
+using GameSystems.DifficultySystem;
 using Managers;
+using Models.ObjectPools;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace BlockStackSystem
+namespace Blocks.BlockStackSystem
 {
     public class BlockStackGenerator : MonoBehaviour
     {

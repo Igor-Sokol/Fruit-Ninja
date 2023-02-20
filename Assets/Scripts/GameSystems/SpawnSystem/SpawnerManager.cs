@@ -1,16 +1,12 @@
 using System.Collections;
 using System.Linq;
-using Adaptive;
 using Animations;
-using BlockComponents;
-using BlockStackSystem;
-using DifficultySystem;
+using Blocks.BlockStackSystem;
 using PlayingFieldComponents;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace SpawnSystem
+namespace GameSystems.SpawnSystem
 {
     public class SpawnerManager : MonoBehaviour
     {

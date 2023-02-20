@@ -1,12 +1,12 @@
 using System;
-using BlockStackSystem;
-using CuttingSystem.Implementations;
-using DependencyInjection;
-using DifficultySystem.Implementations;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using Blocks.BlockStackSystem;
+using GameSystems.DifficultySystem.Implementations;
+using Models.DependencyInjection;
 using UI.Game;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "SamuraiEvent", menuName = "CuttingServicesSettings/SamuraiEvent")]
     public class SamuraiEventFactories : CuttingServiceFactory

@@ -1,8 +1,8 @@
-using DependencyInjection.Contracts;
-using SceneChangeSystem;
+using GameSystems.SceneChangeSystem;
+using Models.DependencyInjection.Contracts;
 using UnityEngine;
 
-namespace DependencyInjection.DependencyInstallers.ServicePrefabs
+namespace Models.DependencyInjection.DependencyInstallers.ServicePrefabs
 {
     public class SceneChangerInstaller : ServicePrefabInstaller
     {

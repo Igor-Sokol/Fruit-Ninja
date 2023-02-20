@@ -1,4 +1,4 @@
-namespace Factories.Contracts.Generic
+namespace Models.Factories.Contracts.Generic
 {
     public interface IFactory<out T>
     {

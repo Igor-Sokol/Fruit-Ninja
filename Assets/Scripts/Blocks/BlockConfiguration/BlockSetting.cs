@@ -1,10 +1,10 @@
 using System;
-using BeyondZoneSystem;
-using CuttingSystem;
-using PlayingFieldServices;
+using Blocks.BlockServices.BeyondZoneSystem;
+using Blocks.BlockServices.CuttingSystem;
+using Blocks.BlockServices.PlayingFieldServices;
 using UnityEngine;
 
-namespace BlockConfiguration
+namespace Blocks.BlockConfiguration
 {
     [Serializable]
     public struct BlockSetting

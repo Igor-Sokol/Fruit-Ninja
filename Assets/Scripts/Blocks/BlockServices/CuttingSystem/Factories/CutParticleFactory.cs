@@ -1,8 +1,8 @@
 using System;
-using CuttingSystem.Implementations;
+using Blocks.BlockServices.CuttingSystem.Implementations;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "CutParticleSetting", menuName = "CuttingServicesSettings/CutParticleSetting")]
     public class CutParticleFactory : CuttingServiceFactory

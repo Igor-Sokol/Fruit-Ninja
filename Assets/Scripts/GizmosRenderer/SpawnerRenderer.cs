@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Extensions;
-using SpawnSystem;
+using Extensions.Vectors;
+using GameSystems.SpawnSystem;
 using UnityEngine;
 
 namespace GizmosRenderer

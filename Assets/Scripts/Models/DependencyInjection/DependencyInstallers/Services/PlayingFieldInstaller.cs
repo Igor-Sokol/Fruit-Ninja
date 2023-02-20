@@ -1,9 +1,9 @@
-using BlockStackSystem;
-using DependencyInjection.Contracts;
+using Blocks.BlockStackSystem;
+using Models.DependencyInjection.Contracts;
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace DependencyInjection.DependencyInstallers.Services
+namespace Models.DependencyInjection.DependencyInstallers.Services
 {
     public class PlayingFieldInstaller : ServiceInstaller
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace BeyondZoneSystem
+namespace Blocks.BlockServices.BeyondZoneSystem
 {
     public abstract class BeyondServiceFactory : ScriptableObject
     {

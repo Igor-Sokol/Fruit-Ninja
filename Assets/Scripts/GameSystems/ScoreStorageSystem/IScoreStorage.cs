@@ -1,4 +1,4 @@
-namespace ScoreStorageSystem
+namespace GameSystems.ScoreStorageSystem
 {
     public interface IScoreStorage
     {

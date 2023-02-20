@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BlockConfiguration
+namespace Blocks.BlockConfiguration
 {
     [CreateAssetMenu(fileName = "Block", menuName = "Block")]
     public class BlockSettingObject : ScriptableObject

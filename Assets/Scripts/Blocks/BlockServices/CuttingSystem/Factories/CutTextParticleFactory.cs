@@ -1,10 +1,10 @@
 using System;
-using CuttingSystem.Implementations;
-using DependencyInjection;
-using Particles;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using Extensions.Particles;
+using Models.DependencyInjection;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "CutTextParticleSetting", menuName = "CuttingServicesSettings/CutTextParticleSetting")]
     public class CutTextParticleFactory : CuttingServiceFactory

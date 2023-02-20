@@ -1,4 +1,4 @@
-namespace TimerSystem
+namespace Models.Timers.TimerSystem
 {
     public class TimerCounter
     {

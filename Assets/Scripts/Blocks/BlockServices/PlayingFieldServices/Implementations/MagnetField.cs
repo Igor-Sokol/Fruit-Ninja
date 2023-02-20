@@ -1,10 +1,9 @@
 using System.Linq;
-using BlockComponents;
-using BlockConfiguration;
+using Blocks.BlockComponents;
+using Blocks.BlockConfiguration;
 using PlayingFieldComponents;
-using UnityEngine;
 
-namespace PlayingFieldServices.Implementations
+namespace Blocks.BlockServices.PlayingFieldServices.Implementations
 {
     public class MagnetField : IPlayingFieldService
     {

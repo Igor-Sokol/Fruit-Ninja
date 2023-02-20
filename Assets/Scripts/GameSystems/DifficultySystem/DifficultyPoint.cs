@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DifficultySystem
+namespace GameSystems.DifficultySystem
 {
     [Serializable]
     public struct DifficultyPoint

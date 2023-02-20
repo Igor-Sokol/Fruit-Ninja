@@ -1,6 +1,6 @@
-using BlockComponents;
+using Blocks.BlockComponents;
 
-namespace PlayingFieldServices
+namespace Blocks.BlockServices.PlayingFieldServices
 {
     public interface IPlayingFieldService
     {

@@ -1,7 +1,7 @@
 using System;
-using DependencyInjection;
+using GameSystems.SceneChangeSystem;
 using Managers;
-using SceneChangeSystem;
+using Models.DependencyInjection;
 using UnityEngine;
 using UnityEngine.UI;
 

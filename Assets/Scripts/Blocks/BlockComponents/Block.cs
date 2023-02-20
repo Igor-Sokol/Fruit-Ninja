@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
-using BeyondZoneSystem;
-using BlockConfiguration;
-using CuttingSystem;
+using Blocks.BlockConfiguration;
+using Blocks.BlockServices.BeyondZoneSystem;
+using Blocks.BlockServices.CuttingSystem;
+using Blocks.BlockServices.PlayingFieldServices;
 using Managers;
-using PlayingFieldServices;
 using UnityEngine;
 
-namespace BlockComponents
+namespace Blocks.BlockComponents
 {
     public class Block : MonoBehaviour, ICutting, IBeyondService, IOnPlayingField
     {

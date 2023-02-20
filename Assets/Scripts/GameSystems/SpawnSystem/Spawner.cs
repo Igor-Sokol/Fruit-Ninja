@@ -1,10 +1,9 @@
-using System.Diagnostics;
-using BlockComponents;
-using Extensions;
+using Blocks.BlockComponents;
+using Extensions.Vectors;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SpawnSystem
+namespace GameSystems.SpawnSystem
 {
     public class Spawner : MonoBehaviour
     {

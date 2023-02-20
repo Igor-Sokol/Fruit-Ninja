@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Singleton
+namespace Models.Singleton
 {
     public class ScriptableObjectSingleton<T> : ScriptableObject where T : ScriptableObject
     {

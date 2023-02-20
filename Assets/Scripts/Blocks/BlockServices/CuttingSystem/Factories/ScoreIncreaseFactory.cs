@@ -1,12 +1,12 @@
 using System;
-using CuttingSystem.Implementations;
-using DependencyInjection;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using Extensions.Particles;
+using GameSystems.ScoreSystem;
 using Managers;
-using Particles;
-using ScoreSystem;
+using Models.DependencyInjection;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "ScoreIncreaseSetting", menuName = "CuttingServicesSettings/ScoreIncreaseSetting")]
     public class ScoreIncreaseFactory : CuttingServiceFactory

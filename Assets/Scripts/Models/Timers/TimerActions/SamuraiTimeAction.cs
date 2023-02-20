@@ -1,10 +1,10 @@
-using BlockStackSystem;
-using DifficultySystem;
-using TimerSystem;
+using Blocks.BlockStackSystem;
+using GameSystems.DifficultySystem;
+using Models.Timers.TimerSystem;
 using UI.Game;
 using UnityEngine;
 
-namespace TimerActions
+namespace Models.Timers.TimerActions
 {
     public class SamuraiTimeAction : ITimerAction
     {

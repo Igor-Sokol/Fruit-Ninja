@@ -1,13 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
-using BlockComponents;
-using BlockStackSystem;
+using Blocks.BlockComponents;
+using Blocks.BlockStackSystem;
+using Models.Timers.TimerActions;
+using Models.Timers.TimerSystem;
 using PlayingFieldComponents;
-using TimerActions;
-using TimerSystem;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class FruitSpawner : ICuttingService
     {

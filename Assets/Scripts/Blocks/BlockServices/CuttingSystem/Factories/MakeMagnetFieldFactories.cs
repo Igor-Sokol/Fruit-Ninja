@@ -1,10 +1,10 @@
 using System;
-using CuttingSystem.Implementations;
-using PlayingFieldServices.Settings;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using Blocks.BlockServices.PlayingFieldServices.Factories;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "MakeMagnetField", menuName = "CuttingServicesSettings/MakeMagnetField")]
     public class MakeMagnetFieldFactories : CuttingServiceFactory

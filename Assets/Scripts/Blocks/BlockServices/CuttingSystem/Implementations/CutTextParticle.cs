@@ -1,8 +1,8 @@
-using BlockComponents;
-using Particles;
+using Blocks.BlockComponents;
+using Extensions.Particles;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class CutTextParticle : ICuttingService
     {

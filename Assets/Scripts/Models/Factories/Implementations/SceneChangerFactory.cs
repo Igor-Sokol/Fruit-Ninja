@@ -1,9 +1,9 @@
-using DependencyInjection;
-using Factories.Contracts.Generic;
-using SceneChangeSystem;
+using GameSystems.SceneChangeSystem;
+using Models.DependencyInjection;
+using Models.Factories.Contracts.Generic;
 using UnityEngine;
 
-namespace Factories.Implementations
+namespace Models.Factories.Implementations
 {
     public class SceneChangerFactory : IFactory<SceneChanger>
     {

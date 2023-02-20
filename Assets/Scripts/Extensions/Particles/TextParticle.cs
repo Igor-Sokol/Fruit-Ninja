@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Particles
+namespace Extensions.Particles
 {
     public class TextParticle : MonoBehaviour
     {

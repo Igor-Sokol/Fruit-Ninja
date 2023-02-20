@@ -1,11 +1,11 @@
-using BlockComponents;
-using PlayingFieldServices;
-using PlayingFieldServices.Settings;
-using TimerActions;
-using TimerSystem;
+using Blocks.BlockComponents;
+using Blocks.BlockServices.PlayingFieldServices;
+using Blocks.BlockServices.PlayingFieldServices.Factories;
+using Models.Timers.TimerActions;
+using Models.Timers.TimerSystem;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class MakeMagnetField : ICuttingService
     {

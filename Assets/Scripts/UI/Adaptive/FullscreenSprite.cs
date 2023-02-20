@@ -1,7 +1,7 @@
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace Adaptive
+namespace UI.Adaptive
 {
     public class FullscreenSprite : MonoBehaviour
     {

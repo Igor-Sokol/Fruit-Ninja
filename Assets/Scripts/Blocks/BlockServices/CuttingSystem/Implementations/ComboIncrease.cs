@@ -1,9 +1,9 @@
-using BlockComponents;
+using Blocks.BlockComponents;
 using Managers;
 using UI.Game;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class ComboIncrease : ICuttingService
     {

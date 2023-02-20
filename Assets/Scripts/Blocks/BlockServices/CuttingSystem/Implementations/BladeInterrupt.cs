@@ -1,8 +1,8 @@
-using BlockComponents;
+using Blocks.BlockComponents;
 using UI.Game;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class BladeInterrupt : ICuttingService
     {

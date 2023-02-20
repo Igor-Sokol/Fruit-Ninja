@@ -1,4 +1,4 @@
-namespace PlayingFieldServices
+namespace Blocks.BlockServices.PlayingFieldServices
 {
     public interface IOnPlayingField
     {

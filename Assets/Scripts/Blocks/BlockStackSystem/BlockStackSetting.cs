@@ -1,10 +1,9 @@
 using System;
-using BlockConfiguration;
-using BlockStackSystem.Restrictions;
+using Blocks.BlockConfiguration;
+using Blocks.BlockStackSystem.Restrictions;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace BlockStackSystem
+namespace Blocks.BlockStackSystem
 {
     [Serializable]
     public struct BlockStackSetting

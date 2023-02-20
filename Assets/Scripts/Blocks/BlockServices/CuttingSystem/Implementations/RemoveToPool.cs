@@ -1,9 +1,9 @@
-using BlockComponents;
-using BlockStackSystem;
+using Blocks.BlockComponents;
+using Blocks.BlockStackSystem;
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class RemoveToPool : ICuttingService
     {

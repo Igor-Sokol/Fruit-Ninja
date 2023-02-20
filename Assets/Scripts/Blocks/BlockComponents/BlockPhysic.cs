@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Managers;
 using UnityEngine;
 
-namespace BlockComponents
+namespace Blocks.BlockComponents
 {
     public class BlockPhysic : MonoBehaviour
     {

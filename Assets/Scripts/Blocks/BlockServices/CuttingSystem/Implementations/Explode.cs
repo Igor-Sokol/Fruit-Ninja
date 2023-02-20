@@ -1,9 +1,9 @@
 using System.Linq;
-using BlockComponents;
+using Blocks.BlockComponents;
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class Explode : ICuttingService
     {

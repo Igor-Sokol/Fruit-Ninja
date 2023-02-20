@@ -1,10 +1,10 @@
 using System;
-using BeyondZoneSystem.Implementations;
-using DependencyInjection;
-using HealthSystem;
+using Blocks.BlockServices.BeyondZoneSystem.Implementations;
+using GameSystems.HealthSystem;
+using Models.DependencyInjection;
 using UnityEngine;
 
-namespace BeyondZoneSystem.Settings
+namespace Blocks.BlockServices.BeyondZoneSystem.Factories
 {
     [CreateAssetMenu(fileName = "LifeDecreaseSetting", menuName = "BeyondZoneSettings/LifeDecreaseSetting")]
     public class LifeDecreaseFactory : BeyondServiceFactory

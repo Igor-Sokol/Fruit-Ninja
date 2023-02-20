@@ -1,6 +1,6 @@
-using HealthSystem;
+using GameSystems.HealthSystem;
 
-namespace BeyondZoneSystem.Implementations
+namespace Blocks.BlockServices.BeyondZoneSystem.Implementations
 {
     public class LifeDecrease : IBeyondService
     {

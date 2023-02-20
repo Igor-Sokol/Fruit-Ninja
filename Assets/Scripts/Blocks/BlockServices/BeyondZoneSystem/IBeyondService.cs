@@ -1,4 +1,4 @@
-namespace BeyondZoneSystem
+namespace Blocks.BlockServices.BeyondZoneSystem
 {
     public interface IBeyondService
     {

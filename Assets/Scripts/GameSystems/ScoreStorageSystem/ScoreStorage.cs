@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ScoreStorageSystem
+namespace GameSystems.ScoreStorageSystem
 {
     public abstract class ScoreStorage : MonoBehaviour, IScoreStorage
     {

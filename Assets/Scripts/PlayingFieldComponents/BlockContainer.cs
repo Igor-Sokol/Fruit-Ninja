@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using BlockComponents;
+using Blocks.BlockComponents;
 using UnityEngine;
 
 namespace PlayingFieldComponents

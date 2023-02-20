@@ -1,12 +1,12 @@
 using System.Linq;
-using BlockComponents;
-using BlockConfiguration;
-using BlockStackSystem;
-using Extensions;
+using Blocks.BlockComponents;
+using Blocks.BlockConfiguration;
+using Blocks.BlockStackSystem;
+using Extensions.Vectors;
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class PartsCutter : ICuttingService
     {

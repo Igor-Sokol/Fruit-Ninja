@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using DependencyInjection.Contracts;
-using Factories.Contracts.Generic;
+using Models.DependencyInjection.Contracts;
+using Models.Factories.Contracts.Generic;
 using UnityEngine;
 
-namespace DependencyInjection
+namespace Models.DependencyInjection
 {
     public class ProjectContext : MonoBehaviour
     {

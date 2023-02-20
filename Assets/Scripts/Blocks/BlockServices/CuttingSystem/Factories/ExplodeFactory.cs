@@ -1,10 +1,10 @@
 using System;
-using CuttingSystem.Implementations;
-using DependencyInjection;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using Models.DependencyInjection;
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "ExplodeSetting", menuName = "CuttingServicesSettings/ExplodeSetting")]
     public class ExplodeFactory : CuttingServiceFactory

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DifficultySystem
+namespace GameSystems.DifficultySystem
 {
     public abstract class DifficultySetting : MonoBehaviour, IDifficultySetting
     {

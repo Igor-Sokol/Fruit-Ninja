@@ -1,13 +1,12 @@
-using BlockComponents;
-using BlockConfiguration;
-using BlockStackSystem;
-using DifficultySystem;
-using TimerActions;
-using TimerSystem;
+using Blocks.BlockComponents;
+using Blocks.BlockStackSystem;
+using GameSystems.DifficultySystem;
+using Models.Timers.TimerActions;
+using Models.Timers.TimerSystem;
 using UI.Game;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class SamuraiEvent : ICuttingService
     {

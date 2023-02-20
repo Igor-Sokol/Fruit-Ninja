@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using BlockComponents;
+using Blocks.BlockComponents;
 using UnityEngine;
 
-namespace PlayingFieldServices
+namespace Blocks.BlockServices.PlayingFieldServices
 {
     public class PlayingFieldServiceManager : MonoBehaviour, IOnPlayingField
     {

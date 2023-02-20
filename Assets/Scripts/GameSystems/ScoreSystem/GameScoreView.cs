@@ -1,9 +1,8 @@
-using System;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace ScoreSystem
+namespace GameSystems.ScoreSystem
 {
     public class GameScoreView : MonoBehaviour
     {

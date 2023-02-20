@@ -1,10 +1,10 @@
 using System;
-using CuttingSystem.Implementations;
-using DependencyInjection;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using Models.DependencyInjection;
 using UI.Game;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "BladeInterrupt", menuName = "CuttingServicesSettings/BladeInterrupt")]
     public class BladeInterruptFactory : CuttingServiceFactory

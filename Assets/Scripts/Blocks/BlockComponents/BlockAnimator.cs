@@ -4,7 +4,7 @@ using Animations;
 using Managers;
 using UnityEngine;
 
-namespace BlockComponents
+namespace Blocks.BlockComponents
 {
     public class BlockAnimator : MonoBehaviour
     {

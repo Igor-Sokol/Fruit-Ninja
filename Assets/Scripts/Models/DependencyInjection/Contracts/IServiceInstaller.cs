@@ -1,4 +1,4 @@
-namespace DependencyInjection.Contracts
+namespace Models.DependencyInjection.Contracts
 {
     public interface IServiceInstaller
     {

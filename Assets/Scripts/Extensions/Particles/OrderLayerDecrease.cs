@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Particles
+namespace Extensions.Particles
 {
     [RequireComponent(typeof(ParticleSystemRenderer))]
     public class OrderLayerDecrease : MonoBehaviour

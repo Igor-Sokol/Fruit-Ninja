@@ -1,11 +1,11 @@
 using System;
-using CuttingSystem.Implementations;
-using DependencyInjection;
+using Blocks.BlockServices.CuttingSystem.Implementations;
 using Managers;
+using Models.DependencyInjection;
 using UI;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "TimeSlowerSetting", menuName = "CuttingServicesSettings/TimeSlowerSetting")]
     public class TimeSlowerFactory : CuttingServiceFactory

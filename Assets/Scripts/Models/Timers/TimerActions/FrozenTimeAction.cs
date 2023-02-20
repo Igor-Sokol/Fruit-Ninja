@@ -1,8 +1,8 @@
 using Managers;
-using TimerSystem;
+using Models.Timers.TimerSystem;
 using UI;
 
-namespace TimerActions
+namespace Models.Timers.TimerActions
 {
     public class FrozenTimeAction : ITimerAction
     {

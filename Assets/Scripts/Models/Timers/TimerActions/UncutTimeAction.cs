@@ -1,7 +1,7 @@
-using CuttingSystem;
-using TimerSystem;
+using Blocks.BlockServices.CuttingSystem;
+using Models.Timers.TimerSystem;
 
-namespace TimerActions
+namespace Models.Timers.TimerActions
 {
     public class UncutTimeAction : ITimerAction
     {

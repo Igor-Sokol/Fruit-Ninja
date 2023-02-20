@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Animations.Fabric.Configs
+namespace Animations.Factory.Configs
 {
     [CreateAssetMenu(fileName = "RotateAnimation", menuName = "Animations/RotateAnimation")]
     public class RotateAnimationConfig : AnimationFactory

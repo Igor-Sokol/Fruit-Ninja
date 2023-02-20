@@ -1,11 +1,11 @@
 using System;
-using BlockStackSystem;
-using CuttingSystem.Implementations;
-using DependencyInjection;
+using Blocks.BlockServices.CuttingSystem.Implementations;
+using Blocks.BlockStackSystem;
+using Models.DependencyInjection;
 using PlayingFieldComponents;
 using UnityEngine;
 
-namespace CuttingSystem.Settings
+namespace Blocks.BlockServices.CuttingSystem.Factories
 {
     [CreateAssetMenu(fileName = "RemoveToPoolSetting", menuName = "CuttingServicesSettings/RemoveToPoolSetting")]
     public class RemoveToPoolFactory : CuttingServiceFactory

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SceneChangeSystem
+namespace GameSystems.SceneChangeSystem
 {
     public class LoadingUI : MonoBehaviour
     {

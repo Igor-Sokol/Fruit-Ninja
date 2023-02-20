@@ -1,4 +1,4 @@
-namespace BlockStackSystem.Restrictions
+namespace Blocks.BlockStackSystem.Restrictions
 {
     public interface IRestriction
     {

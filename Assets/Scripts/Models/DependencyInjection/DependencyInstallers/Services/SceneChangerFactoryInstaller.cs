@@ -1,9 +1,9 @@
-using DependencyInjection.Contracts;
-using Factories.Contracts.Generic;
-using Factories.Implementations;
-using SceneChangeSystem;
+using GameSystems.SceneChangeSystem;
+using Models.DependencyInjection.Contracts;
+using Models.Factories.Contracts.Generic;
+using Models.Factories.Implementations;
 
-namespace DependencyInjection.DependencyInstallers.Services
+namespace Models.DependencyInjection.DependencyInstallers.Services
 {
     public class SceneChangerFactoryInstaller : ServiceInstaller
     {

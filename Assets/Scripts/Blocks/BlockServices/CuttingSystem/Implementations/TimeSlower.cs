@@ -1,11 +1,11 @@
-using BlockComponents;
+using Blocks.BlockComponents;
 using Managers;
-using TimerActions;
-using TimerSystem;
+using Models.Timers.TimerActions;
+using Models.Timers.TimerSystem;
 using UI;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class TimeSlower : ICuttingService
     {

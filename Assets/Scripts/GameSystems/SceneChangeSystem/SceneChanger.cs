@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SceneChangeSystem
+namespace GameSystems.SceneChangeSystem
 {
     public class SceneChanger : MonoBehaviour
     {

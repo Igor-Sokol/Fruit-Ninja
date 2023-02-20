@@ -3,58 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-[Serializable]
-public class ObjectPool<T> where T : MonoBehaviour
+namespace Models.ObjectPools
 {
-    private readonly Stack<T> _objects = new Stack<T>();
-    
-    [SerializeField] private T prefab;
-    [SerializeField] private Transform container;
-
-    public void Init(T prefab, Transform container, int startCount = 0)
+    [Serializable]
+    public class ObjectPool<T> where T : MonoBehaviour
     {
-        if (!this.container)
-        {
-            this.container = container;
-        }
-        
-        if (!this.prefab)
-        {
-            this.prefab = prefab;
+        private readonly Stack<T> _objects = new Stack<T>();
+    
+        [SerializeField] private T prefab;
+        [SerializeField] private Transform container;
 
-            for (int i = 0; i < startCount; i++)
+        public void Init(T prefab, Transform container, int startCount = 0)
+        {
+            if (!this.container)
             {
-                _objects.Push(CreateObject());
+                this.container = container;
+            }
+        
+            if (!this.prefab)
+            {
+                this.prefab = prefab;
+
+                for (int i = 0; i < startCount; i++)
+                {
+                    _objects.Push(CreateObject());
+                }
             }
         }
-    }
         
-    public T Get()
-    {
-        if (_objects.Count > 0)
+        public T Get()
         {
-            var obj = _objects.Pop();
-            obj.gameObject.SetActive(true);
-            return obj;
+            if (_objects.Count > 0)
+            {
+                var obj = _objects.Pop();
+                obj.gameObject.SetActive(true);
+                return obj;
+            }
+
+            return CreateObject();
         }
 
-        return CreateObject();
-    }
-
-    public void Return(T obj)
-    {
-        obj.gameObject.SetActive(false);
-        obj.transform.SetParent(container);
-        _objects.Push(obj);
-    }
-        
-    private T CreateObject()
-    {
-        if (prefab)
+        public void Return(T obj)
         {
-            return Object.Instantiate(prefab, container);
+            obj.gameObject.SetActive(false);
+            obj.transform.SetParent(container);
+            _objects.Push(obj);
         }
+        
+        private T CreateObject()
+        {
+            if (prefab)
+            {
+                return Object.Instantiate(prefab, container);
+            }
 
-        return null;
+            return null;
+        }
     }
 }

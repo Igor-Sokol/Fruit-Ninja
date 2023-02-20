@@ -1,7 +1,7 @@
-using HealthSystem;
+using GameSystems.HealthSystem;
 using UnityEngine;
 
-namespace BlockStackSystem.Restrictions.Implementations
+namespace Blocks.BlockStackSystem.Restrictions.Implementations
 {
     public class MaxHealthRestrict : Restriction
     {

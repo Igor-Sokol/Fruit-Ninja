@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using BlockComponents;
-using PlayingFieldServices;
-using TimerSystem;
+using Blocks.BlockComponents;
+using Blocks.BlockServices.PlayingFieldServices;
+using Models.Timers.TimerSystem;
 using UnityEngine;
 
-namespace TimerActions
+namespace Models.Timers.TimerActions
 {
     public class InvulnerableTimeAction : ITimerAction
     {

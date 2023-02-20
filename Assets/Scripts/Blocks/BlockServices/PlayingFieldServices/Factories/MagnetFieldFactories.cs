@@ -1,11 +1,11 @@
 using System;
-using BlockConfiguration;
-using DependencyInjection;
+using Blocks.BlockConfiguration;
+using Blocks.BlockServices.PlayingFieldServices.Implementations;
+using Models.DependencyInjection;
 using PlayingFieldComponents;
-using PlayingFieldServices.Implementations;
 using UnityEngine;
 
-namespace PlayingFieldServices.Settings
+namespace Blocks.BlockServices.PlayingFieldServices.Factories
 {
     [CreateAssetMenu(fileName = "MagnetField", menuName = "PlayingFieldService/MagnetField")]
     public class MagnetFieldFactories : PlayingFieldServiceFactory

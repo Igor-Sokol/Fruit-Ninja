@@ -1,10 +1,10 @@
-using BlockComponents;
+using Blocks.BlockComponents;
+using Extensions.Particles;
+using GameSystems.ScoreSystem;
 using Managers;
-using Particles;
-using ScoreSystem;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class ScoreIncrease : ICuttingService
     {

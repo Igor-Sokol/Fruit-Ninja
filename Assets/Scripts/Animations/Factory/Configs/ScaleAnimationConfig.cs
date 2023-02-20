@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Animations.Fabric.Configs
+namespace Animations.Factory.Configs
 {
     [CreateAssetMenu(fileName = "ScaleAnimation", menuName = "Animations/ScaleAnimation")]
     public class ScaleAnimationConfig : AnimationFactory

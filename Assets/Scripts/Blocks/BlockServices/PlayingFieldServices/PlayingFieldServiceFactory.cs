@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace PlayingFieldServices
+namespace Blocks.BlockServices.PlayingFieldServices
 {
     public abstract class PlayingFieldServiceFactory : ScriptableObject
     {

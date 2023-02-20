@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BlockComponents
+namespace Blocks.BlockComponents
 {
     public class BlockRenderer : MonoBehaviour
     {

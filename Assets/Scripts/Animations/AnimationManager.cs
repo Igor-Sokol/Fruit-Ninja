@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Animations.Fabric;
+using Animations.Factory;
 using UnityEngine;
 
 namespace Animations

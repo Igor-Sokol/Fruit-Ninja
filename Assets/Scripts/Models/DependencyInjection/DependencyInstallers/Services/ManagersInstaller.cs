@@ -1,10 +1,10 @@
-using DependencyInjection.Contracts;
-using HealthSystem;
+using GameSystems.HealthSystem;
+using GameSystems.ScoreSystem;
 using Managers;
-using ScoreSystem;
+using Models.DependencyInjection.Contracts;
 using UnityEngine;
 
-namespace DependencyInjection.DependencyInstallers.Services
+namespace Models.DependencyInjection.DependencyInstallers.Services
 {
     public class ManagersInstaller : ServiceInstaller
     {

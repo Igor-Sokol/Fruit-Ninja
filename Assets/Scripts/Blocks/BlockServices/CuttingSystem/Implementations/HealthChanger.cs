@@ -1,8 +1,8 @@
-using BlockComponents;
-using HealthSystem;
+using Blocks.BlockComponents;
+using GameSystems.HealthSystem;
 using UnityEngine;
 
-namespace CuttingSystem.Implementations
+namespace Blocks.BlockServices.CuttingSystem.Implementations
 {
     public class HealthChanger : ICuttingService
     {
