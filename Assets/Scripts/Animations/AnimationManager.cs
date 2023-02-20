@@ -8,7 +8,7 @@ namespace Animations
     public class AnimationManager : MonoBehaviour
     {
         [SerializeField] private Vector2Int animationCountRange;
-        [SerializeField] private AnimationFabric[] animationFabrics;
+        [SerializeField] private AnimationFactory[] animationFabrics;
 
         public IAnimation[] GetRandomAnimations()
         {
@@ -17,7 +17,7 @@ namespace Animations
 
             IAnimation[] result = new IAnimation[animationCount];
             
-            List<AnimationFabric> fabrics = animationFabrics.ToList();
+            List<AnimationFactory> fabrics = animationFabrics.ToList();
             for (int i = 0; i < animationCount; i++)
             {
                 int fabricIndex = Random.Range(0, fabrics.Count);
