@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using BlockComponents;
 using BlockStackSystem;
 using PlayingFieldComponents;
+using TimerActions;
+using TimerSystem;
 using UnityEngine;
 
 namespace CuttingSystem.Implementations
@@ -38,7 +40,7 @@ namespace CuttingSystem.Implementations
 
             foreach (var newBlock in newBlocks)
             {
-                newBlock.CuttingManager.SwitchState(false, _uncutTime);
+                Timer.Instance.AddTimer(new UncutTimeAction(newBlock.CuttingManager), _uncutTime);
 
                 newBlock.transform.position = block.transform.position + (Vector3)(Random.insideUnitCircle * _spawnRangeOffset);
 
