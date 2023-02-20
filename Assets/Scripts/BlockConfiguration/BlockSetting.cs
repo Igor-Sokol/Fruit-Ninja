@@ -12,19 +12,19 @@ namespace BlockConfiguration
         [SerializeField] private Sprite sprite;
         [SerializeField] private float colliderRadius;
         [SerializeField] private bool enableShadow;
-        [SerializeField] private CuttingServiceSetting[] cuttingServices;
-        [SerializeField] private BeyondServiceSetting[] beyondServiceSettings;
+        [SerializeField] private CuttingServiceProvider[] cuttingServices;
+        [SerializeField] private BeyondServiceProvider[] beyondServiceSettings;
         [SerializeField] private PlayingFieldServiceSetting[] playingFieldServiceSettings;
 
         public Sprite Sprite => sprite;
         public float ColliderRadius => colliderRadius;
         public bool EnableShadow => enableShadow;
-        public CuttingServiceSetting[] CuttingServicesSettings => cuttingServices;
-        public BeyondServiceSetting[] BeyondServiceSettings => beyondServiceSettings;
+        public CuttingServiceProvider[] CuttingServicesSettings => cuttingServices;
+        public BeyondServiceProvider[] BeyondServiceSettings => beyondServiceSettings;
         public PlayingFieldServiceSetting[] PlayingFieldServiceSettings => playingFieldServiceSettings;
 
         public BlockSetting(Sprite sprite, float colliderRadius, bool enableShadow,
-            CuttingServiceSetting[] cuttingServices = null, BeyondServiceSetting[] beyondServiceSettings = null,
+            CuttingServiceProvider[] cuttingServices = null, BeyondServiceProvider[] beyondServiceSettings = null,
             PlayingFieldServiceSetting[] playingFieldServiceSettings = null)
         {
             this.sprite = sprite;
