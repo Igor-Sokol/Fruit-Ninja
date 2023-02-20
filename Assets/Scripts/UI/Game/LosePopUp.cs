@@ -1,3 +1,5 @@
+using System;
+using DependencyInjection;
 using Managers;
 using SceneChangeSystem;
 using UnityEngine;
@@ -7,6 +9,8 @@ namespace UI.Game
 {
     public class LosePopUp : MonoBehaviour
     {
+        private SceneChanger _sceneChanger;
+        
         [SerializeField] private GameStarter gameStarter;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private TextValue currentTextValueText;
@@ -17,6 +21,11 @@ namespace UI.Game
         [SerializeField] private Animation animationRenderer;
         [SerializeField] private string enableAnimation;
         [SerializeField] private string disableAnimation;
+
+        private void Awake()
+        {
+            _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
+        }
 
         private void OnEnable()
         {
@@ -48,7 +57,7 @@ namespace UI.Game
 
         private void MenuButton()
         {
-            SceneChanger.Instance.LoadScene(sceneName);
+            _sceneChanger.LoadScene(sceneName);
         }
         
         private void Enable()

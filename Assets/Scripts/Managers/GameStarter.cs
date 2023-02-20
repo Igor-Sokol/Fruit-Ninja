@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using DependencyInjection;
 using DifficultySystem;
 using DifficultySystem.Implementations;
 using HealthSystem;
@@ -15,6 +16,8 @@ namespace Managers
 {
     public class GameStarter : MonoBehaviour
     {
+        private SceneChanger _sceneChanger;
+        
         [SerializeField] private HealthService healthService;
         [SerializeField] private HealthView healthView;
         [SerializeField] private LosePopUp losePopUp;
@@ -26,13 +29,15 @@ namespace Managers
 
         private void Start()
         {
-            if (SceneChanger.IsValid)
+            _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
+
+            if (_sceneChanger.SceneLoaded)
             {
-                SceneChanger.Instance.OnSceneLoaded += OnSceneLoaded;
+                StartGame();
             }
             else
             {
-                StartGame();
+                _sceneChanger.OnSceneLoaded += OnSceneLoaded;
             }
         }
 
@@ -70,7 +75,7 @@ namespace Managers
 
         private void OnSceneLoaded()
         {
-            SceneChanger.Instance.OnSceneLoaded -= OnSceneLoaded;
+            _sceneChanger.OnSceneLoaded -= OnSceneLoaded;
             StartGame();
         }
     

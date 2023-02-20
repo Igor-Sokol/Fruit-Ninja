@@ -5,32 +5,21 @@ using UnityEngine.SceneManagement;
 
 namespace SceneChangeSystem
 {
-    public class SceneChanger : Singleton<SceneChanger>
+    public class SceneChanger : MonoBehaviour
     {
         private float _timer;
         private AsyncOperation _sceneLoadHandler;
 
-        private LoadingUI _loadingUI;
-        private float _secondBeforeLoading;
-        private float _secondAfterLoading;
+        [SerializeField] private LoadingUI loadingUI;
+        [SerializeField] private float secondBeforeLoading;
+        [SerializeField] private float secondAfterLoading;
 
         public event Action OnSceneLoaded;
+        public bool SceneLoaded => _sceneLoadHandler == null;
 
         private void Awake()
         {
-            if (SceneChanger.IsValid)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                _secondBeforeLoading = SceneLoaderConfig.Instance.SecondBeforeLoading;
-                _secondAfterLoading = SceneLoaderConfig.Instance.SecondAfterLoading;
-                
-                _loadingUI = Instantiate(SceneLoaderConfig.Instance.LoadingUIPrefab, transform);
-
-                DontDestroyOnLoad(this);
-            }
+            DontDestroyOnLoad(this);
         }
 
         public void LoadScene(string sceneName)
@@ -40,9 +29,9 @@ namespace SceneChangeSystem
 
         private IEnumerator LoadNewScene(string sceneName)
         {
-            _loadingUI.Enable();
+            loadingUI.Enable();
             
-            _timer = _secondBeforeLoading;
+            _timer = secondBeforeLoading;
             while (_timer > 0)
             {
                 _timer -= Time.deltaTime;
@@ -51,15 +40,16 @@ namespace SceneChangeSystem
             
             _sceneLoadHandler = SceneManager.LoadSceneAsync(sceneName);
             yield return _sceneLoadHandler;
-            _loadingUI.Disable();
+            loadingUI.Disable();
             
-            _timer = _secondAfterLoading;
+            _timer = secondAfterLoading;
             while (_timer > 0)
             {
                 _timer -= Time.deltaTime;
                 yield return null;
             }
             
+            _sceneLoadHandler = null;
             OnSceneLoaded?.Invoke();
         }
     }

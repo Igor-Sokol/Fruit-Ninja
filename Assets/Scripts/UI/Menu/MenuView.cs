@@ -1,3 +1,4 @@
+using DependencyInjection;
 using SceneChangeSystem;
 using ScoreSystem;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace UI.Menu
 {
     public class MenuView : MonoBehaviour
     {
+        private SceneChanger _sceneChanger;
+        
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private TextValue textValue;
         [SerializeField] private Button gameButton;
@@ -17,6 +20,7 @@ namespace UI.Menu
         private void Awake()
         {
             SetScore();
+            _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
         }
 
         private void OnEnable()
@@ -40,7 +44,7 @@ namespace UI.Menu
 
         private void GameButton()
         {
-            SceneChanger.Instance.LoadScene(sceneName);
+            _sceneChanger.LoadScene(sceneName);
         }
     
         private void ExitButton()
