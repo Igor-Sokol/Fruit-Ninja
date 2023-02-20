@@ -29,15 +29,13 @@ namespace CuttingSystem.Implementations
             _randomSpawnScale = randomSpawnScale;
         }
 
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             var actualScore = _score * (_comboManager.CurrentCombo > 0 ? _comboManager.CurrentCombo : 1);
 
             _scoreManager.AddScore(actualScore);
             var textParticle = Object.Instantiate(_particle, block.transform.position + (Vector3)(Random.insideUnitCircle * _randomSpawnScale), Quaternion.identity, _canvas);
             textParticle.SetText(actualScore.ToString());
-
-            return ServiceCallbackAction.None;
         }
     }
 }

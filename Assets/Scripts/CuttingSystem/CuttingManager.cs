@@ -7,12 +7,16 @@ namespace CuttingSystem
     public class CuttingManager : MonoBehaviour, ICutting
     {
         private Block _block;
+        private List<ICuttingService> _addCuttingServices;
+        private List<ICuttingService> _deleteCuttingServices;
         private List<ICuttingService> _cuttingServices;
         private bool _state;
 
         private void Awake()
         {
             _cuttingServices = new List<ICuttingService>();
+            _addCuttingServices = new List<ICuttingService>();
+            _deleteCuttingServices = new List<ICuttingService>();
         }
 
         public void Init(Block block, IEnumerable<ICuttingService> services)
@@ -40,32 +44,31 @@ namespace CuttingSystem
 
         public void AddService(ICuttingService service)
         {
-            _cuttingServices.Add(service);
+            _addCuttingServices.Add(service);
         }
 
         public void RemoveService(ICuttingService service)
         {
-            _cuttingServices.Remove(service);
+            _deleteCuttingServices.Add(service);
         }
 
         public void Cut(Vector2 bladeVector)
         {
             if (_state)
             {
-                for (int i = 0; i < _cuttingServices.Count; i++)
+                foreach (var service in _cuttingServices)
                 {
-                    var result = _cuttingServices[i].Cut(_block, bladeVector);
-
-                    switch (result)
-                    {
-                        case ServiceCallbackAction.Delete:
-                        {
-                            _cuttingServices.RemoveAt(i);
-                            i--;
-                            break;
-                        }
-                    }
+                    service.Cut(_block, bladeVector);
                 }
+
+                _cuttingServices.AddRange(_addCuttingServices);
+                _addCuttingServices.Clear();
+
+                foreach (var deleteService in _deleteCuttingServices)
+                {
+                    _cuttingServices.Remove(deleteService);
+                }
+                _deleteCuttingServices.Clear();
             }
         }
     }

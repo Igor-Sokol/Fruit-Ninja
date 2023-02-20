@@ -25,7 +25,7 @@ namespace CuttingSystem.Implementations
             _blockStackGenerator = blockStackGenerator;
         }
 
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             var currentSpriteRect = block.BlockRenderer.Sprite.rect;
             
@@ -44,8 +44,6 @@ namespace CuttingSystem.Implementations
 
             _playingBlockContainer.AddBlock(leftPart);
             _playingBlockContainer.AddBlock(rightPart);
-
-            return ServiceCallbackAction.Delete;
         }
 
         private Block CreatePart(Block block, Rect textureRect, Vector2 texturePivot)

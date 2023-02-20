@@ -20,14 +20,14 @@ namespace CuttingSystem.Implementations
             _seconds = seconds;
         }
         
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             IPlayingFieldService[] playingFieldServices = new[] { _magnetFieldSettings.GetService() };
             ParticleSystem[] particles = new[] { _particle };
             
             Timer.Instance.AddTimer(new InvulnerableTimeAction(block, playingFieldServices, particles), _seconds);
 
-            return ServiceCallbackAction.Delete;
+            block.CuttingManager.RemoveService(this);
         }
     }
 }

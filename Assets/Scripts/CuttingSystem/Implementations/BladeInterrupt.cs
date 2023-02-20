@@ -13,11 +13,9 @@ namespace CuttingSystem.Implementations
             _bladeMover = bladeMover;
         }
         
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             _bladeMover.OnEndDrag();
-
-            return ServiceCallbackAction.None;
         }
     }
 }

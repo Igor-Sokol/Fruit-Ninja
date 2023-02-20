@@ -30,14 +30,12 @@ namespace CuttingSystem.Implementations
             _samuraiEventRenderer = samuraiEventRenderer;
         }
 
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             var samuraiTimeAction =
                 new SamuraiTimeAction(_blockStackGenerator, _difficultySetting, _stackSettings, _samuraiEventRenderer);
             
             Timer.Instance.AddTimer(samuraiTimeAction, _time);
-
-            return ServiceCallbackAction.None;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace CuttingSystem.Implementations
             _playingFieldBlocks = playingFieldBlocks;
         }
         
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             var targets = _playingFieldBlocks.Blocks.Where(b =>
                 (b.transform.position - block.transform.position).magnitude <= _range);
@@ -32,8 +32,6 @@ namespace CuttingSystem.Implementations
                 var vector = target.transform.position - block.transform.position;
                 target.BlockPhysic.AddForce(vector.normalized, _force * (1f - vector.magnitude / _range));
             }
-
-            return ServiceCallbackAction.None;
         }
     }
 }

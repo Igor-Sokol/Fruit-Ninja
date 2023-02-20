@@ -23,7 +23,7 @@ namespace CuttingSystem.Implementations
             _healthView = healthView;
         }
 
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             switch (_healthChangeMode)
             {
@@ -35,8 +35,6 @@ namespace CuttingSystem.Implementations
                     _healthService.RemoveHealth(_value);
                     break;
             }
-
-            return ServiceCallbackAction.None;
         }
 
         public enum HealthChangeMode

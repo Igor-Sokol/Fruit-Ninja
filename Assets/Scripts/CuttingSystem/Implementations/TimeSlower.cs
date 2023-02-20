@@ -26,11 +26,9 @@ namespace CuttingSystem.Implementations
             _filterRenderer = filterRenderer;
         }
         
-        public ServiceCallbackAction Cut(Block block, Vector2 bladeVector)
+        public void Cut(Block block, Vector2 bladeVector)
         {
             Timer.Instance.AddTimer(new FrozenTimeAction(_timeScaleManager, _filterRenderer, _scale, _time), _time);
-
-            return ServiceCallbackAction.None;
         }
     }
 }
