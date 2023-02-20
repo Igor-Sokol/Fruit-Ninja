@@ -271,8 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 255821259}
-  text: x
-  endText: 
   valueChangeTime: 0
 --- !u!1 &268058943
 GameObject:
@@ -956,7 +954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: '{0}'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5279b4cbee94d4a4fb24829a9f39e646, type: 2}
   m_sharedMaterial: {fileID: 388613862717554320, guid: 5279b4cbee94d4a4fb24829a9f39e646, type: 2}
@@ -1046,8 +1044,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 533851553}
-  text: 
-  endText: 
   valueChangeTime: 0.5
 --- !u!1 &561848541
 GameObject:
@@ -2278,7 +2274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: '{0}'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 208375e245b3b5245a460d299177ad3d, type: 2}
   m_sharedMaterial: {fileID: 6632596094835132127, guid: 208375e245b3b5245a460d299177ad3d, type: 2}
@@ -2368,8 +2364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 841958143}
-  text: 
-  endText: 
   valueChangeTime: 1.5
 --- !u!1 &893527303
 GameObject:
@@ -3013,8 +3007,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1166589736}
-  text: 
-  endText: 
   valueChangeTime: 0
 --- !u!1 &1263645799
 GameObject:
@@ -3811,7 +3803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041B\u0443\u0447\u0448\u0438\u0439: 0"
+  m_text: "\u041B\u0443\u0447\u0448\u0438\u0439: {0}"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ac9afb9b58c31444bf0f39f7a56d2bc, type: 2}
   m_sharedMaterial: {fileID: 4678393077974406169, guid: 3ac9afb9b58c31444bf0f39f7a56d2bc, type: 2}
@@ -3901,8 +3893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1606627434}
-  text: "\u041B\u0443\u0447\u0448\u0438\u0439: "
-  endText: 
   valueChangeTime: 0.5
 --- !u!1 &1647234652
 GameObject:
@@ -4052,8 +4042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1647234654}
-  text: 
-  endText: " \u0444\u0440\u0443\u043A\u0442\u0430"
   valueChangeTime: 0
 --- !u!1 &1654779240
 GameObject:
@@ -4113,7 +4101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041B\u0443\u0447\u0448\u0438\u0439: 0"
+  m_text: "\u041B\u0443\u0447\u0448\u0438\u0439: {0}"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 208375e245b3b5245a460d299177ad3d, type: 2}
   m_sharedMaterial: {fileID: 6632596094835132127, guid: 208375e245b3b5245a460d299177ad3d, type: 2}
@@ -4203,8 +4191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1654779242}
-  text: "\u041B\u0443\u0447\u0448\u0438\u0439: "
-  endText: 
   valueChangeTime: 1.5
 --- !u!1 &1698946596
 GameObject:
