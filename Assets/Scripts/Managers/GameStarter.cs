@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Linq;
-using Blocks.BlockStackSystem;
 using GameSystems.DifficultySystem.Implementations;
 using GameSystems.HealthSystem;
 using GameSystems.SceneChangeSystem;
@@ -10,7 +9,6 @@ using Models.DependencyInjection;
 using Models.Timers.TimerActions;
 using Models.Timers.TimerSystem;
 using PlayingFieldComponents;
-using UI;
 using UI.Game;
 using UnityEngine;
 
@@ -62,7 +60,6 @@ namespace Managers
         public void ReInitGame()
         {
             difficulty.Clear();
-            Timer.Instance.GetTimerCounter(typeof(SamuraiTimeAction)).ForceEnd();
             healthService.Clear();
             healthView.Clear();
             scoreManager.Load();
@@ -71,6 +68,7 @@ namespace Managers
         private void OnPlayerLose()
         {
             spawnerManager.DisableSpawners();
+            Timer.Instance.GetTimerCounter(typeof(SamuraiTimeAction))?.ForceEnd();
             bladeMover.Active = false;
 
             StartCoroutine(CheckEmptyPlayingField());
