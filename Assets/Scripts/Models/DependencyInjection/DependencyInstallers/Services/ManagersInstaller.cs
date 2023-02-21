@@ -8,10 +8,14 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
 {
     public class ManagersInstaller : ServiceInstaller
     {
+        private ProjectContext _projectContext;
+        
         [SerializeField] private TimeScaleManager timeScaleManager;
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private ComboManager comboManager;
         [SerializeField] private HealthService healthService;
+        
+        public override ProjectContext ProjectContext { get => _projectContext ??= ProjectContext.Instance; set => _projectContext = value; }
         
         private void Awake()
         {
@@ -20,10 +24,10 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
         
         public override void InstallService()
         {
-            ProjectContext.Instance.SetService<TimeScaleManager, TimeScaleManager>(timeScaleManager);
-            ProjectContext.Instance.SetService<ScoreManager, ScoreManager>(scoreManager);
-            ProjectContext.Instance.SetService<ComboManager, ComboManager>(comboManager);
-            ProjectContext.Instance.SetService<HealthService, HealthService>(healthService);
+            ProjectContext.SetService<TimeScaleManager, TimeScaleManager>(timeScaleManager);
+            ProjectContext.SetService<ScoreManager, ScoreManager>(scoreManager);
+            ProjectContext.SetService<ComboManager, ComboManager>(comboManager);
+            ProjectContext.SetService<HealthService, HealthService>(healthService);
         }
     }
 }

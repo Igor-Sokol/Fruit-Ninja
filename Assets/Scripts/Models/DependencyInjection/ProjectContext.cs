@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Models.DependencyInjection.Contracts;
-using Models.Factories.Contracts.Generic;
 using UnityEngine;
 
 namespace Models.DependencyInjection
@@ -19,9 +18,21 @@ namespace Models.DependencyInjection
 
                     if (!_instance)
                     {
-                        var context = Resources.Load<ProjectContext>("ProjectContext/ProjectContext");
+                        var contextResource = Resources.Load<ProjectContext>("ProjectContext/ProjectContext");
+                        ProjectContext context;
+                        
+                        if (contextResource is null)
+                        {
+                            var contextContainer = new GameObject();
+                            context = contextContainer.AddComponent<ProjectContext>();
+                        }
+                        else
+                        {
+                            context = Instantiate(contextResource);
+                        }
+                        
                         context.name = typeof(ProjectContext).ToString() + " (Singleton)";
-                        DontDestroyOnLoad(context);
+                        DontDestroyOnLoad(context.gameObject);
                         _instance = context;
                         
                         context.Init();
@@ -33,41 +44,25 @@ namespace Models.DependencyInjection
         }
 
         private Dictionary<Type, object> _services;
-        private Dictionary<Type, object> _servicesPrefabs;
-
-        [SerializeField] private ServicePrefabInstaller[] servicePrefabInstallers;
+        
         [SerializeField] private ServiceInstaller[] serviceInstallers;
         
         private void Init()
         {
             _services = new Dictionary<Type, object>();
-            _servicesPrefabs = new Dictionary<Type, object>();
-
-            foreach (var servicePrefabInstaller in servicePrefabInstallers)
-            {
-                servicePrefabInstaller.InstallService();
-            }
 
             foreach (var serviceInstaller in serviceInstallers)
             {
+                serviceInstaller.ProjectContext = this;
                 serviceInstaller.InstallService();
             }
         }
 
         public T GetService<T>()
         {
-            if (_services.ContainsKey(typeof(T)))
+            if (_services.TryGetValue(typeof(T), out object value))
             {
-                return (T)_services[typeof(T)];
-            }
-            else if (_services.ContainsKey(typeof(IFactory<T>)))
-            {
-                IFactory<T> factory = (IFactory<T>)_services[typeof(IFactory<T>)];
-                var instance = factory.Create();
-                
-                SetService<T, T>(instance);
-
-                return instance;
+                return (T)value;
             }
 
             return default;
@@ -82,28 +77,6 @@ namespace Models.DependencyInjection
             else
             {
                 _services.Add(typeof(T), service);
-            }
-        }
-        
-        public T GetServicePrefab<T>()
-        {
-            if (_servicesPrefabs.ContainsKey(typeof(T)))
-            {
-                return (T)_servicesPrefabs[typeof(T)];
-            }
-
-            return default;
-        }
-        
-        public void SetServicePrefab<T, TPrefab>(TPrefab service)
-        {
-            if (_servicesPrefabs.ContainsKey(typeof(T)))
-            {
-                _servicesPrefabs[typeof(T)] = service;
-            }
-            else
-            {
-                _servicesPrefabs.Add(typeof(T), service);
             }
         }
     }

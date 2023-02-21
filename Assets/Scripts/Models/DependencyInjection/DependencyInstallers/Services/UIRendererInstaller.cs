@@ -8,6 +8,8 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
 {
     public class UIRendererInstaller : ServiceInstaller
     {
+        private ProjectContext _projectContext;
+        
         [SerializeField] private Canvas canvas;
         [SerializeField] private HealthView healthView;
         [SerializeField] private BladeMover bladeMover;
@@ -15,6 +17,8 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
         [SerializeField] private SamuraiEventRenderer samuraiEventRenderer;
         [SerializeField] private ComboRenderer comboRenderer;
 
+        public override ProjectContext ProjectContext { get => _projectContext ??= ProjectContext.Instance; set => _projectContext = value; }
+        
         private void Awake()
         {
             InstallService();
@@ -22,12 +26,12 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
 
         public override void InstallService()
         {
-            ProjectContext.Instance.SetService<Canvas, Canvas>(canvas);
-            ProjectContext.Instance.SetService<HealthView, HealthView>(healthView);
-            ProjectContext.Instance.SetService<BladeMover, BladeMover>(bladeMover);
-            ProjectContext.Instance.SetService<FilterRenderer, FilterRenderer>(filterRenderer);
-            ProjectContext.Instance.SetService<SamuraiEventRenderer, SamuraiEventRenderer>(samuraiEventRenderer);
-            ProjectContext.Instance.SetService<ComboRenderer, ComboRenderer>(comboRenderer);
+            ProjectContext.SetService<Canvas, Canvas>(canvas);
+            ProjectContext.SetService<HealthView, HealthView>(healthView);
+            ProjectContext.SetService<BladeMover, BladeMover>(bladeMover);
+            ProjectContext.SetService<FilterRenderer, FilterRenderer>(filterRenderer);
+            ProjectContext.SetService<SamuraiEventRenderer, SamuraiEventRenderer>(samuraiEventRenderer);
+            ProjectContext.SetService<ComboRenderer, ComboRenderer>(comboRenderer);
         }
     }
 }

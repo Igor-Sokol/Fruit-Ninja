@@ -7,9 +7,13 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
 {
     public class PlayingFieldInstaller : ServiceInstaller
     {
+        private ProjectContext _projectContext;
+        
         [SerializeField] private BlockContainer playingFieldContainer;
         [SerializeField] private BlockStackGenerator stackGenerator;
 
+        public override ProjectContext ProjectContext { get => _projectContext ??= ProjectContext.Instance; set => _projectContext = value; }
+        
         private void Awake()
         {
             InstallService();
@@ -17,8 +21,8 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
         
         public override void InstallService()
         {
-            ProjectContext.Instance.SetService<BlockContainer, BlockContainer>(playingFieldContainer);
-            ProjectContext.Instance.SetService<BlockStackGenerator, BlockStackGenerator>(stackGenerator);
+            ProjectContext.SetService<BlockContainer, BlockContainer>(playingFieldContainer);
+            ProjectContext.SetService<BlockStackGenerator, BlockStackGenerator>(stackGenerator);
         }
     }
 }

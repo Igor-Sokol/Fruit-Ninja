@@ -17,11 +17,6 @@ namespace GameSystems.SceneChangeSystem
         public event Action OnSceneLoaded;
         public bool SceneLoaded => _sceneLoadHandler == null;
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(this);
-        }
-
         public void LoadScene(string sceneName)
         {
             StartCoroutine(LoadNewScene(sceneName));
