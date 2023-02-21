@@ -20,7 +20,14 @@ namespace UI
         {
             _value = score;
 
-            _coroutineHandler ??= StartCoroutine(ValueChanger());
+            if (valueChangeTime <= 0)
+            {
+                ForceSetValue(score);
+            }
+            else
+            {
+                _coroutineHandler ??= StartCoroutine(ValueChanger());
+            }
         }
 
         public void ForceSetValue(int score)
