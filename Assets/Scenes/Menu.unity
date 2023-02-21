@@ -271,7 +271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '{0}'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8580377e20e5a1140864f86e36ae047c, type: 2}
   m_sharedMaterial: {fileID: -2974623832199577898, guid: 8580377e20e5a1140864f86e36ae047c, type: 2}
@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmpText: {fileID: 310291347}
   valueChangeTime: 0
+  formatMask: '{0}'
 --- !u!1 &493832654
 GameObject:
   m_ObjectHideFlags: 0

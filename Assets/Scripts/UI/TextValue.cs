@@ -7,7 +7,6 @@ namespace UI
 {
     public class TextValue : MonoBehaviour
     {
-        private string _textMask;
         private float _timer;
         private float _previousValue;
         private Coroutine _coroutineHandler;
@@ -15,6 +14,7 @@ namespace UI
         
         [SerializeField] private TMP_Text tmpText;
         [SerializeField] private float valueChangeTime;
+        [SerializeField] private string formatMask;
 
         public void SetValue(int score)
         {
@@ -31,9 +31,9 @@ namespace UI
 
         private void ChangeText(int score)
         {
-            _textMask ??= tmpText.text;
+            formatMask ??= tmpText.text;
 
-            tmpText.text = string.Format(_textMask, score);
+            tmpText.text = string.Format(formatMask, score);
         }
         
         private IEnumerator ValueChanger()
