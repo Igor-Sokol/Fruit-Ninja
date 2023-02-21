@@ -46,11 +46,14 @@ namespace Models.DependencyInjection
         private Dictionary<Type, object> _services;
         
         [SerializeField] private ServiceInstaller[] serviceInstallers;
-        
-        private void Init()
+
+        private void Awake()
         {
             _services = new Dictionary<Type, object>();
+        }
 
+        private void Init()
+        {
             foreach (var serviceInstaller in serviceInstallers)
             {
                 serviceInstaller.ProjectContext = this;

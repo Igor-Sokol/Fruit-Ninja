@@ -14,6 +14,7 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
         [SerializeField] private ScoreManager scoreManager;
         [SerializeField] private ComboManager comboManager;
         [SerializeField] private HealthService healthService;
+        [SerializeField] private GameStarter gameStarter; 
         
         public override ProjectContext ProjectContext { get => _projectContext ??= ProjectContext.Instance; set => _projectContext = value; }
         
@@ -28,6 +29,7 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
             ProjectContext.SetService<ScoreManager, ScoreManager>(scoreManager);
             ProjectContext.SetService<ComboManager, ComboManager>(comboManager);
             ProjectContext.SetService<HealthService, HealthService>(healthService);
+            ProjectContext.SetService<GameStarter, GameStarter>(gameStarter);
         }
     }
 }

@@ -1,5 +1,6 @@
 using GameSystems.HealthSystem;
 using Models.DependencyInjection.Contracts;
+using Models.PopUpSystem.Contracts;
 using UI;
 using UI.Game;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
         [SerializeField] private FilterRenderer filterRenderer;
         [SerializeField] private SamuraiEventRenderer samuraiEventRenderer;
         [SerializeField] private ComboRenderer comboRenderer;
+        [SerializeField] private PopUpContainer popUpContainer;
 
         public override ProjectContext ProjectContext { get => _projectContext ??= ProjectContext.Instance; set => _projectContext = value; }
         
@@ -32,6 +34,7 @@ namespace Models.DependencyInjection.DependencyInstallers.Services
             ProjectContext.SetService<FilterRenderer, FilterRenderer>(filterRenderer);
             ProjectContext.SetService<SamuraiEventRenderer, SamuraiEventRenderer>(samuraiEventRenderer);
             ProjectContext.SetService<ComboRenderer, ComboRenderer>(comboRenderer);
+            ProjectContext.SetService<PopUpContainer, PopUpContainer>(popUpContainer);
         }
     }
 }
