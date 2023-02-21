@@ -1,17 +1,20 @@
-using System;
 using GameSystems.SceneChangeSystem;
+using GameSystems.ScoreSystem;
 using Managers;
 using Models.DependencyInjection;
+using Models.PopUpSystem.Contracts;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Game
+namespace Models.PopUpSystem.Panels
 {
-    public class LosePopUp : MonoBehaviour
+    public class LosePopUp : BasePopUp
     {
         private SceneChanger _sceneChanger;
+        private ScoreManager _scoreManager;
+        private GameStarter _gameStarter;
         
-        [SerializeField] private GameStarter gameStarter;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private TextValue currentTextValueText;
         [SerializeField] private TextValue bestTextValueText;
@@ -24,7 +27,14 @@ namespace UI.Game
 
         private void Awake()
         {
+            Init();
+        }
+
+        private void Init()
+        {
             _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
+            _scoreManager = ProjectContext.Instance.GetService<ScoreManager>();
+            _gameStarter = ProjectContext.Instance.GetService<GameStarter>();
         }
 
         private void OnEnable()
@@ -39,42 +49,37 @@ namespace UI.Game
             menuButton.onClick.RemoveListener(MenuButton);
         }
 
-        public void Show(int currentScore, int bestScore)
+        public override void Show()
         {
             currentTextValueText.ForceSetValue(0);
-            currentTextValueText.SetValue(currentScore);
+            currentTextValueText.SetValue(_scoreManager.CurrentScore);
             bestTextValueText.ForceSetValue(0);
-            bestTextValueText.SetValue(bestScore);
-
-            Enable();
+            bestTextValueText.SetValue(_scoreManager.BestScore);
+            
+            animationRenderer.Play(enableAnimation);
+            canvasGroup.blocksRaycasts = true;
         }
 
+        public override void Hide()
+        {
+            animationRenderer.Play(disableAnimation);
+            canvasGroup.blocksRaycasts = false;
+        }
+        
         private void RestartButton()
         {
-            gameStarter.ReInitGame();
-            Disable();
+            _gameStarter.ReInitGame();
+            PopUpManager.Hide(this);
         }
 
         private void MenuButton()
         {
             _sceneChanger.LoadScene(sceneName);
         }
-        
-        private void Enable()
-        {
-            animationRenderer.Play(enableAnimation);
-            canvasGroup.blocksRaycasts = true;
-        }
-
-        private void Disable()
-        {
-            animationRenderer.Play(disableAnimation);
-            canvasGroup.blocksRaycasts = false;
-        }
 
         private void AnimationDisableCallback()
         {
-            gameStarter.StartGame();
+            _gameStarter.StartGame();
         }
     }
 }
