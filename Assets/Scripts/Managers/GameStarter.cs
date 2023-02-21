@@ -6,6 +6,7 @@ using GameSystems.SceneChangeSystem;
 using GameSystems.ScoreSystem;
 using GameSystems.SpawnSystem;
 using Models.DependencyInjection;
+using Models.PopUpSystem;
 using Models.Timers.TimerActions;
 using Models.Timers.TimerSystem;
 using PlayingFieldComponents;
@@ -17,10 +18,10 @@ namespace Managers
     public class GameStarter : MonoBehaviour
     {
         private SceneChanger _sceneChanger;
+        private PopUpManager _popUpManager;
         
         [SerializeField] private HealthService healthService;
         [SerializeField] private HealthView healthView;
-        [SerializeField] private LosePopUp losePopUp;
         [SerializeField] private BladeMover bladeMover;
         [SerializeField] private SpawnerManager spawnerManager;
         [SerializeField] private BlockContainer[] containers;
@@ -29,7 +30,7 @@ namespace Managers
 
         private void Start()
         {
-            _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
+            Init();
 
             if (_sceneChanger.SceneLoaded)
             {
@@ -39,6 +40,12 @@ namespace Managers
             {
                 _sceneChanger.OnSceneLoaded += OnSceneLoaded;
             }
+        }
+
+        private void Init()
+        {
+            _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
+            _popUpManager = ProjectContext.Instance.GetService<PopUpManager>();
         }
 
         private void OnEnable()
@@ -91,8 +98,8 @@ namespace Managers
 
                 yield return null;
             }
-        
-            losePopUp.Show(scoreManager.CurrentScore, scoreManager.BestScore);
+            
+            _popUpManager.Show("LosePopUp");
         }
     }
 }
