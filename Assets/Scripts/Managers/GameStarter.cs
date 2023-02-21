@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Linq;
+using Blocks.BlockStackSystem;
 using GameSystems.DifficultySystem.Implementations;
 using GameSystems.HealthSystem;
 using GameSystems.SceneChangeSystem;
 using GameSystems.ScoreSystem;
 using GameSystems.SpawnSystem;
 using Models.DependencyInjection;
+using Models.Timers.TimerActions;
+using Models.Timers.TimerSystem;
 using PlayingFieldComponents;
 using UI;
 using UI.Game;
@@ -59,6 +62,7 @@ namespace Managers
         public void ReInitGame()
         {
             difficulty.Clear();
+            Timer.Instance.GetTimerCounter(typeof(SamuraiTimeAction)).ForceEnd();
             healthService.Clear();
             healthView.Clear();
             scoreManager.Load();

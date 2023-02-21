@@ -2069,6 +2069,7 @@ MonoBehaviour:
   - {fileID: 503679824}
   scoreManager: {fileID: 779381275}
   difficulty: {fileID: 561848543}
+  blockStackGenerator: {fileID: 1471112644}
 --- !u!1001 &1076114414
 PrefabInstance:
   m_ObjectHideFlags: 0

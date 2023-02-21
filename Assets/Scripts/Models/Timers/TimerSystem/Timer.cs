@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Models.Singleton;
 using UnityEngine;
 
@@ -21,6 +23,11 @@ namespace Models.Timers.TimerSystem
             }
         }
 
+        public TimerCounter GetTimerCounter(Type timerAction)
+        {
+            return _timerCounters.FirstOrDefault(t => t.TimerAction.GetType() == timerAction);
+        }
+        
         public void AddTimer(ITimerAction timerAction, float seconds)
         {
             TimerCounter counter = GetTimerCounter();

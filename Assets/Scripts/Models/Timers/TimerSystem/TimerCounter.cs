@@ -17,7 +17,13 @@ namespace Models.Timers.TimerSystem
             _secondsLeft = seconds;
             _timerAction.OnBegin(SecondsLeft);
         }
-    
+
+        public void ForceEnd()
+        {
+            _timerAction.OnComplete();
+            Reset();
+        }
+        
         private void Reset()
         {
             _isWorking = false;
