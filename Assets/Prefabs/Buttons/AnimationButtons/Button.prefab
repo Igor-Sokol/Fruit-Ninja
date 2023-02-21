@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 895663052525420693}
   - component: {fileID: 895663052525420650}
   - component: {fileID: 895663052525420651}
-  - component: {fileID: 895663052525420695}
+  - component: {fileID: 8089245050133744859}
   - component: {fileID: 895663052525420692}
   m_Layer: 5
   m_Name: Button
@@ -123,23 +123,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!111 &895663052525420695
-Animation:
+--- !u!95 &8089245050133744859
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895663052525420649}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: ee6a95f1ecfdfb44ca5347c6fad6b265, type: 2}
-  - {fileID: 7400000, guid: 065b7ddae904f6c449cab72f7b378cbc, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5924d4118f9947a49bf6233ca82f5d37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &895663052525420692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022ee7d40f054e80b93721e1024c65ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationRenderer: {fileID: 895663052525420695}
+  animationRenderer: {fileID: 8089245050133744859}
   onPointerDownAnimation: OnPointerDown
   onPointerUpAnimation: OnPointerUp
 --- !u!1 &895663052731085975

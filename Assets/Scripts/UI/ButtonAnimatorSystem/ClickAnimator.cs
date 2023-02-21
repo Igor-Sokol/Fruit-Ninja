@@ -5,7 +5,7 @@ namespace UI.ButtonAnimatorSystem
 {
     public class ClickAnimator : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField] private Animation animationRenderer;
+        [SerializeField] private Animator animationRenderer;
         [SerializeField] private string onPointerDownAnimation;
         [SerializeField] private string onPointerUpAnimation;
         
