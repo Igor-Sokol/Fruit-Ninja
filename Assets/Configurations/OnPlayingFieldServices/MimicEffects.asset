@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mimicEffectPrefab: {fileID: 8979181510756317566, guid: 10492635e2053eb428a7a976a8500d26, type: 3}
   mimicChangeEffectPrefab: {fileID: 3933178747249358673, guid: 6d0b139594195334b8c708b4bc2e0cf6, type: 3}
-  changingTime: 1
+  changingTime: 0.7

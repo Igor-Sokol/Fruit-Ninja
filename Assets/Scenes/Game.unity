@@ -2436,6 +2436,12 @@ MonoBehaviour:
     blocks:
     - {fileID: 11400000, guid: 44e21834815e8d0479990d6f4da9e665, type: 2}
     restrictions: []
+  - maxAllowablePercentage: 0.3
+    maxAllowable: 1
+    priority: 20
+    blocks:
+    - {fileID: 11400000, guid: b82f84b651f53ed48878d5d773980f6b, type: 2}
+    restrictions: []
 --- !u!1 &1488173953
 GameObject:
   m_ObjectHideFlags: 0
