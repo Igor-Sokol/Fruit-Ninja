@@ -7,18 +7,20 @@ namespace GameSystems.SceneChangeSystem
         [SerializeField] private ParticleSystem[] particles;
         [SerializeField] private Canvas canvas;
 
-        public void Enable()
+        public void EnableUI() => canvas.gameObject.SetActive(true);
+
+        public void DisableUI() => canvas.gameObject.SetActive(false);
+        
+        public void EnableParticles()
         {
-            canvas.gameObject.SetActive(true);
             foreach (var particle in particles)
             {
                 particle.Play();
             }
         }
-        
-        public void Disable()
+
+        public void DisableParticles()
         {
-            canvas.gameObject.SetActive(false);
             foreach (var particle in particles)
             {
                 particle.Stop();

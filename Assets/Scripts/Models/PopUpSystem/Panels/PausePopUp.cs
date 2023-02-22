@@ -51,6 +51,7 @@ namespace Models.PopUpSystem.Panels
         public override void Hide()
         {
             animationRenderer.Play(disableAnimation);
+            canvasGroup.blocksRaycasts = false;
         }
         
         private void ContinueButton()
@@ -67,7 +68,6 @@ namespace Models.PopUpSystem.Panels
         private void AnimationDisableCallback()
         {
             Time.timeScale = 1;
-            canvasGroup.blocksRaycasts = false;
             animationRenderer.enabled = false;
         }
     }

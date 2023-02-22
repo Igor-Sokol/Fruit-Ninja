@@ -24,7 +24,8 @@ namespace GameSystems.SceneChangeSystem
 
         private IEnumerator LoadNewScene(string sceneName)
         {
-            loadingUI.Enable();
+            loadingUI.EnableParticles();
+            loadingUI.EnableUI();
             
             _timer = secondBeforeLoading;
             while (_timer > 0)
@@ -35,7 +36,7 @@ namespace GameSystems.SceneChangeSystem
             
             _sceneLoadHandler = SceneManager.LoadSceneAsync(sceneName);
             yield return _sceneLoadHandler;
-            loadingUI.Disable();
+            loadingUI.DisableParticles();
             
             _timer = secondAfterLoading;
             while (_timer > 0)
@@ -45,6 +46,7 @@ namespace GameSystems.SceneChangeSystem
             }
             
             _sceneLoadHandler = null;
+            loadingUI.DisableUI();
             OnSceneLoaded?.Invoke();
         }
     }
