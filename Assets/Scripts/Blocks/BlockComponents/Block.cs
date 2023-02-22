@@ -27,6 +27,7 @@ namespace Blocks.BlockComponents
         public BlockAnimator BlockAnimator => blockAnimator;
         public BlockRenderer BlockRenderer => blockRenderer;
         public CuttingManager CuttingManager => _cuttingManager;
+        public List<IBeyondService> BeyondServices => _beyondServices;
         public PlayingFieldServiceManager PlayingFieldServiceManager => _playingFieldServiceManager;
 
         private void Awake()
@@ -88,11 +89,11 @@ namespace Blocks.BlockComponents
             _cuttingManager.Cut(bladeVector);
         }
 
-        public void BeyondZoneAction()
+        public void BeyondZoneAction(Block block)
         {
             foreach (var service in _beyondServices)
             {
-                service.BeyondZoneAction();
+                service.BeyondZoneAction(this);
             }
         }
 

@@ -1,3 +1,4 @@
+using Blocks.BlockComponents;
 using GameSystems.HealthSystem;
 
 namespace Blocks.BlockServices.BeyondZoneSystem.Implementations
@@ -17,7 +18,7 @@ namespace Blocks.BlockServices.BeyondZoneSystem.Implementations
             _healthService = healthService;
         }
         
-        public void BeyondZoneAction()
+        public void BeyondZoneAction(Block block)
         {
             _healthService.RemoveHealth(_damage);
         }
