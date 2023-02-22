@@ -63,7 +63,7 @@ namespace PlayingFieldComponents
             {
                 if (block is IBeyondService beyondService)
                 {
-                    beyondService.BeyondZoneAction();
+                    beyondService.BeyondZoneAction(block);
                 }
                 
                 container.RemoveBlock(block);
