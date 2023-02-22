@@ -7,16 +7,16 @@ namespace Blocks.BlockServices.CuttingSystem
     public class CuttingManager : MonoBehaviour, ICutting
     {
         private Block _block;
-        private List<ICuttingService> _addCuttingServices;
-        private List<ICuttingService> _deleteCuttingServices;
+        private List<ICuttingService> _tempCuttingServices;
         private List<ICuttingService> _cuttingServices;
         private bool _state;
+
+        public List<ICuttingService> CuttingServices => _cuttingServices;
 
         private void Awake()
         {
             _cuttingServices = new List<ICuttingService>();
-            _addCuttingServices = new List<ICuttingService>();
-            _deleteCuttingServices = new List<ICuttingService>();
+            _tempCuttingServices = new List<ICuttingService>();
         }
 
         public void Init(Block block, IEnumerable<ICuttingService> services)
@@ -44,31 +44,24 @@ namespace Blocks.BlockServices.CuttingSystem
 
         public void AddService(ICuttingService service)
         {
-            _addCuttingServices.Add(service);
+            _cuttingServices.Add(service);
         }
 
         public void RemoveService(ICuttingService service)
         {
-            _deleteCuttingServices.Add(service);
+            _cuttingServices.Remove(service);
         }
 
         public void Cut(Vector2 bladeVector)
         {
             if (_state)
             {
-                foreach (var service in _cuttingServices)
+                _tempCuttingServices.AddRange(_cuttingServices);
+                foreach (var service in _tempCuttingServices)
                 {
                     service.Cut(_block, bladeVector);
                 }
-
-                _cuttingServices.AddRange(_addCuttingServices);
-                _addCuttingServices.Clear();
-
-                foreach (var deleteService in _deleteCuttingServices)
-                {
-                    _cuttingServices.Remove(deleteService);
-                }
-                _deleteCuttingServices.Clear();
+                _tempCuttingServices.Clear();
             }
         }
     }

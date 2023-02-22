@@ -8,10 +8,14 @@ namespace Blocks.BlockServices.PlayingFieldServices
     {
         private Block _block;
         private List<IPlayingFieldService> _playingFieldService;
+        private List<IPlayingFieldService> _tempServices;
+
+        public IEnumerable<IPlayingFieldService> Services => _playingFieldService;
 
         private void Awake()
         {
             _playingFieldService = new List<IPlayingFieldService>();
+            _tempServices = new List<IPlayingFieldService>();
         }
 
         public void Init(Block block, IEnumerable<IPlayingFieldService> services)
@@ -43,10 +47,12 @@ namespace Blocks.BlockServices.PlayingFieldServices
 
         public void OnPlayingField()
         {
-            foreach (var service in _playingFieldService)
+            _tempServices.AddRange(_playingFieldService);
+            foreach (var service in _tempServices)
             {
                 service.OnPlayingField(_block);
             }
+            _tempServices.Clear();
         }
     }
 }
