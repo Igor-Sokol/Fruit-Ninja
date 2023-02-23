@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -40,7 +39,27 @@ namespace UI
         {
             formatMask ??= tmpText.text;
 
-            tmpText.text = string.Format(formatMask, score);
+            tmpText.text = string.Format(formatMask, score, WordEnding(score));
+        }
+
+        private string WordEnding(int number)
+        {
+            if (number % 100 > 10 && number % 100 < 20)
+            {
+                return $"ов";
+            }
+
+            if (number % 10 == 1)
+            {
+                return string.Empty;
+            }
+
+            if (number % 10 >= 2 && number % 10 <= 3)
+            {
+                return $"а";
+            }
+	
+            return $"ов";
         }
         
         private IEnumerator ValueChanger()
