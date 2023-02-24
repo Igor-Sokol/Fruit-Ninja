@@ -12,9 +12,6 @@ namespace UI.Blur
         private static readonly int MultiplierId = Shader.PropertyToID("_Multiplier");
         
         private Material _material;
-        private int _colorId;
-        private int _intensityId;
-        private int _multiplierId;
 
         [SerializeField] private Image image;
         [SerializeField] private Color color = Color.white;
@@ -38,7 +35,7 @@ namespace UI.Blur
             Multiplier = newMultiplier;
         }
 
-        private void Start()
+        private void Awake()
         {
             SetComponents();
             SetBlur(Color, Intensity, multiplier);
@@ -57,9 +54,6 @@ namespace UI.Blur
         private void SetComponents()
         {
             _material = FindMaterial();
-            _colorId = Shader.PropertyToID("_Color");
-            _intensityId = Shader.PropertyToID("_Intensity");
-            _multiplierId = Shader.PropertyToID("_Multiplier");
         }
 
         private Material FindMaterial()
@@ -70,17 +64,17 @@ namespace UI.Blur
 
         private void UpdateColor()
         {
-            _material.SetColor(_colorId, Color);
+            _material.SetColor(ColorId, Color);
         }
 
         private void UpdateIntensity()
         {
-            _material.SetFloat(_intensityId, Intensity);
+            _material.SetFloat(IntensityId, Intensity);
         }
 
         private void UpdateMultiplier()
         {
-            _material.SetFloat(_multiplierId, Multiplier);
+            _material.SetFloat(MultiplierId, Multiplier);
         }
 
         #region Editor

@@ -27,6 +27,7 @@ namespace UI
 
         private IEnumerator ShowTimer()
         {
+            uiBlur.gameObject.SetActive(true);
             while (_timer < _waitTime * showTiming)
             {
                 _timer += Time.deltaTime;
@@ -60,6 +61,7 @@ namespace UI
                 yield return null;
             }
 
+            uiBlur.gameObject.SetActive(false);
             _showTimerHandler = null;
         }
     }
