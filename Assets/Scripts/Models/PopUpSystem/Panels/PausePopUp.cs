@@ -1,7 +1,7 @@
+using Blur;
 using GameSystems.SceneChangeSystem;
 using Models.DependencyInjection;
 using Models.PopUpSystem.Contracts;
-using UI.Blur;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +11,7 @@ namespace Models.PopUpSystem.Panels
     {
         private SceneChanger _sceneChanger;
 
-        [SerializeField] private UIBlur blur;
+        [SerializeField] private BlurController blur;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Button continueButton;
         [SerializeField] private Button menuButton;

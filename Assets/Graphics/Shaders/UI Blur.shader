@@ -1,4 +1,4 @@
-Shader "UI Blur"
+Shader "Blur/UI Blur"
 {
     Properties
     {

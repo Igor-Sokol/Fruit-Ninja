@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 148819133679036423}
   - component: {fileID: 2895354028953880200}
   - component: {fileID: 8266010510473165471}
-  - component: {fileID: 4996157337475337161}
+  - component: {fileID: 2366144364561648736}
+  - component: {fileID: 7856751148455480753}
   m_Layer: 5
   m_Name: Blur
   m_TagString: Untagged
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4996157337475337161
+--- !u!114 &2366144364561648736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,11 +86,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2738080005182430021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d22fd72f8461f744b2083f18f368934, type: 3}
+  m_Script: {fileID: 11500000, guid: 91c9f0ee45e245f4b8156a46f81628a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7856751148455480753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738080005182430021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccbeface92da64549b5e9334ced10e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurSetting: {fileID: 2366144364561648736}
   image: {fileID: 8266010510473165471}
-  color: {r: 1, g: 1, b: 1, a: 1}
-  intensity: 0
-  multiplier: 0.25
+  blur: 0
   autoUpdate: 0

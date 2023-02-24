@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 211820188}
   - component: {fileID: 211820191}
   - component: {fileID: 211820190}
+  - component: {fileID: 211820192}
   - component: {fileID: 211820189}
   m_Layer: 5
   m_Name: Blur
@@ -170,13 +171,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 211820187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d22fd72f8461f744b2083f18f368934, type: 3}
+  m_Script: {fileID: 11500000, guid: ccbeface92da64549b5e9334ced10e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blurSetting: {fileID: 211820192}
   image: {fileID: 211820190}
-  color: {r: 1, g: 1, b: 1, a: 1}
-  intensity: 0
-  multiplier: 0.15
+  blur: 0
   autoUpdate: 0
 --- !u!114 &211820190
 MonoBehaviour:
@@ -216,6 +216,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211820187}
   m_CullTransparentMesh: 1
+--- !u!114 &211820192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211820187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c9f0ee45e245f4b8156a46f81628a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255821257
 GameObject:
   m_ObjectHideFlags: 0
