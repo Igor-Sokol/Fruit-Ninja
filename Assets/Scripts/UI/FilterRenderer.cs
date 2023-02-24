@@ -27,6 +27,7 @@ namespace UI
 
         private IEnumerator ShowTimer()
         {
+            uiBlur.BlurSetting.enabled = true;
             while (_timer < _waitTime * showTiming)
             {
                 _timer += Time.deltaTime;
@@ -60,6 +61,7 @@ namespace UI
                 yield return null;
             }
 
+            uiBlur.BlurSetting.enabled = false;
             _showTimerHandler = null;
         }
     }

@@ -2450,7 +2450,7 @@ MonoBehaviour:
     restrictions: []
   - maxAllowablePercentage: 0.3
     maxAllowable: Infinity
-    priority: 1
+    priority: 555
     blocks:
     - {fileID: 11400000, guid: 6e033c214151e2e4cab34a0e66e55cae, type: 2}
     restrictions: []
@@ -3446,7 +3446,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031605887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 422e883b02f01654d8ea1fb2dde1ff8f, type: 3}
   m_Name: 
