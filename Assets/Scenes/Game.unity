@@ -2450,7 +2450,7 @@ MonoBehaviour:
     restrictions: []
   - maxAllowablePercentage: 0.3
     maxAllowable: Infinity
-    priority: 555
+    priority: 1
     blocks:
     - {fileID: 11400000, guid: 6e033c214151e2e4cab34a0e66e55cae, type: 2}
     restrictions: []
@@ -3548,7 +3548,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1099270103
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &2048231093
