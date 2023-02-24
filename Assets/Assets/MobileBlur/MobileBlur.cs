@@ -1,4 +1,4 @@
-﻿using Blur.Contracts;
+﻿using Models.Blur.Contracts;
 using UnityEngine;
 using UnityEngine.UI;
 

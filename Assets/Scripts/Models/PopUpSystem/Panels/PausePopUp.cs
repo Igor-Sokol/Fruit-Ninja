@@ -1,5 +1,5 @@
-using Blur;
 using GameSystems.SceneChangeSystem;
+using Models.Blur;
 using Models.DependencyInjection;
 using Models.PopUpSystem.Contracts;
 using UnityEngine;

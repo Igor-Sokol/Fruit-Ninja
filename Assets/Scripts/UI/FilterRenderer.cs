@@ -1,5 +1,5 @@
 using System.Collections;
-using Blur;
+using Models.Blur;
 using UnityEngine;
 using UnityEngine.UI;
 

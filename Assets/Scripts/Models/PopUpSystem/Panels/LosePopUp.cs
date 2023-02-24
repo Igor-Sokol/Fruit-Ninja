@@ -1,7 +1,7 @@
-using Blur;
 using GameSystems.SceneChangeSystem;
 using GameSystems.ScoreSystem;
 using Managers;
+using Models.Blur;
 using Models.DependencyInjection;
 using Models.PopUpSystem.Contracts;
 using UI;
