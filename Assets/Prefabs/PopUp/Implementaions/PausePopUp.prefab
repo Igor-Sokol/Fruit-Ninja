@@ -704,6 +704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blur
       objectReference: {fileID: 0}
+    - target: {fileID: 2738080005182430021, guid: 524d95ca93f0dbc4cbc2a06fdda833a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 524d95ca93f0dbc4cbc2a06fdda833a5, type: 3}
 --- !u!224 &5987431303585876808 stripped
