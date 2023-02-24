@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4541000806188862785}
   - component: {fileID: 4541000806188862815}
   - component: {fileID: 4541000806188862814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pomegranate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4815,7 +4815,7 @@ GameObject:
   - component: {fileID: 4541000806223917147}
   - component: {fileID: 4541000806223917145}
   - component: {fileID: 4541000806223917144}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: RaycastBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4889,7 +4889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4541000806266848453}
   - component: {fileID: 4541000806266848450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LoadingUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4942,7 +4942,7 @@ GameObject:
   - component: {fileID: 4541000806841814121}
   - component: {fileID: 4541000806841814119}
   - component: {fileID: 4541000806841814118}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Melone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9752,7 +9752,7 @@ GameObject:
   - component: {fileID: 4541000807044274710}
   - component: {fileID: 4541000807044274713}
   - component: {fileID: 4541000807044274712}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9851,7 +9851,7 @@ GameObject:
   - component: {fileID: 4541000807067053964}
   - component: {fileID: 4541000807067053962}
   - component: {fileID: 4541000807067053965}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mango
   m_TagString: Untagged
   m_Icon: {fileID: 0}

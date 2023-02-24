@@ -1,3 +1,4 @@
+using Blur;
 using GameSystems.SceneChangeSystem;
 using GameSystems.ScoreSystem;
 using Managers;
@@ -14,7 +15,8 @@ namespace Models.PopUpSystem.Panels
         private SceneChanger _sceneChanger;
         private ScoreManager _scoreManager;
         private GameStarter _gameStarter;
-        
+
+        [SerializeField] private BlurController blurController;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private TextValue currentTextValueText;
         [SerializeField] private TextValue bestTextValueText;
@@ -35,6 +37,7 @@ namespace Models.PopUpSystem.Panels
             _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
             _scoreManager = ProjectContext.Instance.GetService<ScoreManager>();
             _gameStarter = ProjectContext.Instance.GetService<GameStarter>();
+            blurController.BlurSetting = ProjectContext.Instance.GetService<MobileBlur>();
         }
 
         private void OnEnable()
@@ -55,8 +58,9 @@ namespace Models.PopUpSystem.Panels
             currentTextValueText.SetValue(_scoreManager.CurrentScore);
             bestTextValueText.ForceSetValue(0);
             bestTextValueText.SetValue(_scoreManager.BestScore);
-            
             animationRenderer.Play(enableAnimation);
+            blurController.BlurSetting.enabled = true;
+            blurController.Blur = 2f;
             canvasGroup.blocksRaycasts = true;
         }
 
@@ -80,6 +84,8 @@ namespace Models.PopUpSystem.Panels
         private void AnimationDisableCallback()
         {
             _gameStarter.StartGame();
+            blurController.Blur = 0f;
+            blurController.BlurSetting.enabled = false;
         }
     }
 }

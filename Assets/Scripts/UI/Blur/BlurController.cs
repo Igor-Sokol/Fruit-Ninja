@@ -12,6 +12,8 @@ namespace Blur
         [SerializeField] private float blur;
         [SerializeField] private bool autoUpdate;
 
+        public BlurSetting BlurSetting { get => blurSetting; set => blurSetting = value; }
+
         public float Blur
         {
             get => blur;
@@ -26,8 +28,11 @@ namespace Blur
 
         private void Awake()
         {
-            blurSetting.Image = image;
-            blurSetting.Blur = blur;
+            if (blurSetting)
+            {
+                blurSetting.Image = image;
+                blurSetting.Blur = blur;
+            }
         }
 
         private void Update()
@@ -48,10 +53,16 @@ namespace Blur
 
         private void UpdateBlurInEditor()
         {
-            blurSetting.Image = image;
-            blurSetting.Blur = blur;
+            if (blurSetting)
+            {
+                blurSetting.Image = image;
+                blurSetting.Blur = blur;
+            }
 
-            EditorUtility.SetDirty(image.material);
+            if (image)
+            {
+                EditorUtility.SetDirty(image.material);
+            }
         }
 #endif
         #endregion

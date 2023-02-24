@@ -10,7 +10,7 @@ namespace Models.PopUpSystem.Panels
     public class PausePopUp : BasePopUp
     {
         private SceneChanger _sceneChanger;
-
+        
         [SerializeField] private BlurController blur;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Button continueButton;
@@ -28,6 +28,7 @@ namespace Models.PopUpSystem.Panels
         private void Init()
         {
             _sceneChanger = ProjectContext.Instance.GetService<SceneChanger>();
+            blur.BlurSetting = ProjectContext.Instance.GetService<MobileBlur>();
         }
         
         private void OnEnable()
@@ -47,7 +48,8 @@ namespace Models.PopUpSystem.Panels
             animationRenderer.enabled = true;
             animationRenderer.Play(enableAnimation);
             canvasGroup.blocksRaycasts = true;
-            blur.gameObject.SetActive(true);
+            blur.BlurSetting.enabled = true;
+            blur.Blur = 2f;
             Time.timeScale = 0;
         }
 
@@ -72,7 +74,8 @@ namespace Models.PopUpSystem.Panels
         {
             Time.timeScale = 1;
             animationRenderer.enabled = false;
-            blur.gameObject.SetActive(false);
+            blur.BlurSetting.enabled = false;
+            blur.Blur = 0f;
         }
     }
 }

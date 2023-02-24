@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4807380194258555149}
   - component: {fileID: 4807380194258555138}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,9 +54,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4807380194258555149}
     m_Modifications:
+    - target: {fileID: 4541000806188862784, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541000806223917146, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4541000806266848452, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
       propertyPath: m_Name
       value: LoadingUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541000806266848452, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4541000806266848452, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
       propertyPath: m_IsActive
@@ -105,6 +117,18 @@ PrefabInstance:
     - target: {fileID: 4541000806266848453, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541000806841814120, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541000807044274714, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541000807067053967, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29892e43989aea540b02492a76b23a7a, type: 3}
