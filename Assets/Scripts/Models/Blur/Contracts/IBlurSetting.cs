@@ -1,6 +1,6 @@
 using UnityEngine.UI;
 
-namespace Blur.Contracts
+namespace Models.Blur.Contracts
 {
     public interface IBlurSetting
     {

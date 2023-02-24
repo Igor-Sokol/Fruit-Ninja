@@ -1,9 +1,9 @@
-using Blur.Contracts;
+using Models.Blur.Contracts;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Blur
+namespace Models.Blur
 {
     public class BlurController : MonoBehaviour
     {

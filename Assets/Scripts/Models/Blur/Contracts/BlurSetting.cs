@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Blur.Contracts
+namespace Models.Blur.Contracts
 {
     public abstract class BlurSetting : MonoBehaviour, IBlurSetting
     {
