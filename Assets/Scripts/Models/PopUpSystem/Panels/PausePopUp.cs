@@ -1,6 +1,7 @@
 using GameSystems.SceneChangeSystem;
 using Models.DependencyInjection;
 using Models.PopUpSystem.Contracts;
+using UI.Blur;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,8 @@ namespace Models.PopUpSystem.Panels
     public class PausePopUp : BasePopUp
     {
         private SceneChanger _sceneChanger;
-        
+
+        [SerializeField] private UIBlur blur;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Button continueButton;
         [SerializeField] private Button menuButton;
@@ -45,6 +47,7 @@ namespace Models.PopUpSystem.Panels
             animationRenderer.enabled = true;
             animationRenderer.Play(enableAnimation);
             canvasGroup.blocksRaycasts = true;
+            blur.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
 
@@ -69,6 +72,7 @@ namespace Models.PopUpSystem.Panels
         {
             Time.timeScale = 1;
             animationRenderer.enabled = false;
+            blur.gameObject.SetActive(false);
         }
     }
 }

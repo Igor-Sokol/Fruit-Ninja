@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelUniqueId: PausePopUp
+  blur: {fileID: 1464511667787262086}
   canvasGroup: {fileID: 2202611817636919587}
   continueButton: {fileID: 1368873329181155749}
   menuButton: {fileID: 1368873329645017920}
@@ -715,3 +716,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 148819133679036423, guid: 524d95ca93f0dbc4cbc2a06fdda833a5, type: 3}
   m_PrefabInstance: {fileID: 5838660982233244495}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1464511667787262086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4996157337475337161, guid: 524d95ca93f0dbc4cbc2a06fdda833a5, type: 3}
+  m_PrefabInstance: {fileID: 5838660982233244495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d22fd72f8461f744b2083f18f368934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
