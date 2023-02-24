@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Blur.Contracts;
+using UnityEngine;
 using UnityEngine.UI;
 
 [ExecuteInEditMode]
-public class MobileBlur : MonoBehaviour
+public class MobileBlur : BlurSetting
 {
     [Range(1, 5)]
     public int NumberOfPasses = 3;
@@ -18,6 +19,9 @@ public class MobileBlur : MonoBehaviour
     static readonly int blurAmountString = Shader.PropertyToID("_BlurAmount");
     static readonly int blurTexString = Shader.PropertyToID("_BlurTex");
     static readonly int maskTexString = Shader.PropertyToID("_MaskTex");
+    
+    public override Image Image { get; set; }
+    public override float Blur { get => BlurAmount; set => BlurAmount = value; }
 
     void OnRenderImage(RenderTexture source, RenderTexture destination)
     {

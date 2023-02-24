@@ -13,7 +13,7 @@ namespace UI
         
         [SerializeField] private Image image;
         [SerializeField] private BlurController uiBlur;
-        [SerializeField][Range(0, 1)] private float intensity;
+        [SerializeField] private float intensity;
         [SerializeField][Range(0, 1)] private float showTiming;
         [SerializeField][Range(0, 1)] private float enableAlpha;
         [SerializeField][Range(0, 1)] private float disableAlpha;
@@ -27,7 +27,6 @@ namespace UI
 
         private IEnumerator ShowTimer()
         {
-            uiBlur.gameObject.SetActive(true);
             while (_timer < _waitTime * showTiming)
             {
                 _timer += Time.deltaTime;
@@ -61,7 +60,6 @@ namespace UI
                 yield return null;
             }
 
-            uiBlur.gameObject.SetActive(false);
             _showTimerHandler = null;
         }
     }
